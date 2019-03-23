@@ -8,20 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		5F6249552246E15500394FDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249542246E15500394FDE /* AppDelegate.swift */; };
-		5F6249572246E15500394FDE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249562246E15500394FDE /* ViewController.swift */; };
+		5F6249572246E15500394FDE /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249562246E15500394FDE /* GroupsViewController.swift */; };
 		5F62495A2246E15500394FDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6249582246E15500394FDE /* Main.storyboard */; };
 		5F62495C2246E15600394FDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F62495B2246E15600394FDE /* Assets.xcassets */; };
 		5F62495F2246E15600394FDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F62495D2246E15600394FDE /* LaunchScreen.storyboard */; };
+		5F6249732246E49C00394FDE /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249722246E49C00394FDE /* Group.swift */; };
+		5F6249752246E4C600394FDE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249742246E4C600394FDE /* Post.swift */; };
+		5F6249772246E4DF00394FDE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249762246E4DF00394FDE /* User.swift */; };
+		5F6249792246E4F200394FDE /* UserGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249782246E4F200394FDE /* UserGroups.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5F6249512246E15500394FDE /* Grupos Camino Santiago.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grupos Camino Santiago.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F6249542246E15500394FDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5F6249562246E15500394FDE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5F6249562246E15500394FDE /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
 		5F6249592246E15500394FDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5F62495B2246E15600394FDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F62495E2246E15600394FDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5F6249602246E15600394FDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F6249722246E49C00394FDE /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Group.swift; path = ../../../Group.swift; sourceTree = "<group>"; };
+		5F6249742246E4C600394FDE /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Post.swift; path = ../../../Post.swift; sourceTree = "<group>"; };
+		5F6249762246E4DF00394FDE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../../../User.swift; sourceTree = "<group>"; };
+		5F6249782246E4F200394FDE /* UserGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserGroups.swift; path = ../../../UserGroups.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +62,42 @@
 		5F6249532246E15500394FDE /* Grupos Camino Santiago */ = {
 			isa = PBXGroup;
 			children = (
+				5F62497A2246E51300394FDE /* Groups List */,
+				5F6249712246E42A00394FDE /* Repository */,
+				5F6249662246E23000394FDE /* Model */,
 				5F6249542246E15500394FDE /* AppDelegate.swift */,
-				5F6249562246E15500394FDE /* ViewController.swift */,
 				5F6249582246E15500394FDE /* Main.storyboard */,
 				5F62495B2246E15600394FDE /* Assets.xcassets */,
 				5F62495D2246E15600394FDE /* LaunchScreen.storyboard */,
 				5F6249602246E15600394FDE /* Info.plist */,
 			);
 			path = "Grupos Camino Santiago";
+			sourceTree = "<group>";
+		};
+		5F6249662246E23000394FDE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5F6249722246E49C00394FDE /* Group.swift */,
+				5F6249742246E4C600394FDE /* Post.swift */,
+				5F6249762246E4DF00394FDE /* User.swift */,
+				5F6249782246E4F200394FDE /* UserGroups.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5F6249712246E42A00394FDE /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		5F62497A2246E51300394FDE /* Groups List */ = {
+			isa = PBXGroup;
+			children = (
+				5F6249562246E15500394FDE /* GroupsViewController.swift */,
+			);
+			path = "Groups List";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +171,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F6249572246E15500394FDE /* ViewController.swift in Sources */,
+				5F6249732246E49C00394FDE /* Group.swift in Sources */,
+				5F6249572246E15500394FDE /* GroupsViewController.swift in Sources */,
+				5F6249792246E4F200394FDE /* UserGroups.swift in Sources */,
 				5F6249552246E15500394FDE /* AppDelegate.swift in Sources */,
+				5F6249772246E4DF00394FDE /* User.swift in Sources */,
+				5F6249752246E4C600394FDE /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +325,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FT7Q388UHJ;
 				INFOPLIST_FILE = "Grupos Camino Santiago/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -303,6 +344,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FT7Q388UHJ;
 				INFOPLIST_FILE = "Grupos Camino Santiago/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
