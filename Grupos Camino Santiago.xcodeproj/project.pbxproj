@@ -12,14 +12,14 @@
 		5F62495A2246E15500394FDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6249582246E15500394FDE /* Main.storyboard */; };
 		5F62495C2246E15600394FDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F62495B2246E15600394FDE /* Assets.xcassets */; };
 		5F62495F2246E15600394FDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F62495D2246E15600394FDE /* LaunchScreen.storyboard */; };
-		5F6249732246E49C00394FDE /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249722246E49C00394FDE /* Group.swift */; };
-		5F6249752246E4C600394FDE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249742246E4C600394FDE /* Post.swift */; };
-		5F6249772246E4DF00394FDE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249762246E4DF00394FDE /* User.swift */; };
-		5F6249792246E4F200394FDE /* UserGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249782246E4F200394FDE /* UserGroups.swift */; };
 		5F62497C2246E68D00394FDE /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F62497B2246E68D00394FDE /* GroupTableViewCell.swift */; };
 		5F62497E2246E98200394FDE /* GroupsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F62497D2246E98200394FDE /* GroupsRepository.swift */; };
 		5F6249802246EAF200394FDE /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F62497F2246EAF200394FDE /* GroupViewModel.swift */; };
 		5F6249822246ECBE00394FDE /* GroupsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249812246ECBE00394FDE /* GroupsListViewModel.swift */; };
+		5F6249882246FD3C00394FDE /* UserGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249842246FD3B00394FDE /* UserGroups.swift */; };
+		5F6249892246FD3C00394FDE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249852246FD3B00394FDE /* User.swift */; };
+		5F62498A2246FD3C00394FDE /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249862246FD3B00394FDE /* Group.swift */; };
+		5F62498B2246FD3C00394FDE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249872246FD3B00394FDE /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,14 +30,14 @@
 		5F62495B2246E15600394FDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F62495E2246E15600394FDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5F6249602246E15600394FDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5F6249722246E49C00394FDE /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Group.swift; path = ../../../Group.swift; sourceTree = "<group>"; };
-		5F6249742246E4C600394FDE /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Post.swift; path = ../../../Post.swift; sourceTree = "<group>"; };
-		5F6249762246E4DF00394FDE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../../../User.swift; sourceTree = "<group>"; };
-		5F6249782246E4F200394FDE /* UserGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserGroups.swift; path = ../../../UserGroups.swift; sourceTree = "<group>"; };
 		5F62497B2246E68D00394FDE /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
 		5F62497D2246E98200394FDE /* GroupsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsRepository.swift; sourceTree = "<group>"; };
 		5F62497F2246EAF200394FDE /* GroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewModel.swift; sourceTree = "<group>"; };
 		5F6249812246ECBE00394FDE /* GroupsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsListViewModel.swift; sourceTree = "<group>"; };
+		5F6249842246FD3B00394FDE /* UserGroups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserGroups.swift; path = "../../../../../../Model 23.01.36/UserGroups.swift"; sourceTree = "<group>"; };
+		5F6249852246FD3B00394FDE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = "../../../../../../Model 23.01.36/User.swift"; sourceTree = "<group>"; };
+		5F6249862246FD3B00394FDE /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Group.swift; path = "../../../../../../Model 23.01.36/Group.swift"; sourceTree = "<group>"; };
+		5F6249872246FD3B00394FDE /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Post.swift; path = "../../../../../../Model 23.01.36/Post.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +71,8 @@
 			isa = PBXGroup;
 			children = (
 				5F62497A2246E51300394FDE /* Groups List */,
+				5F6249832246FD2800394FDE /* Model */,
 				5F6249712246E42A00394FDE /* Repository */,
-				5F6249662246E23000394FDE /* Model */,
 				5F6249582246E15500394FDE /* Main.storyboard */,
 				5F6249542246E15500394FDE /* AppDelegate.swift */,
 				5F62495B2246E15600394FDE /* Assets.xcassets */,
@@ -80,17 +80,6 @@
 				5F6249602246E15600394FDE /* Info.plist */,
 			);
 			path = "Grupos Camino Santiago";
-			sourceTree = "<group>";
-		};
-		5F6249662246E23000394FDE /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				5F6249722246E49C00394FDE /* Group.swift */,
-				5F6249742246E4C600394FDE /* Post.swift */,
-				5F6249762246E4DF00394FDE /* User.swift */,
-				5F6249782246E4F200394FDE /* UserGroups.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		5F6249712246E42A00394FDE /* Repository */ = {
@@ -110,6 +99,17 @@
 				5F62497B2246E68D00394FDE /* GroupTableViewCell.swift */,
 			);
 			path = "Groups List";
+			sourceTree = "<group>";
+		};
+		5F6249832246FD2800394FDE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5F6249862246FD3B00394FDE /* Group.swift */,
+				5F6249872246FD3B00394FDE /* Post.swift */,
+				5F6249852246FD3B00394FDE /* User.swift */,
+				5F6249842246FD3B00394FDE /* UserGroups.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,16 +183,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F6249732246E49C00394FDE /* Group.swift in Sources */,
+				5F62498A2246FD3C00394FDE /* Group.swift in Sources */,
 				5F62497E2246E98200394FDE /* GroupsRepository.swift in Sources */,
 				5F6249822246ECBE00394FDE /* GroupsListViewModel.swift in Sources */,
+				5F6249882246FD3C00394FDE /* UserGroups.swift in Sources */,
 				5F6249572246E15500394FDE /* GroupsViewController.swift in Sources */,
-				5F6249792246E4F200394FDE /* UserGroups.swift in Sources */,
+				5F6249892246FD3C00394FDE /* User.swift in Sources */,
 				5F62497C2246E68D00394FDE /* GroupTableViewCell.swift in Sources */,
 				5F6249552246E15500394FDE /* AppDelegate.swift in Sources */,
 				5F6249802246EAF200394FDE /* GroupViewModel.swift in Sources */,
-				5F6249772246E4DF00394FDE /* User.swift in Sources */,
-				5F6249752246E4C600394FDE /* Post.swift in Sources */,
+				5F62498B2246FD3C00394FDE /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
