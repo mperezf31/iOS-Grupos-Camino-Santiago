@@ -16,10 +16,6 @@
 		5F62497E2246E98200394FDE /* GroupsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F62497D2246E98200394FDE /* GroupsRepository.swift */; };
 		5F6249802246EAF200394FDE /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F62497F2246EAF200394FDE /* GroupViewModel.swift */; };
 		5F6249822246ECBE00394FDE /* GroupsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249812246ECBE00394FDE /* GroupsListViewModel.swift */; };
-		5F6249882246FD3C00394FDE /* UserGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249842246FD3B00394FDE /* UserGroups.swift */; };
-		5F6249892246FD3C00394FDE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249852246FD3B00394FDE /* User.swift */; };
-		5F62498A2246FD3C00394FDE /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249862246FD3B00394FDE /* Group.swift */; };
-		5F62498B2246FD3C00394FDE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249872246FD3B00394FDE /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,10 +30,10 @@
 		5F62497D2246E98200394FDE /* GroupsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsRepository.swift; sourceTree = "<group>"; };
 		5F62497F2246EAF200394FDE /* GroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewModel.swift; sourceTree = "<group>"; };
 		5F6249812246ECBE00394FDE /* GroupsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsListViewModel.swift; sourceTree = "<group>"; };
-		5F6249842246FD3B00394FDE /* UserGroups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserGroups.swift; path = "../../../../../../Model 23.01.36/UserGroups.swift"; sourceTree = "<group>"; };
-		5F6249852246FD3B00394FDE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = "../../../../../../Model 23.01.36/User.swift"; sourceTree = "<group>"; };
-		5F6249862246FD3B00394FDE /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Group.swift; path = "../../../../../../Model 23.01.36/Group.swift"; sourceTree = "<group>"; };
-		5F6249872246FD3B00394FDE /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Post.swift; path = "../../../../../../Model 23.01.36/Post.swift"; sourceTree = "<group>"; };
+		5F62498F2246FE9800394FDE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5F6249902246FE9800394FDE /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		5F6249912246FE9800394FDE /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		5F6249922246FE9800394FDE /* UserGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroups.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +66,8 @@
 		5F6249532246E15500394FDE /* Grupos Camino Santiago */ = {
 			isa = PBXGroup;
 			children = (
+				5F62498E2246FE8A00394FDE /* Model */,
 				5F62497A2246E51300394FDE /* Groups List */,
-				5F6249832246FD2800394FDE /* Model */,
 				5F6249712246E42A00394FDE /* Repository */,
 				5F6249582246E15500394FDE /* Main.storyboard */,
 				5F6249542246E15500394FDE /* AppDelegate.swift */,
@@ -101,13 +97,13 @@
 			path = "Groups List";
 			sourceTree = "<group>";
 		};
-		5F6249832246FD2800394FDE /* Model */ = {
+		5F62498E2246FE8A00394FDE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5F6249862246FD3B00394FDE /* Group.swift */,
-				5F6249872246FD3B00394FDE /* Post.swift */,
-				5F6249852246FD3B00394FDE /* User.swift */,
-				5F6249842246FD3B00394FDE /* UserGroups.swift */,
+				5F6249912246FE9800394FDE /* Group.swift */,
+				5F6249902246FE9800394FDE /* Post.swift */,
+				5F62498F2246FE9800394FDE /* User.swift */,
+				5F6249922246FE9800394FDE /* UserGroups.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -183,16 +179,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F62498A2246FD3C00394FDE /* Group.swift in Sources */,
 				5F62497E2246E98200394FDE /* GroupsRepository.swift in Sources */,
 				5F6249822246ECBE00394FDE /* GroupsListViewModel.swift in Sources */,
-				5F6249882246FD3C00394FDE /* UserGroups.swift in Sources */,
 				5F6249572246E15500394FDE /* GroupsViewController.swift in Sources */,
-				5F6249892246FD3C00394FDE /* User.swift in Sources */,
 				5F62497C2246E68D00394FDE /* GroupTableViewCell.swift in Sources */,
 				5F6249552246E15500394FDE /* AppDelegate.swift in Sources */,
 				5F6249802246EAF200394FDE /* GroupViewModel.swift in Sources */,
-				5F62498B2246FD3C00394FDE /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
