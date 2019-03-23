@@ -8,7 +8,8 @@
 
 import UIKit
 
-class GroupsViewController: UIViewController {
+class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+    
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -17,6 +18,15 @@ class GroupsViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
 
 }
 
