@@ -8,12 +8,19 @@
 
 import UIKit
 
-class GroupsTableViewCell: UITableViewCell {
+class GroupTableViewCell: UITableViewCell {
 
     @IBOutlet weak var title: UILabel!
     
     @IBOutlet weak var departureDate: UILabel!
-
+    
+    var viewModel: GroupViewModel?
+    {
+        didSet
+        {
+            updateViews()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,5 +32,11 @@ class GroupsTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    private func updateViews()
+    {
+        self.title?.text = viewModel?.title
+    }
+    
 
 }

@@ -16,7 +16,10 @@
 		5F6249752246E4C600394FDE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249742246E4C600394FDE /* Post.swift */; };
 		5F6249772246E4DF00394FDE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249762246E4DF00394FDE /* User.swift */; };
 		5F6249792246E4F200394FDE /* UserGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249782246E4F200394FDE /* UserGroups.swift */; };
-		5F62497C2246E68D00394FDE /* GroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F62497B2246E68D00394FDE /* GroupsTableViewCell.swift */; };
+		5F62497C2246E68D00394FDE /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F62497B2246E68D00394FDE /* GroupTableViewCell.swift */; };
+		5F62497E2246E98200394FDE /* GroupsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F62497D2246E98200394FDE /* GroupsRepository.swift */; };
+		5F6249802246EAF200394FDE /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F62497F2246EAF200394FDE /* GroupViewModel.swift */; };
+		5F6249822246ECBE00394FDE /* GroupsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249812246ECBE00394FDE /* GroupsListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +34,10 @@
 		5F6249742246E4C600394FDE /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Post.swift; path = ../../../Post.swift; sourceTree = "<group>"; };
 		5F6249762246E4DF00394FDE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../../../User.swift; sourceTree = "<group>"; };
 		5F6249782246E4F200394FDE /* UserGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserGroups.swift; path = ../../../UserGroups.swift; sourceTree = "<group>"; };
-		5F62497B2246E68D00394FDE /* GroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewCell.swift; sourceTree = "<group>"; };
+		5F62497B2246E68D00394FDE /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
+		5F62497D2246E98200394FDE /* GroupsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsRepository.swift; sourceTree = "<group>"; };
+		5F62497F2246EAF200394FDE /* GroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewModel.swift; sourceTree = "<group>"; };
+		5F6249812246ECBE00394FDE /* GroupsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +96,7 @@
 		5F6249712246E42A00394FDE /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				5F62497D2246E98200394FDE /* GroupsRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -98,7 +105,9 @@
 			isa = PBXGroup;
 			children = (
 				5F6249562246E15500394FDE /* GroupsViewController.swift */,
-				5F62497B2246E68D00394FDE /* GroupsTableViewCell.swift */,
+				5F6249812246ECBE00394FDE /* GroupsListViewModel.swift */,
+				5F62497F2246EAF200394FDE /* GroupViewModel.swift */,
+				5F62497B2246E68D00394FDE /* GroupTableViewCell.swift */,
 			);
 			path = "Groups List";
 			sourceTree = "<group>";
@@ -175,10 +184,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F6249732246E49C00394FDE /* Group.swift in Sources */,
+				5F62497E2246E98200394FDE /* GroupsRepository.swift in Sources */,
+				5F6249822246ECBE00394FDE /* GroupsListViewModel.swift in Sources */,
 				5F6249572246E15500394FDE /* GroupsViewController.swift in Sources */,
 				5F6249792246E4F200394FDE /* UserGroups.swift in Sources */,
-				5F62497C2246E68D00394FDE /* GroupsTableViewCell.swift in Sources */,
+				5F62497C2246E68D00394FDE /* GroupTableViewCell.swift in Sources */,
 				5F6249552246E15500394FDE /* AppDelegate.swift in Sources */,
+				5F6249802246EAF200394FDE /* GroupViewModel.swift in Sources */,
 				5F6249772246E4DF00394FDE /* User.swift in Sources */,
 				5F6249752246E4C600394FDE /* Post.swift in Sources */,
 			);
