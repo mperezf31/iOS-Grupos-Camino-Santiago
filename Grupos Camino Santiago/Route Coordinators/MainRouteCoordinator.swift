@@ -8,9 +8,9 @@
 
 import UIKit
 
-class MainRouteCoordinator: GroupsListViewModelRoutingDelegate
+class MainRouteCoordinator: GroupsListViewModelRoutingDelegate,AddGroupViewModelRoutingDelegate
 {
-  /*
+  
     var rootViewController: UIViewController
     {
         get
@@ -23,19 +23,29 @@ class MainRouteCoordinator: GroupsListViewModelRoutingDelegate
     
     private let groupsRepository: GroupsRepository
     
-    init(groupsRepository: GroupsRepository)
+    init(navigationController : UINavigationController, groupsRepository: GroupsRepository)
     {
         self.groupsRepository = groupsRepository
-        let rootViewModel = GroupListViewModel(groupsRepository: groupsRepository)
-        let rootVC = GroupListViewController(viewModel: rootViewModel)
-        navigationController = UINavigationController(rootViewController: rootVC)
-        rootViewModel.routingDelegate = self
-    }
-    */
-    func groupListViewModeWantsToAddGroup(_ viewModel: GroupListViewModel) {
-       
+      //  let rootViewModel = GroupListViewModel(groupsRepository: groupsRepository)
+       // let rootVC = GroupListViewController(viewModel: rootViewModel)
+      //  navigationController = UINavigationController(rootViewController: rootVC)
+       // rootViewModel.routingDelegate = self
+        
+        self.navigationController = navigationController
     }
     
+    
+    func groupListViewModeWantsToAddGroup(_ viewModel: GroupListViewModel) {
+        let addGroupViewModel = AddGroupViewModel(groupsRepository: groupsRepository)
+        addGroupViewModel.routingDelegate = self
+        let addGroupViewController = AddGroupViewController(viewModel: addGroupViewModel)
+        rootViewController.present(UINavigationController(rootViewController: addGroupViewController), animated: true, completion: nil)
+    }
+
+    
+    func dimissAddGroupPage(_ viewModel: AddGroupViewModel) {
+        rootViewController.dismiss(animated: true, completion: nil)
+    }
     
    
 }

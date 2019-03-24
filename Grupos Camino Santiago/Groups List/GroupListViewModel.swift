@@ -48,6 +48,10 @@ class GroupListViewModel: GroupsRepositoryDelegate {
         self.delegate?.groupsListViewModelDidUpdate(self)
     }
     
+    func handleAddGroup() {
+        self.routingDelegate?.groupListViewModeWantsToAddGroup(self)
+    }
+    
     func error(_: GroupsRepository, errorMsg: String) {
         self.delegate?.error(self,errorMsg: errorMsg)
     }

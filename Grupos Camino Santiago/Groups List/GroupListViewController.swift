@@ -13,8 +13,14 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBAction func addGroup(_ sender: UIBarButtonItem) {
+        self.viewModel?.handleAddGroup()
+    }
+    
     private let GROUP_CELL_IDENTIFIER = "GroupCell"
     private var viewModel: GroupListViewModel?
+    
+    private var mainRouteCoordinator : MainRouteCoordinator?
     
   /*
     init(viewModel: GroupListViewModel)
@@ -36,8 +42,13 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Grupos Camino de Santiago"
+
+        self.mainRouteCoordinator = MainRouteCoordinator(navigationController: self.navigationController ?? UINavigationController(), groupsRepository: GroupsRepository())
+        
         self.viewModel = GroupListViewModel(groupsRepository: GroupsRepository())
         self.viewModel?.delegate = self
+        self.viewModel?.routingDelegate = self.mainRouteCoordinator
         self.viewModel?.loadGroups()
     }
     

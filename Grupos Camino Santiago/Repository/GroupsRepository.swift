@@ -6,18 +6,19 @@
 //  Copyright © 2019 Miguel Pérez. All rights reserved.
 //
 
-import Foundation
 import Alamofire
 
 class GroupsRepository
 {
     private let BASE_URL = "http://ec2-35-156-79-168.eu-central-1.compute.amazonaws.com/"
-
+    
     weak var delegate: GroupsRepositoryDelegate?
+    weak var delegateAddGroup: AddGroupRepositoryDelegate?
+    
     private(set) var groups: UserGroups?
     
     func getGroups() {
-
+        
         var headers = HTTPHeaders()
         headers["Authentication"] = "1"
         
@@ -28,18 +29,25 @@ class GroupsRepository
                 self.delegate?.error(self, errorMsg: "Se ha producido un error al intentar recuperar los grupos")
             }
         }
-    
+        
     }
     
-    func add(note: Group)
+    func addGroup(note: Group)
     {
-
+        self.delegateAddGroup?.addGroup(self,groupAdded: Group())
+        
     }
 }
 
 protocol GroupsRepositoryDelegate: class
 {
     func udateGroups(_: GroupsRepository, groups: UserGroups)
+    
+    func error(_: GroupsRepository, errorMsg: String)
+}
+
+protocol AddGroupRepositoryDelegate:class {
+    func addGroup(_: GroupsRepository, groupAdded: Group)
     
     func error(_: GroupsRepository, errorMsg: String)
 }
