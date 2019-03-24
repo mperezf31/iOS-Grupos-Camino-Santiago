@@ -36,6 +36,8 @@ class GroupTableViewCell: UITableViewCell {
     private func updateViews()
     {
         self.title?.text = viewModel?.title
+        self.departureDate?.text = viewModel?.departureDate
+
     }
     
 

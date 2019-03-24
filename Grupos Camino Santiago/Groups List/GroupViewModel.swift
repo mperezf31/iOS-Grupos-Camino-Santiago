@@ -24,4 +24,12 @@ class GroupViewModel {
             return group.title ?? ""
         }
     }
+    
+    var departureDate: String
+    {
+        get
+        {
+            return group.departureDate?.description ?? ""
+        }
+    }
 }

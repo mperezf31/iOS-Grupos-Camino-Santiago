@@ -21,11 +21,10 @@ class GroupListViewModel: GroupsRepositoryDelegate {
     {
         self.groupsRepository = groupsRepository
         self.groupsRepository.delegate = self
-        loadGroups()
     }
     
     
-    private func loadGroups()
+    func loadGroups()
     {
         self.groupsRepository.getGroups()
     }

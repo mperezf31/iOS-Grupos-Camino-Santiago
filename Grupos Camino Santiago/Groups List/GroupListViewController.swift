@@ -20,6 +20,7 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
         
         self.viewModel = GroupListViewModel(groupsRepository: GroupsRepository())
         self.viewModel?.delegate = self
+        self.viewModel?.loadGroups()
     }
     
     
