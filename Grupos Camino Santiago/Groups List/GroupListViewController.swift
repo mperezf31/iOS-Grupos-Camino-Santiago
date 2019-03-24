@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, GroupsListViewModelDelegate {
+class GroupListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, GroupsListViewModelDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     

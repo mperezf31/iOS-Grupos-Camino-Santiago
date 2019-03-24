@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5F6249552246E15500394FDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249542246E15500394FDE /* AppDelegate.swift */; };
-		5F6249572246E15500394FDE /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249562246E15500394FDE /* GroupsViewController.swift */; };
+		5F6249572246E15500394FDE /* GroupListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249562246E15500394FDE /* GroupListViewController.swift */; };
 		5F62495A2246E15500394FDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6249582246E15500394FDE /* Main.storyboard */; };
 		5F62495C2246E15600394FDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F62495B2246E15600394FDE /* Assets.xcassets */; };
 		5F62495F2246E15600394FDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F62495D2246E15600394FDE /* LaunchScreen.storyboard */; };
@@ -25,7 +25,7 @@
 /* Begin PBXFileReference section */
 		5F6249512246E15500394FDE /* Grupos Camino Santiago.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grupos Camino Santiago.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F6249542246E15500394FDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5F6249562246E15500394FDE /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
+		5F6249562246E15500394FDE /* GroupListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListViewController.swift; sourceTree = "<group>"; };
 		5F6249592246E15500394FDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5F62495B2246E15600394FDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F62495E2246E15600394FDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 		5F62497A2246E51300394FDE /* Groups List */ = {
 			isa = PBXGroup;
 			children = (
-				5F6249562246E15500394FDE /* GroupsViewController.swift */,
+				5F6249562246E15500394FDE /* GroupListViewController.swift */,
 				5F6249812246ECBE00394FDE /* GroupListViewModel.swift */,
 				5F62497F2246EAF200394FDE /* GroupViewModel.swift */,
 				5F62497B2246E68D00394FDE /* GroupTableViewCell.swift */,
@@ -187,7 +187,7 @@
 				5F62497E2246E98200394FDE /* GroupsRepository.swift in Sources */,
 				5F6249822246ECBE00394FDE /* GroupListViewModel.swift in Sources */,
 				5F6249942246FF8D00394FDE /* UserGroups.swift in Sources */,
-				5F6249572246E15500394FDE /* GroupsViewController.swift in Sources */,
+				5F6249572246E15500394FDE /* GroupListViewController.swift in Sources */,
 				5F62497C2246E68D00394FDE /* GroupTableViewCell.swift in Sources */,
 				5F6249552246E15500394FDE /* AppDelegate.swift in Sources */,
 				5F6249932246FF8D00394FDE /* Post.swift in Sources */,
