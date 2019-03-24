@@ -32,19 +32,27 @@ class GroupsRepository
     func addGroup(groupToAdd: Group) {
         
         do{
-            let jsonGroupToAdd =  try JSONEncoder().encode(groupToAdd)
+            var parameters = try groupToAdd.toDictionary()
+            parameters["posts"] = nil
+            parameters["members"] = nil
             
-            if let parameters = convertToDictionary(data: jsonGroupToAdd){
+            print(parameters)
+            
+            AF.request(BASE_URL + "group", method: .post, parameters : parameters, encoding: JSONEncoding.default , headers: getHeaders()).responseDecodable{ (response: DataResponse<Group>) in
                 
-                AF.request(BASE_URL + "group", method: .post, parameters : parameters, encoding: JSONEncoding.default , headers: getHeaders()).responseDecodable{ (response: DataResponse<Group>) in
-                    if let group = response.value {
-                        self.delegateAddGroup?.addGroupSuccess(self, groupAdded: group)
-                    }else{
-                        self.delegate?.error(self, errorMsg: "Se ha producido un error al intentar crear el grupo")
-                    }
+                print(response.response?.statusCode ?? "status code")
+                print(response.error ?? "not error")
+                print(response.value ?? "not data")
+                
+                
+                if let group = response.value {
+                    self.delegateAddGroup?.addGroupSuccess(self, groupAdded: group)
+                }else{
+                    self.delegate?.error(self, errorMsg: "Se ha producido un error al intentar crear el grupo")
                 }
+                
             }
-           
+            
         }
         catch
         {
