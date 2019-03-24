@@ -29,7 +29,15 @@ class GroupViewModel {
     {
         get
         {
-            return group.departureDate?.description ?? ""
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd/MM/yyyy"
+            
+            if let date = group.departureDate{
+                return "Salida el día " + formatter.string(from: date)
+            }else{
+                return "Fecha salida: Sin definir"
+            }
         }
     }
 }
