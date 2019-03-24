@@ -20,13 +20,12 @@ class AddGroupViewModel : AddGroupRepositoryDelegate {
         self.groupsRepository.delegateAddGroup = self
     }
     
-    func loadGroups(){
-        self.groupsRepository.getGroups()
+    func addGroup(groupToAdd: Group) {
+        self.groupsRepository.addGroup(groupToAdd: groupToAdd)
     }
     
-    
-    func addGroup(_: GroupsRepository, groupAdded: Group) {
-        self.delegate?.addGroupViewModelSuccess(self)
+    func addGroupSuccess(_: GroupsRepository, groupAdded: Group) {
+        self.routingDelegate?.dimissAddGroupPage(self)
     }
     
     func dimissAddGroupPage() {
@@ -41,7 +40,6 @@ class AddGroupViewModel : AddGroupRepositoryDelegate {
 
 protocol AddGroupViewModelDelegate: class
 {
-    func addGroupViewModelSuccess(_: AddGroupViewModel)
     
     func error(_: AddGroupViewModel, errorMsg: String)
     

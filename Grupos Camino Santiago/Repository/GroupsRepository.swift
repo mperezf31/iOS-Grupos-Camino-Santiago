@@ -19,10 +19,7 @@ class GroupsRepository
     
     func getGroups() {
         
-        var headers = HTTPHeaders()
-        headers["Authentication"] = "1"
-        
-        AF.request(BASE_URL + "groups", method: .get,headers: headers).responseDecodable{ (response: DataResponse<UserGroups>) in
+        AF.request(BASE_URL + "groups", method: .get,headers: getHeaders()).responseDecodable{ (response: DataResponse<UserGroups>) in
             if let userGroups = response.value {
                 self.delegate?.udateGroups(self, groups: userGroups)
             }else{
@@ -32,11 +29,49 @@ class GroupsRepository
         
     }
     
-    func addGroup(note: Group)
-    {
-        self.delegateAddGroup?.addGroup(self,groupAdded: Group())
+    func addGroup(groupToAdd: Group) {
+        
+        do{
+            let jsonGroupToAdd =  try JSONEncoder().encode(groupToAdd)
+            
+            if let parameters = convertToDictionary(data: jsonGroupToAdd){
+                
+                AF.request(BASE_URL + "group", method: .post, parameters : parameters, encoding: JSONEncoding.default , headers: getHeaders()).responseDecodable{ (response: DataResponse<Group>) in
+                    if let group = response.value {
+                        self.delegateAddGroup?.addGroupSuccess(self, groupAdded: group)
+                    }else{
+                        self.delegate?.error(self, errorMsg: "Se ha producido un error al intentar crear el grupo")
+                    }
+                }
+            }
+           
+        }
+        catch
+        {
+            print("The name isn't valid")
+        }
+        
+        
         
     }
+    
+    
+    func convertToDictionary(data: Data) -> [String: Any]? {
+        do {
+            return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        return nil
+    }
+    
+    func getHeaders() -> HTTPHeaders {
+        var headers = HTTPHeaders()
+        headers["Authentication"] = "1"
+        return headers
+    }
+    
 }
 
 protocol GroupsRepositoryDelegate: class
@@ -47,7 +82,7 @@ protocol GroupsRepositoryDelegate: class
 }
 
 protocol AddGroupRepositoryDelegate:class {
-    func addGroup(_: GroupsRepository, groupAdded: Group)
+    func addGroupSuccess(_: GroupsRepository, groupAdded: Group)
     
     func error(_: GroupsRepository, errorMsg: String)
 }

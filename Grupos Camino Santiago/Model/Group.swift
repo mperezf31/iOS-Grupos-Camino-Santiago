@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class Group: Decodable
+class Group: Codable
 {
     var id: Int?
     var whenCreated: Date?
@@ -19,6 +19,14 @@ class Group: Decodable
     var founder: User?
     var members : Array<User> = Array()
     var posts : Array<Post> = Array()
+    
+    init(_ title: String,_ description: String,_ departurePlace: String,_ departureDate: Date,_ arrivalDate: Date ) {
+        self.title = title
+        self.description = description
+        self.departurePlace = departurePlace
+        self.departureDate = departureDate
+        self.arrivalDate = arrivalDate
+    }
     
 }
 

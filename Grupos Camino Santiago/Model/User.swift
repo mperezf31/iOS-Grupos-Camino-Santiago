@@ -7,7 +7,7 @@
 //
 
 
-class User : Decodable
+class User : Codable
 {
     var id: Int?
     var name: String?

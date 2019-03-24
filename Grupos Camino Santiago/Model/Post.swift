@@ -6,7 +6,7 @@
 //  Copyright © 2019 Miguel Pérez. All rights reserved.
 //
 
-class Post : Decodable
+class Post : Codable
 {
     
     var id: Int?

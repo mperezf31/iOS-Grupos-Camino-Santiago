@@ -6,7 +6,7 @@
 //  Copyright © 2019 Miguel Pérez. All rights reserved.
 //
 
-class UserGroups : Decodable
+class UserGroups : Codable
 {
     var groupsCreated: Array<Group> = Array()
     var groupsAssociated: Array<Group> = Array()
