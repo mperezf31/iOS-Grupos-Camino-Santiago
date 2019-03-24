@@ -46,10 +46,17 @@ class GroupListViewModel: GroupsRepositoryDelegate {
         self.delegate?.groupsListViewModelDidUpdate(self)
     }
     
+    func error(_: GroupsRepository, errorMsg: String) {
+        self.delegate?.error(self,errorMsg: errorMsg)
+    }
+    
 }
 
 protocol GroupsListViewModelDelegate: class
 {
     func groupsListViewModelDidUpdate(_: GroupListViewModel)
+    
+    func error(_: GroupListViewModel, errorMsg: String)
+    
 }
 

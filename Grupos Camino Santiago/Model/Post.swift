@@ -6,7 +6,8 @@
 //  Copyright © 2019 Miguel Pérez. All rights reserved.
 //
 
-class Post {
+class Post : Decodable
+{
     
     var id: Int?
     var content: String?

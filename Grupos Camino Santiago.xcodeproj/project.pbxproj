@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D2D3C281C8B10620BEFEE0E /* Pods_Grupos_Camino_Santiago.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62DFD874927CF6C5021228A8 /* Pods_Grupos_Camino_Santiago.framework */; };
 		5F6249552246E15500394FDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249542246E15500394FDE /* AppDelegate.swift */; };
 		5F6249572246E15500394FDE /* GroupListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249562246E15500394FDE /* GroupListViewController.swift */; };
 		5F62495A2246E15500394FDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6249582246E15500394FDE /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38173DDCBE534B4AEF3768AE /* Pods-Grupos Camino Santiago.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grupos Camino Santiago.release.xcconfig"; path = "Pods/Target Support Files/Pods-Grupos Camino Santiago/Pods-Grupos Camino Santiago.release.xcconfig"; sourceTree = "<group>"; };
 		5F6249512246E15500394FDE /* Grupos Camino Santiago.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grupos Camino Santiago.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F6249542246E15500394FDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F6249562246E15500394FDE /* GroupListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +40,8 @@
 		5F6249902246FE9800394FDE /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		5F6249912246FE9800394FDE /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		5F6249922246FE9800394FDE /* UserGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroups.swift; sourceTree = "<group>"; };
+		62DFD874927CF6C5021228A8 /* Pods_Grupos_Camino_Santiago.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Grupos_Camino_Santiago.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		75A84E922BF484B3865094D7 /* Pods-Grupos Camino Santiago.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grupos Camino Santiago.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Grupos Camino Santiago/Pods-Grupos Camino Santiago.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D2D3C281C8B10620BEFEE0E /* Pods_Grupos_Camino_Santiago.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +61,8 @@
 			children = (
 				5F6249532246E15500394FDE /* Grupos Camino Santiago */,
 				5F6249522246E15500394FDE /* Products */,
+				A0F04A0AF1B47E311958ABE7 /* Pods */,
+				A9951F2E2970C851D73123C6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,6 +119,23 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		A0F04A0AF1B47E311958ABE7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				75A84E922BF484B3865094D7 /* Pods-Grupos Camino Santiago.debug.xcconfig */,
+				38173DDCBE534B4AEF3768AE /* Pods-Grupos Camino Santiago.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A9951F2E2970C851D73123C6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				62DFD874927CF6C5021228A8 /* Pods_Grupos_Camino_Santiago.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,9 +143,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5F6249632246E15600394FDE /* Build configuration list for PBXNativeTarget "Grupos Camino Santiago" */;
 			buildPhases = (
+				8A4FA4C7100F211C9D5DE37A /* [CP] Check Pods Manifest.lock */,
 				5F62494D2246E15500394FDE /* Sources */,
 				5F62494E2246E15500394FDE /* Frameworks */,
 				5F62494F2246E15500394FDE /* Resources */,
+				E1304CCC5AF3EE77E23F4E3C /* [CP] Embed Pods Frameworks */,
+				CB9206ABD37341FC525742E5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -177,6 +204,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8A4FA4C7100F211C9D5DE37A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Grupos Camino Santiago-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB9206ABD37341FC525742E5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Grupos Camino Santiago/Pods-Grupos Camino Santiago-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1304CCC5AF3EE77E23F4E3C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Grupos Camino Santiago/Pods-Grupos Camino Santiago-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Grupos Camino Santiago/Pods-Grupos Camino Santiago-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5F62494D2246E15500394FDE /* Sources */ = {
@@ -336,6 +417,7 @@
 		};
 		5F6249642246E15600394FDE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75A84E922BF484B3865094D7 /* Pods-Grupos Camino Santiago.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -355,6 +437,7 @@
 		};
 		5F6249652246E15600394FDE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38173DDCBE534B4AEF3768AE /* Pods-Grupos Camino Santiago.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -10,6 +10,7 @@ import UIKit
 
 class GroupListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, GroupsListViewModelDelegate {
     
+    
     @IBOutlet weak var tableView: UITableView!
     
     private let GROUP_CELL_IDENTIFIER = "GroupCell"
@@ -71,5 +72,11 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
         self.tableView.reloadData()
     }
     
+    func error(_: GroupListViewModel, errorMsg: String) {
+        let uiAlertController = UIAlertController(title: "Error", message:errorMsg,preferredStyle: .alert)
+        let uiAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        uiAlertController.addAction(uiAction)
+        present(uiAlertController, animated: true, completion: nil)
+    }
 }
 

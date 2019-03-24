@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class Group
+class Group: Decodable
 {
     var id: Int?
     var whenCreated: Date?
