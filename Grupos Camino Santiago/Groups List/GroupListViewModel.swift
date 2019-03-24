@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GroupsListViewModel: GroupsRepositoryDelegate {
+class GroupListViewModel: GroupsRepositoryDelegate {
     
     private(set) var groupsUserViewModels: [GroupViewModel] = []
     private(set) var groupsMemberViewModels: [GroupViewModel] = []
@@ -51,6 +51,6 @@ class GroupsListViewModel: GroupsRepositoryDelegate {
 
 protocol GroupsListViewModelDelegate: class
 {
-    func groupsListViewModelDidUpdate(_: GroupsListViewModel)
+    func groupsListViewModelDidUpdate(_: GroupListViewModel)
 }
 

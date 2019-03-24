@@ -13,12 +13,12 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var tableView: UITableView!
     
     private let GROUP_CELL_IDENTIFIER = "GroupCell"
-    private var viewModel: GroupsListViewModel?
+    private var viewModel: GroupListViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.viewModel = GroupsListViewModel(groupsRepository: GroupsRepository())
+        self.viewModel = GroupListViewModel(groupsRepository: GroupsRepository())
         self.viewModel?.delegate = self
     }
     
@@ -66,7 +66,7 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
-    func groupsListViewModelDidUpdate(_: GroupsListViewModel) {
+    func groupsListViewModelDidUpdate(_: GroupListViewModel) {
         self.tableView.reloadData()
     }
     

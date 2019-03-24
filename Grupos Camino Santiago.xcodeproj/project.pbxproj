@@ -15,7 +15,11 @@
 		5F62497C2246E68D00394FDE /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F62497B2246E68D00394FDE /* GroupTableViewCell.swift */; };
 		5F62497E2246E98200394FDE /* GroupsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F62497D2246E98200394FDE /* GroupsRepository.swift */; };
 		5F6249802246EAF200394FDE /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F62497F2246EAF200394FDE /* GroupViewModel.swift */; };
-		5F6249822246ECBE00394FDE /* GroupsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249812246ECBE00394FDE /* GroupsListViewModel.swift */; };
+		5F6249822246ECBE00394FDE /* GroupListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249812246ECBE00394FDE /* GroupListViewModel.swift */; };
+		5F6249932246FF8D00394FDE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249902246FE9800394FDE /* Post.swift */; };
+		5F6249942246FF8D00394FDE /* UserGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249922246FE9800394FDE /* UserGroups.swift */; };
+		5F6249952246FF8D00394FDE /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249912246FE9800394FDE /* Group.swift */; };
+		5F6249962246FF8D00394FDE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F62498F2246FE9800394FDE /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +33,7 @@
 		5F62497B2246E68D00394FDE /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
 		5F62497D2246E98200394FDE /* GroupsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsRepository.swift; sourceTree = "<group>"; };
 		5F62497F2246EAF200394FDE /* GroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewModel.swift; sourceTree = "<group>"; };
-		5F6249812246ECBE00394FDE /* GroupsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsListViewModel.swift; sourceTree = "<group>"; };
+		5F6249812246ECBE00394FDE /* GroupListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListViewModel.swift; sourceTree = "<group>"; };
 		5F62498F2246FE9800394FDE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5F6249902246FE9800394FDE /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		5F6249912246FE9800394FDE /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
@@ -66,8 +70,8 @@
 		5F6249532246E15500394FDE /* Grupos Camino Santiago */ = {
 			isa = PBXGroup;
 			children = (
-				5F62498E2246FE8A00394FDE /* Model */,
 				5F62497A2246E51300394FDE /* Groups List */,
+				5F62498E2246FE8A00394FDE /* Model */,
 				5F6249712246E42A00394FDE /* Repository */,
 				5F6249582246E15500394FDE /* Main.storyboard */,
 				5F6249542246E15500394FDE /* AppDelegate.swift */,
@@ -90,7 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				5F6249562246E15500394FDE /* GroupsViewController.swift */,
-				5F6249812246ECBE00394FDE /* GroupsListViewModel.swift */,
+				5F6249812246ECBE00394FDE /* GroupListViewModel.swift */,
 				5F62497F2246EAF200394FDE /* GroupViewModel.swift */,
 				5F62497B2246E68D00394FDE /* GroupTableViewCell.swift */,
 			);
@@ -179,11 +183,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F6249952246FF8D00394FDE /* Group.swift in Sources */,
 				5F62497E2246E98200394FDE /* GroupsRepository.swift in Sources */,
-				5F6249822246ECBE00394FDE /* GroupsListViewModel.swift in Sources */,
+				5F6249822246ECBE00394FDE /* GroupListViewModel.swift in Sources */,
+				5F6249942246FF8D00394FDE /* UserGroups.swift in Sources */,
 				5F6249572246E15500394FDE /* GroupsViewController.swift in Sources */,
 				5F62497C2246E68D00394FDE /* GroupTableViewCell.swift in Sources */,
 				5F6249552246E15500394FDE /* AppDelegate.swift in Sources */,
+				5F6249932246FF8D00394FDE /* Post.swift in Sources */,
+				5F6249962246FF8D00394FDE /* User.swift in Sources */,
 				5F6249802246EAF200394FDE /* GroupViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
