@@ -13,11 +13,18 @@ class AddGroupViewController: UIViewController , AddGroupViewModelDelegate{
     @IBOutlet weak var titleGroup: UITextField!
     @IBOutlet weak var departurePlace: UITextField!
     @IBOutlet weak var descriptionGroup: UITextView!
-    @IBOutlet weak var departureDate: UILabel!
-    @IBOutlet weak var arrivalDate: UILabel!
+    @IBOutlet weak var departureDate: UITextField!
+    @IBOutlet weak var arrivalDate: UITextField!
+    
+    @IBAction func showDepartureDatePicker() {
+        self.departureDate.showDatePicker()
+    }
+    
+    @IBAction func showArrivalDatePicker() {
+        self.arrivalDate.showDatePicker()
+    }
     
     private var viewModel: AddGroupViewModel?
-    private let datePicker = UIDatePicker()
     
     init(viewModel: AddGroupViewModel)
     {
@@ -35,20 +42,8 @@ class AddGroupViewController: UIViewController , AddGroupViewModelDelegate{
         title = "Crear grupo"
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelAddGroup))
-        
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(addNewGroup))
         
-        self.departureDate.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showDepartureDatePicker)))
-        self.arrivalDate.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showArrivalDatePicker)))
-    }
-    
-    @objc func showDepartureDatePicker(sender:UITapGestureRecognizer) {
-        
-    }
-    
-    @objc func showArrivalDatePicker(sender:UITapGestureRecognizer) {
-        
-        print("tap working")
     }
     
     @objc func cancelAddGroup()
@@ -99,6 +94,35 @@ class AddGroupViewController: UIViewController , AddGroupViewModelDelegate{
         present(uiAlertController, animated: true, completion: nil)
     }
     
-    
-    
+    /*
+     func prepareDatePicker(dataPicker: UIDatePicker){
+     
+     //Formate Date
+     dataPicker.datePickerMode = .date
+     
+     //ToolBar
+     let toolbar = UIToolbar();
+     toolbar.sizeToFit()
+     let doneButton = UIBarButtonItem(title: "Aceptar", style: .plain, target: self, action: #selector(donedatePicker));
+     let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+     let cancelButton = UIBarButtonItem(title: "Cancelar", style: .plain, target: self, action: #selector(cancelDatePicker));
+     
+     toolbar.setItems([cancelButton,spaceButton,doneButton], animated: false)
+     self.departureDate.inputAccessoryView = toolbar
+     self.departureDate.inputView = dataPicker
+     }
+     
+     @objc func donedatePicker(){
+     let formatter = DateFormatter()
+     formatter.dateFormat = "dd/MM/yyyy"
+     //self.departureDate.text = formatter.string(from: dataPicker.date)
+     self.view.endEditing(true)
+     }
+     
+     @objc func cancelDatePicker(){
+     self.view.endEditing(true)
+     }
+     
+     */
 }
+

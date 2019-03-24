@@ -26,6 +26,7 @@
 		5F62499F2247991D00394FDE /* AddGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F62499D2247991D00394FDE /* AddGroupViewController.xib */; };
 		5F6249A122479F3300394FDE /* AddGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249A022479F3300394FDE /* AddGroupViewModel.swift */; };
 		5F6249A52247F44C00394FDE /* Codable+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249A42247F44C00394FDE /* Codable+Dictionary.swift */; };
+		5F6249A822482DC000394FDE /* UITextField+DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249A722482DC000394FDE /* UITextField+DatePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		5F62499D2247991D00394FDE /* AddGroupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddGroupViewController.xib; sourceTree = "<group>"; };
 		5F6249A022479F3300394FDE /* AddGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupViewModel.swift; sourceTree = "<group>"; };
 		5F6249A42247F44C00394FDE /* Codable+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+Dictionary.swift"; sourceTree = "<group>"; };
+		5F6249A722482DC000394FDE /* UITextField+DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+DatePicker.swift"; sourceTree = "<group>"; };
 		62DFD874927CF6C5021228A8 /* Pods_Grupos_Camino_Santiago.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Grupos_Camino_Santiago.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75A84E922BF484B3865094D7 /* Pods-Grupos Camino Santiago.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grupos Camino Santiago.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Grupos Camino Santiago/Pods-Grupos Camino Santiago.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				5F6249A42247F44C00394FDE /* Codable+Dictionary.swift */,
+				5F6249A722482DC000394FDE /* UITextField+DatePicker.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				5F62497E2246E98200394FDE /* GroupsRepository.swift in Sources */,
 				5F6249822246ECBE00394FDE /* GroupListViewModel.swift in Sources */,
 				5F62499A2247984A00394FDE /* MainRouteCoordinator.swift in Sources */,
+				5F6249A822482DC000394FDE /* UITextField+DatePicker.swift in Sources */,
 				5F6249A52247F44C00394FDE /* Codable+Dictionary.swift in Sources */,
 				5F62499E2247991D00394FDE /* AddGroupViewController.swift in Sources */,
 				5F6249942246FF8D00394FDE /* UserGroups.swift in Sources */,

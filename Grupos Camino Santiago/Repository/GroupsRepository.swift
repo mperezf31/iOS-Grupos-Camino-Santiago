@@ -40,25 +40,21 @@ class GroupsRepository
             
             AF.request(BASE_URL + "group", method: .post, parameters : parameters, encoding: JSONEncoding.default , headers: getHeaders()).responseDecodable{ (response: DataResponse<Group>) in
                 
-                print(response.response?.statusCode ?? "status code")
-                print(response.error ?? "not error")
-                print(response.value ?? "not data")
-                
+                print(response.response?.statusCode ?? "status code not found")
+                print(response.error ?? "not error not found")
+                print(response.value ?? "not data not found")
                 
                 if let group = response.value {
                     self.delegateAddGroup?.addGroupSuccess(self, groupAdded: group)
                 }else{
                     self.delegate?.error(self, errorMsg: "Se ha producido un error al intentar crear el grupo")
                 }
-                
             }
-            
         }
         catch
         {
-            print("The name isn't valid")
+            self.delegate?.error(self, errorMsg: "Se ha producido un error al intentar crear el grupo")
         }
-        
         
         
     }
