@@ -16,14 +16,30 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
     private let GROUP_CELL_IDENTIFIER = "GroupCell"
     private var viewModel: GroupListViewModel?
     
+  /*
+    init(viewModel: GroupListViewModel)
+    {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+        self.viewModel?.delegate = self
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        self.init(viewModel: GroupListViewModel(groupsRepository: GroupsRepository()))
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.viewModel?.loadGroups()
+    }
+ */
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         self.viewModel = GroupListViewModel(groupsRepository: GroupsRepository())
         self.viewModel?.delegate = self
         self.viewModel?.loadGroups()
     }
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
@@ -63,7 +79,7 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
         case 1:
             return "Grupos miembro"
         default:
-            return "Grupos Camino Santiago"
+            return "Otros grupos"
         }
     }
     

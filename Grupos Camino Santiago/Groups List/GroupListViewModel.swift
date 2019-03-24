@@ -15,6 +15,8 @@ class GroupListViewModel: GroupsRepositoryDelegate {
     private(set) var otherGroupsViewModels: [GroupViewModel] = []
     
     weak var delegate: GroupsListViewModelDelegate?
+    weak var routingDelegate: GroupsListViewModelRoutingDelegate?
+
     private let groupsRepository: GroupsRepository
     
     init(groupsRepository: GroupsRepository)
@@ -58,5 +60,10 @@ protocol GroupsListViewModelDelegate: class
     
     func error(_: GroupListViewModel, errorMsg: String)
     
+}
+
+protocol GroupsListViewModelRoutingDelegate: class
+{
+    func groupListViewModeWantsToAddGroup(_ viewModel: GroupListViewModel)
 }
 
