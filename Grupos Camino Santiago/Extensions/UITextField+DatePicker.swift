@@ -10,18 +10,24 @@ import UIKit
 
 extension UITextField {
     
-    func showDatePicker() {
-        let datePickerView:UIDatePicker = UIDatePicker()
-        datePickerView.datePickerMode = .date
-        datePickerView.locale = Locale.init(identifier: "es")
-        self.inputView = datePickerView
-        datePickerView.addTarget(self, action: #selector(datePickerDepartureValueChanged), for: .valueChanged)
+    func addDatePicker(datePicker: UIDatePicker) {
+        datePicker.datePickerMode = .date
+        datePicker.locale = Locale.init(identifier: "es")
+        self.inputView = datePicker
+      /*
+        //ToolBar
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Aceptar", style: .plain, target: self, action: #selector(cancelDatePicker));
+        
+        toolbar.setItems([spaceButton, cancelButton], animated: false)
+        self.inputAccessoryView = toolbar
+ */
     }
     
-    @objc func datePickerDepartureValueChanged(sender:UIDatePicker) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
-        self.text = dateFormatter.string(from: sender.date)
+    @objc func cancelDatePicker(){
+        self.endEditing(true)
     }
     
 }
