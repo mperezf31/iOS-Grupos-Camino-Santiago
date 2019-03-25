@@ -32,17 +32,14 @@ class GroupsRepository
     func addGroup(groupToAdd: Group) {
         
         do{
-            var parameters = try groupToAdd.toDictionary()
-            parameters["posts"] = nil
-            parameters["members"] = nil
-            
+            let parameters = try groupToAdd.toDictionary()
             print(parameters)
             
             AF.request(BASE_URL + "group", method: .post, parameters : parameters, encoding: JSONEncoding.default , headers: getHeaders()).responseDecodable{ (response: DataResponse<Group>) in
                 
                 print(response.response?.statusCode ?? "status code not found")
-                print(response.error ?? "not error not found")
-                print(response.value ?? "not data not found")
+                print(response.error ?? "error not found")
+                print(response.value ?? "data not found")
                 
                 if let group = response.value {
                     self.delegateAddGroup?.addGroupSuccess(self, groupAdded: group)
@@ -53,7 +50,7 @@ class GroupsRepository
         }
         catch
         {
-            self.delegate?.error(self, errorMsg: "Se ha producido un error al intentar crear el grupo")
+            self.delegate?.error(self, errorMsg: "Los datos introducidos no son correctos")
         }
         
         
