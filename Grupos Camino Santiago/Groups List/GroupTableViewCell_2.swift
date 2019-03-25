@@ -1,14 +1,14 @@
 //
-//  GroupsTableViewCell.swift
+//  GroupTableViewCell_2.swift
 //  Grupos Camino Santiago
 //
-//  Created by Miguel Perez on 23/03/2019.
+//  Created by Miguel Perez on 25/03/2019.
 //  Copyright © 2019 Miguel Pérez. All rights reserved.
 //
 
 import UIKit
 
-class GroupTableViewCell: UITableViewCell {
+class GroupTableViewCell_2: UITableViewCell {
 
     @IBOutlet weak var title: UILabel!
     
@@ -26,10 +26,10 @@ class GroupTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -37,8 +37,8 @@ class GroupTableViewCell: UITableViewCell {
     {
         self.title?.text = viewModel?.title
         self.departureDate?.text = viewModel?.departureDate
-
+        
     }
     
-
+    
 }

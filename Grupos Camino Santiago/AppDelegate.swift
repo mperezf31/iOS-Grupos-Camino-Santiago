@@ -16,13 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var mainRouteCoordinator: MainRouteCoordinator?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-/*
+
         mainRouteCoordinator = MainRouteCoordinator(groupsRepository: GroupsRepository())
     
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = mainRouteCoordinator?.rootViewController
         window?.makeKeyAndVisible()
-*/
+
         return true
     }
 

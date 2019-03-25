@@ -1,28 +1,23 @@
 //
-//  ViewController.swift
+//  GroupListViewController_3.swift
 //  Grupos Camino Santiago
 //
-//  Created by Miguel Perez on 23/03/2019.
+//  Created by Miguel Perez on 25/03/2019.
 //  Copyright © 2019 Miguel Pérez. All rights reserved.
 //
 
 import UIKit
 
-class GroupListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, GroupsListViewModelDelegate {
-    
+class GroupListViewController_3: UIViewController, UITableViewDelegate, UITableViewDataSource, GroupsListViewModelDelegate  {
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBAction func addGroup(_ sender: UIBarButtonItem) {
-        self.viewModel?.handleAddGroup()
-    }
-    
-    private let GROUP_CELL_IDENTIFIER = "GroupCell"
+    private let GROUP_CELL_IDENTIFIER = "GroupTableViewCell_2"
     private var viewModel: GroupListViewModel?
     
     private var mainRouteCoordinator : MainRouteCoordinator?
     
-  /*
+    
     init(viewModel: GroupListViewModel)
     {
         self.viewModel = viewModel
@@ -36,20 +31,22 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
+        title = "Grupos Camino de Santiago"
+        
+        tableView.register(UINib(nibName:GROUP_CELL_IDENTIFIER , bundle: nil), forCellReuseIdentifier: GROUP_CELL_IDENTIFIER)
+
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTodoNote))
+        
         self.viewModel?.loadGroups()
     }
- */
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        title = "Grupos Camino de Santiago"
-
-        self.mainRouteCoordinator = MainRouteCoordinator(navigationController: self.navigationController ?? UINavigationController(), groupsRepository: GroupsRepository())
-        
-        self.viewModel = GroupListViewModel(groupsRepository: GroupsRepository())
-        self.viewModel?.delegate = self
-        self.viewModel?.routingDelegate = self.mainRouteCoordinator
-        self.viewModel?.loadGroups()
+    @objc func addTodoNote()
+    {
+        self.viewModel?.handleAddGroup()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -69,7 +66,7 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: GROUP_CELL_IDENTIFIER, for: indexPath) as! GroupTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: GROUP_CELL_IDENTIFIER, for: indexPath) as! GroupTableViewCell_2
         
         switch indexPath.section {
         case 0:

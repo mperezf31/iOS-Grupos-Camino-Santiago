@@ -23,15 +23,13 @@ class MainRouteCoordinator: GroupsListViewModelRoutingDelegate,AddGroupViewModel
     
     private let groupsRepository: GroupsRepository
     
-    init(navigationController : UINavigationController, groupsRepository: GroupsRepository)
+    init(groupsRepository: GroupsRepository)
     {
         self.groupsRepository = groupsRepository
-      //  let rootViewModel = GroupListViewModel(groupsRepository: groupsRepository)
-       // let rootVC = GroupListViewController(viewModel: rootViewModel)
-      //  navigationController = UINavigationController(rootViewController: rootVC)
-       // rootViewModel.routingDelegate = self
-        
-        self.navigationController = navigationController
+        let rootViewModel = GroupListViewModel(groupsRepository: groupsRepository)
+        let rootVC = GroupListViewController_3(viewModel: rootViewModel)
+        navigationController = UINavigationController(rootViewController: rootVC)
+        rootViewModel.routingDelegate = self
     }
     
     
