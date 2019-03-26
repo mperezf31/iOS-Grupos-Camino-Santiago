@@ -1,8 +1,8 @@
 //
-//  GroupListViewController_3.swift
+//  GroupListViewController.swift
 //  Grupos Camino Santiago
 //
-//  Created by Miguel Perez on 25/03/2019.
+//  Created by Miguel Perez on 26/03/2019.
 //  Copyright © 2019 Miguel Pérez. All rights reserved.
 //
 
@@ -36,9 +36,8 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
         
         title = "Grupos Camino de Santiago"
         
-        tableView.register(UINib(nibName:GROUP_CELL_IDENTIFIER , bundle: nil), forCellReuseIdentifier: GROUP_CELL_IDENTIFIER)
+        tableView.register(UINib(nibName: GROUP_CELL_IDENTIFIER, bundle: nil), forCellReuseIdentifier: GROUP_CELL_IDENTIFIER)
 
-        
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTodoNote))
         
         self.viewModel?.loadGroups()

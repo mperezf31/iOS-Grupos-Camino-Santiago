@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1D2D3C281C8B10620BEFEE0E /* Pods_Grupos_Camino_Santiago.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62DFD874927CF6C5021228A8 /* Pods_Grupos_Camino_Santiago.framework */; };
+		5F522AAE224A9CB8006D9CDB /* GroupListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F522AAD224A9CB8006D9CDB /* GroupListViewController.swift */; };
 		5F6249552246E15500394FDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249542246E15500394FDE /* AppDelegate.swift */; };
 		5F62495A2246E15500394FDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6249582246E15500394FDE /* Main.storyboard */; };
 		5F62495C2246E15600394FDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F62495B2246E15600394FDE /* Assets.xcassets */; };
@@ -25,14 +26,14 @@
 		5F6249A122479F3300394FDE /* AddGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249A022479F3300394FDE /* AddGroupViewModel.swift */; };
 		5F6249A52247F44C00394FDE /* Codable+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249A42247F44C00394FDE /* Codable+Dictionary.swift */; };
 		5F6249A822482DC000394FDE /* UITextField+DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249A722482DC000394FDE /* UITextField+DatePicker.swift */; };
-		5FC1624022498613003785B0 /* GroupTableViewCell_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC1623E22498613003785B0 /* GroupTableViewCell_2.swift */; };
-		5FC1624122498613003785B0 /* GroupTableViewCell_2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FC1623F22498613003785B0 /* GroupTableViewCell_2.xib */; };
-		5FC162462249911A003785B0 /* GroupListViewController_3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC162442249911A003785B0 /* GroupListViewController_3.swift */; };
-		5FC162472249911A003785B0 /* GroupListViewController_3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FC162452249911A003785B0 /* GroupListViewController_3.xib */; };
+		5FC1624022498613003785B0 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC1623E22498613003785B0 /* GroupTableViewCell.swift */; };
+		5FC1624122498613003785B0 /* GroupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FC1623F22498613003785B0 /* GroupTableViewCell.xib */; };
+		5FC162472249911A003785B0 /* GroupListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FC162452249911A003785B0 /* GroupListViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		38173DDCBE534B4AEF3768AE /* Pods-Grupos Camino Santiago.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grupos Camino Santiago.release.xcconfig"; path = "Pods/Target Support Files/Pods-Grupos Camino Santiago/Pods-Grupos Camino Santiago.release.xcconfig"; sourceTree = "<group>"; };
+		5F522AAD224A9CB8006D9CDB /* GroupListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListViewController.swift; sourceTree = "<group>"; };
 		5F6249512246E15500394FDE /* Grupos Camino Santiago.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grupos Camino Santiago.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F6249542246E15500394FDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F6249592246E15500394FDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -52,10 +53,9 @@
 		5F6249A022479F3300394FDE /* AddGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupViewModel.swift; sourceTree = "<group>"; };
 		5F6249A42247F44C00394FDE /* Codable+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+Dictionary.swift"; sourceTree = "<group>"; };
 		5F6249A722482DC000394FDE /* UITextField+DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+DatePicker.swift"; sourceTree = "<group>"; };
-		5FC1623E22498613003785B0 /* GroupTableViewCell_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell_2.swift; sourceTree = "<group>"; };
-		5FC1623F22498613003785B0 /* GroupTableViewCell_2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupTableViewCell_2.xib; sourceTree = "<group>"; };
-		5FC162442249911A003785B0 /* GroupListViewController_3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListViewController_3.swift; sourceTree = "<group>"; };
-		5FC162452249911A003785B0 /* GroupListViewController_3.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupListViewController_3.xib; sourceTree = "<group>"; };
+		5FC1623E22498613003785B0 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
+		5FC1623F22498613003785B0 /* GroupTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupTableViewCell.xib; sourceTree = "<group>"; };
+		5FC162452249911A003785B0 /* GroupListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupListViewController.xib; sourceTree = "<group>"; };
 		62DFD874927CF6C5021228A8 /* Pods_Grupos_Camino_Santiago.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Grupos_Camino_Santiago.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75A84E922BF484B3865094D7 /* Pods-Grupos Camino Santiago.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grupos Camino Santiago.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Grupos Camino Santiago/Pods-Grupos Camino Santiago.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,12 +119,12 @@
 		5F62497A2246E51300394FDE /* Groups List */ = {
 			isa = PBXGroup;
 			children = (
-				5FC162442249911A003785B0 /* GroupListViewController_3.swift */,
-				5FC162452249911A003785B0 /* GroupListViewController_3.xib */,
+				5F522AAD224A9CB8006D9CDB /* GroupListViewController.swift */,
+				5FC162452249911A003785B0 /* GroupListViewController.xib */,
 				5F6249812246ECBE00394FDE /* GroupListViewModel.swift */,
 				5F62497F2246EAF200394FDE /* GroupViewModel.swift */,
-				5FC1623E22498613003785B0 /* GroupTableViewCell_2.swift */,
-				5FC1623F22498613003785B0 /* GroupTableViewCell_2.xib */,
+				5FC1623E22498613003785B0 /* GroupTableViewCell.swift */,
+				5FC1623F22498613003785B0 /* GroupTableViewCell.xib */,
 			);
 			path = "Groups List";
 			sourceTree = "<group>";
@@ -245,11 +245,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FC162472249911A003785B0 /* GroupListViewController_3.xib in Resources */,
+				5FC162472249911A003785B0 /* GroupListViewController.xib in Resources */,
 				5F62499F2247991D00394FDE /* AddGroupViewController.xib in Resources */,
 				5F62495F2246E15600394FDE /* LaunchScreen.storyboard in Resources */,
 				5F62495C2246E15600394FDE /* Assets.xcassets in Resources */,
-				5FC1624122498613003785B0 /* GroupTableViewCell_2.xib in Resources */,
+				5FC1624122498613003785B0 /* GroupTableViewCell.xib in Resources */,
 				5F62495A2246E15500394FDE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,9 +317,8 @@
 			files = (
 				5F6249952246FF8D00394FDE /* Group.swift in Sources */,
 				5F62497E2246E98200394FDE /* GroupsRepository.swift in Sources */,
-				5FC1624022498613003785B0 /* GroupTableViewCell_2.swift in Sources */,
+				5FC1624022498613003785B0 /* GroupTableViewCell.swift in Sources */,
 				5F6249822246ECBE00394FDE /* GroupListViewModel.swift in Sources */,
-				5FC162462249911A003785B0 /* GroupListViewController_3.swift in Sources */,
 				5F62499A2247984A00394FDE /* MainRouteCoordinator.swift in Sources */,
 				5F6249A822482DC000394FDE /* UITextField+DatePicker.swift in Sources */,
 				5F6249A52247F44C00394FDE /* Codable+Dictionary.swift in Sources */,
@@ -328,6 +327,7 @@
 				5F6249552246E15500394FDE /* AppDelegate.swift in Sources */,
 				5F6249A122479F3300394FDE /* AddGroupViewModel.swift in Sources */,
 				5F6249932246FF8D00394FDE /* Post.swift in Sources */,
+				5F522AAE224A9CB8006D9CDB /* GroupListViewController.swift in Sources */,
 				5F6249962246FF8D00394FDE /* User.swift in Sources */,
 				5F6249802246EAF200394FDE /* GroupViewModel.swift in Sources */,
 			);

@@ -1,5 +1,5 @@
 //
-//  GroupListViewController_3.swift
+//  GroupListViewController_2.swift
 //  Grupos Camino Santiago
 //
 //  Created by Miguel Perez on 25/03/2019.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class GroupListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, GroupsListViewModelDelegate  {
+class GroupListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, GroupsListViewModelDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
-    private let GROUP_CELL_IDENTIFIER = "GroupTableViewCell"
+    private let GROUP_CELL_IDENTIFIER = "GroupCell_2"
     private var viewModel: GroupListViewModel?
     
     private var mainRouteCoordinator : MainRouteCoordinator?
@@ -35,10 +35,9 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
         self.tableView.dataSource = self
         
         title = "Grupos Camino de Santiago"
-        
-        tableView.register(UINib(nibName:GROUP_CELL_IDENTIFIER , bundle: nil), forCellReuseIdentifier: GROUP_CELL_IDENTIFIER)
 
-        
+        tableView.register(GroupTableViewCell_2.self, forCellReuseIdentifier: GROUP_CELL_IDENTIFIER)
+
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTodoNote))
         
         self.viewModel?.loadGroups()
@@ -66,7 +65,7 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: GROUP_CELL_IDENTIFIER, for: indexPath) as! GroupTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: GROUP_CELL_IDENTIFIER, for: indexPath) as! GroupTableViewCell_2
         
         switch indexPath.section {
         case 0:
