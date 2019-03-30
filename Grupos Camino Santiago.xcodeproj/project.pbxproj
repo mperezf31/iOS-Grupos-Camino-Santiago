@@ -26,6 +26,10 @@
 		5F6249A122479F3300394FDE /* AddGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249A022479F3300394FDE /* AddGroupViewModel.swift */; };
 		5F6249A52247F44C00394FDE /* Codable+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249A42247F44C00394FDE /* Codable+Dictionary.swift */; };
 		5F6249A822482DC000394FDE /* UITextField+DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249A722482DC000394FDE /* UITextField+DatePicker.swift */; };
+		5FA4FC7A224FDD8A00025ECD /* GroupDetailNoteRouteCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC79224FDD8A00025ECD /* GroupDetailNoteRouteCoordinator.swift */; };
+		5FA4FC7E224FE44000025ECD /* GroupDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC7C224FE44000025ECD /* GroupDetailViewController.swift */; };
+		5FA4FC7F224FE44000025ECD /* GroupDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA4FC7D224FE44000025ECD /* GroupDetailViewController.xib */; };
+		5FA4FC81224FE49500025ECD /* GroupDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC80224FE49500025ECD /* GroupDetailViewModel.swift */; };
 		5FC1624022498613003785B0 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC1623E22498613003785B0 /* GroupTableViewCell.swift */; };
 		5FC1624122498613003785B0 /* GroupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FC1623F22498613003785B0 /* GroupTableViewCell.xib */; };
 		5FC162472249911A003785B0 /* GroupListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FC162452249911A003785B0 /* GroupListViewController.xib */; };
@@ -53,6 +57,10 @@
 		5F6249A022479F3300394FDE /* AddGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupViewModel.swift; sourceTree = "<group>"; };
 		5F6249A42247F44C00394FDE /* Codable+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+Dictionary.swift"; sourceTree = "<group>"; };
 		5F6249A722482DC000394FDE /* UITextField+DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+DatePicker.swift"; sourceTree = "<group>"; };
+		5FA4FC79224FDD8A00025ECD /* GroupDetailNoteRouteCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailNoteRouteCoordinator.swift; sourceTree = "<group>"; };
+		5FA4FC7C224FE44000025ECD /* GroupDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailViewController.swift; sourceTree = "<group>"; };
+		5FA4FC7D224FE44000025ECD /* GroupDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupDetailViewController.xib; sourceTree = "<group>"; };
+		5FA4FC80224FE49500025ECD /* GroupDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailViewModel.swift; sourceTree = "<group>"; };
 		5FC1623E22498613003785B0 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
 		5FC1623F22498613003785B0 /* GroupTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupTableViewCell.xib; sourceTree = "<group>"; };
 		5FC162452249911A003785B0 /* GroupListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupListViewController.xib; sourceTree = "<group>"; };
@@ -93,6 +101,7 @@
 		5F6249532246E15500394FDE /* Grupos Camino Santiago */ = {
 			isa = PBXGroup;
 			children = (
+				5FA4FC7B224FE41500025ECD /* Group Detail */,
 				5F6249A62247F51C00394FDE /* Extensions */,
 				5F62499722478CEC00394FDE /* Route Coordinators */,
 				5F62497A2246E51300394FDE /* Groups List */,
@@ -144,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				5F62499822478D0300394FDE /* MainRouteCoordinator.swift */,
+				5FA4FC79224FDD8A00025ECD /* GroupDetailNoteRouteCoordinator.swift */,
 			);
 			path = "Route Coordinators";
 			sourceTree = "<group>";
@@ -165,6 +175,16 @@
 				5F6249A722482DC000394FDE /* UITextField+DatePicker.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5FA4FC7B224FE41500025ECD /* Group Detail */ = {
+			isa = PBXGroup;
+			children = (
+				5FA4FC7C224FE44000025ECD /* GroupDetailViewController.swift */,
+				5FA4FC7D224FE44000025ECD /* GroupDetailViewController.xib */,
+				5FA4FC80224FE49500025ECD /* GroupDetailViewModel.swift */,
+			);
+			path = "Group Detail";
 			sourceTree = "<group>";
 		};
 		A0F04A0AF1B47E311958ABE7 /* Pods */ = {
@@ -251,6 +271,7 @@
 				5F62495C2246E15600394FDE /* Assets.xcassets in Resources */,
 				5FC1624122498613003785B0 /* GroupTableViewCell.xib in Resources */,
 				5F62495A2246E15500394FDE /* Main.storyboard in Resources */,
+				5FA4FC7F224FE44000025ECD /* GroupDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +338,7 @@
 			files = (
 				5F6249952246FF8D00394FDE /* Group.swift in Sources */,
 				5F62497E2246E98200394FDE /* GroupsRepository.swift in Sources */,
+				5FA4FC7E224FE44000025ECD /* GroupDetailViewController.swift in Sources */,
 				5FC1624022498613003785B0 /* GroupTableViewCell.swift in Sources */,
 				5F6249822246ECBE00394FDE /* GroupListViewModel.swift in Sources */,
 				5F62499A2247984A00394FDE /* MainRouteCoordinator.swift in Sources */,
@@ -324,12 +346,14 @@
 				5F6249A52247F44C00394FDE /* Codable+Dictionary.swift in Sources */,
 				5F62499E2247991D00394FDE /* AddGroupViewController.swift in Sources */,
 				5F6249942246FF8D00394FDE /* UserGroups.swift in Sources */,
+				5FA4FC7A224FDD8A00025ECD /* GroupDetailNoteRouteCoordinator.swift in Sources */,
 				5F6249552246E15500394FDE /* AppDelegate.swift in Sources */,
 				5F6249A122479F3300394FDE /* AddGroupViewModel.swift in Sources */,
 				5F6249932246FF8D00394FDE /* Post.swift in Sources */,
 				5F522AAE224A9CB8006D9CDB /* GroupListViewController.swift in Sources */,
 				5F6249962246FF8D00394FDE /* User.swift in Sources */,
 				5F6249802246EAF200394FDE /* GroupViewModel.swift in Sources */,
+				5FA4FC81224FE49500025ECD /* GroupDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

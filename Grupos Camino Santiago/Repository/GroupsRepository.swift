@@ -49,16 +49,21 @@ class GroupsRepository
                         self.delegate?.udateGroups(self, groups: groups)
                     }
                 }else{
-                    self.delegate?.error(self, errorMsg: "Se ha producido un error al intentar crear el grupo")
+                    self.delegateAddGroup?.error(self, errorMsg: "Se ha producido un error al intentar crear el grupo")
                 }
             }
         }
         catch
         {
-            self.delegate?.error(self, errorMsg: "Los datos introducidos no son correctos")
+            self.delegateAddGroup?.error(self, errorMsg: "Los datos introducidos no son correctos")
         }
         
         
+    }
+    
+    func getGroup(groupId: Int){
+      //  self.delegate?.groupRetrieved(self, group: Group())
+        self.delegate?.error(self, errorMsg: "Se ha producido un error al intentar crear el grupo")
     }
     
     
@@ -84,6 +89,8 @@ protocol GroupsRepositoryDelegate: class
 {
     func udateGroups(_: GroupsRepository, groups: UserGroups)
     
+    func groupRetrieved(_: GroupsRepository, group: Group)
+
     func error(_: GroupsRepository, errorMsg: String)
 }
 

@@ -8,8 +8,9 @@
 
 import UIKit
 
-class MainRouteCoordinator: GroupsListViewModelRoutingDelegate, AddGroupViewModelRoutingDelegate
+class MainRouteCoordinator: GroupsListViewModelRoutingDelegate, AddGroupViewModelRoutingDelegate , GroupDetailRouteCoordinatorDelegate
 {
+    
   
     var rootViewController: UIViewController
     {
@@ -20,7 +21,8 @@ class MainRouteCoordinator: GroupsListViewModelRoutingDelegate, AddGroupViewMode
     }
     
     private let navigationController: UINavigationController
-    
+    private var groupDetailRouteCoordinator: GroupDetailRouteCoordinator?
+
     private let groupsRepository: GroupsRepository
     
     init(groupsRepository: GroupsRepository)
@@ -47,8 +49,16 @@ class MainRouteCoordinator: GroupsListViewModelRoutingDelegate, AddGroupViewMode
     
     
     func showGroupDedtail(_ viewModel: GroupListViewModel, routeId : Int) {
-        print("ir al item \(routeId)")
+        let groupDetailRouteCoordinator = GroupDetailRouteCoordinator(groupoId: routeId, groupsRepository: groupsRepository)
+        groupDetailRouteCoordinator.delegate = self
+        navigationController.pushViewController(groupDetailRouteCoordinator.rootViewController, animated: true)
+        self.groupDetailRouteCoordinator = groupDetailRouteCoordinator
+
     }
     
-   
+    func groupDetailRouteCoordinatorDelegateFinish(_ groupDetailRouteCoordinator: GroupDetailRouteCoordinator) {
+        rootViewController.dismiss(animated: true, completion: nil)
+        self.groupDetailRouteCoordinator = nil
+    }
+    
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 class GroupListViewModel: GroupsRepositoryDelegate {
-    
+
     private(set) var groupsUserViewModels: [GroupViewModel] = []
     private(set) var groupsMemberViewModels: [GroupViewModel] = []
     private(set) var otherGroupsViewModels: [GroupViewModel] = []
@@ -46,6 +46,10 @@ class GroupListViewModel: GroupsRepositoryDelegate {
         }).reversed()
         
         self.delegate?.groupsListViewModelDidUpdate(self)
+    }
+    
+    func groupRetrieved(_: GroupsRepository, group: Group) {
+        
     }
     
     func handleAddGroup() {
