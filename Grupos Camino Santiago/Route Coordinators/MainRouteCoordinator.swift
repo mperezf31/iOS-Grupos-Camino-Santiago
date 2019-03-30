@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainRouteCoordinator: GroupsListViewModelRoutingDelegate,AddGroupViewModelRoutingDelegate
+class MainRouteCoordinator: GroupsListViewModelRoutingDelegate, AddGroupViewModelRoutingDelegate
 {
   
     var rootViewController: UIViewController
@@ -43,6 +43,11 @@ class MainRouteCoordinator: GroupsListViewModelRoutingDelegate,AddGroupViewModel
     
     func dimissAddGroupPage(_ viewModel: AddGroupViewModel) {
         rootViewController.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    func showGroupDedtail(_ viewModel: GroupListViewModel, routeId : Int) {
+        print("ir al item \(routeId)")
     }
     
    

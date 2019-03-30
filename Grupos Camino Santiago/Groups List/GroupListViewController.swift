@@ -91,6 +91,11 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.viewModel?.itemSelected(section: indexPath.section, index: indexPath.row)
+    }
+    
+    
     func groupsListViewModelDidUpdate(_: GroupListViewModel) {
         self.tableView.reloadData()
     }

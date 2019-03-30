@@ -17,6 +17,14 @@ class GroupViewModel {
         self.group = group
     }
     
+    var id: Int
+    {
+        get
+        {
+            return group.id ?? 0
+        }
+    }
+    
     var title: String
     {
         get

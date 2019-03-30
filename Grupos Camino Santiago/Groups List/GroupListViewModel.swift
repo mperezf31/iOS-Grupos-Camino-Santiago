@@ -52,6 +52,19 @@ class GroupListViewModel: GroupsRepositoryDelegate {
         self.routingDelegate?.groupListViewModeWantsToAddGroup(self)
     }
     
+    
+    func itemSelected(section : Int, index: Int) {
+        switch section {
+        case 0:
+            self.routingDelegate?.showGroupDedtail(self,routeId: groupsUserViewModels[index].id)
+        case 1:
+            self.routingDelegate?.showGroupDedtail(self,routeId: groupsUserViewModels[index].id)
+        default:
+            self.routingDelegate?.showGroupDedtail(self,routeId: groupsUserViewModels[index].id)
+        }
+
+    }
+    
     func error(_: GroupsRepository, errorMsg: String) {
         self.delegate?.error(self,errorMsg: errorMsg)
     }
@@ -69,5 +82,7 @@ protocol GroupsListViewModelDelegate: class
 protocol GroupsListViewModelRoutingDelegate: class
 {
     func groupListViewModeWantsToAddGroup(_ viewModel: GroupListViewModel)
+    
+    func showGroupDedtail(_ viewModel: GroupListViewModel, routeId : Int)
 }
 
