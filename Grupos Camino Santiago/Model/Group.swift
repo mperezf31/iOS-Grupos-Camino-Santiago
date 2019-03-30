@@ -28,5 +28,20 @@ class Group: Codable
         self.arrivalDate = arrivalDate
     }
     
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try values.decode(Int.self, forKey: .id)
+        self.whenCreated = try values.decode(Date.self, forKey: .whenCreated)
+        self.title = try values.decode(String.self, forKey: .title)
+        self.description = try values.decode(String.self, forKey: .description)
+        self.departurePlace = try values.decode(String.self, forKey: .departurePlace)
+        self.departureDate = try values.decode(Date.self, forKey: .departureDate)
+        self.arrivalDate = try values.decode(Date.self, forKey: .arrivalDate)
+
+        self.founder = try values.decodeIfPresent(User.self, forKey: .founder)
+        self.members = try (values.decodeIfPresent(Array<User>.self, forKey: .members) ?? Array())
+        self.posts = try (values.decodeIfPresent(Array<Post>.self, forKey: .posts) ?? Array())
+    }
+    
 }
 
