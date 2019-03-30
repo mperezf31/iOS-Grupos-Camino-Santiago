@@ -30,6 +30,9 @@
 		5FA4FC7E224FE44000025ECD /* GroupDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC7C224FE44000025ECD /* GroupDetailViewController.swift */; };
 		5FA4FC7F224FE44000025ECD /* GroupDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA4FC7D224FE44000025ECD /* GroupDetailViewController.xib */; };
 		5FA4FC81224FE49500025ECD /* GroupDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC80224FE49500025ECD /* GroupDetailViewModel.swift */; };
+		5FA4FC85224FF52300025ECD /* GroupMembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC83224FF52300025ECD /* GroupMembersViewController.swift */; };
+		5FA4FC86224FF52300025ECD /* GroupMembersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA4FC84224FF52300025ECD /* GroupMembersViewController.xib */; };
+		5FA4FC88224FF55300025ECD /* GroupMembersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC87224FF55300025ECD /* GroupMembersViewModel.swift */; };
 		5FC1624022498613003785B0 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC1623E22498613003785B0 /* GroupTableViewCell.swift */; };
 		5FC1624122498613003785B0 /* GroupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FC1623F22498613003785B0 /* GroupTableViewCell.xib */; };
 		5FC162472249911A003785B0 /* GroupListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FC162452249911A003785B0 /* GroupListViewController.xib */; };
@@ -61,6 +64,9 @@
 		5FA4FC7C224FE44000025ECD /* GroupDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailViewController.swift; sourceTree = "<group>"; };
 		5FA4FC7D224FE44000025ECD /* GroupDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupDetailViewController.xib; sourceTree = "<group>"; };
 		5FA4FC80224FE49500025ECD /* GroupDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailViewModel.swift; sourceTree = "<group>"; };
+		5FA4FC83224FF52300025ECD /* GroupMembersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMembersViewController.swift; sourceTree = "<group>"; };
+		5FA4FC84224FF52300025ECD /* GroupMembersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupMembersViewController.xib; sourceTree = "<group>"; };
+		5FA4FC87224FF55300025ECD /* GroupMembersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMembersViewModel.swift; sourceTree = "<group>"; };
 		5FC1623E22498613003785B0 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
 		5FC1623F22498613003785B0 /* GroupTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupTableViewCell.xib; sourceTree = "<group>"; };
 		5FC162452249911A003785B0 /* GroupListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupListViewController.xib; sourceTree = "<group>"; };
@@ -101,6 +107,7 @@
 		5F6249532246E15500394FDE /* Grupos Camino Santiago */ = {
 			isa = PBXGroup;
 			children = (
+				5FA4FC82224FF4D700025ECD /* New Group */,
 				5FA4FC7B224FE41500025ECD /* Group Detail */,
 				5F6249A62247F51C00394FDE /* Extensions */,
 				5F62499722478CEC00394FDE /* Route Coordinators */,
@@ -187,6 +194,16 @@
 			path = "Group Detail";
 			sourceTree = "<group>";
 		};
+		5FA4FC82224FF4D700025ECD /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				5FA4FC83224FF52300025ECD /* GroupMembersViewController.swift */,
+				5FA4FC84224FF52300025ECD /* GroupMembersViewController.xib */,
+				5FA4FC87224FF55300025ECD /* GroupMembersViewModel.swift */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		A0F04A0AF1B47E311958ABE7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +288,7 @@
 				5F62495C2246E15600394FDE /* Assets.xcassets in Resources */,
 				5FC1624122498613003785B0 /* GroupTableViewCell.xib in Resources */,
 				5F62495A2246E15500394FDE /* Main.storyboard in Resources */,
+				5FA4FC86224FF52300025ECD /* GroupMembersViewController.xib in Resources */,
 				5FA4FC7F224FE44000025ECD /* GroupDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,10 +356,12 @@
 			files = (
 				5F6249952246FF8D00394FDE /* Group.swift in Sources */,
 				5F62497E2246E98200394FDE /* GroupsRepository.swift in Sources */,
+				5FA4FC88224FF55300025ECD /* GroupMembersViewModel.swift in Sources */,
 				5FA4FC7E224FE44000025ECD /* GroupDetailViewController.swift in Sources */,
 				5FC1624022498613003785B0 /* GroupTableViewCell.swift in Sources */,
 				5F6249822246ECBE00394FDE /* GroupListViewModel.swift in Sources */,
 				5F62499A2247984A00394FDE /* MainRouteCoordinator.swift in Sources */,
+				5FA4FC85224FF52300025ECD /* GroupMembersViewController.swift in Sources */,
 				5F6249A822482DC000394FDE /* UITextField+DatePicker.swift in Sources */,
 				5F6249A52247F44C00394FDE /* Codable+Dictionary.swift in Sources */,
 				5F62499E2247991D00394FDE /* AddGroupViewController.swift in Sources */,

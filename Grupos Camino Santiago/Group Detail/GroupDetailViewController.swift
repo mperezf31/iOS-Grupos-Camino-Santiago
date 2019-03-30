@@ -20,8 +20,8 @@ class GroupDetailViewController: UIViewController , GroupDetailViewModelDelegate
         self.viewModel.delegate = self
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required convenience init?(coder aDecoder: NSCoder) {
+        self.init(viewModel: GroupDetailViewModel(groupId: 0, groupsRepository: GroupsRepository()))
     }
     
     override func viewDidLoad() {
@@ -31,12 +31,12 @@ class GroupDetailViewController: UIViewController , GroupDetailViewModelDelegate
     
     
     func groupDetailRetrieved(_: GroupDetailViewModel, group: Group) {
-        
+        print("item detalle mostrar")
         
     }
     
     func error(_: GroupDetailViewModel, errorMsg: String) {
-        
+        print("error detalle")
     }
     
 }

@@ -1,33 +1,33 @@
 //
-//  GroupDetailViewModel.swift
+//  GroupMembersViewModel.swift
 //  Grupos Camino Santiago
 //
 //  Created by Miguel Perez on 30/03/2019.
 //  Copyright © 2019 Miguel Pérez. All rights reserved.
 //
 
-class GroupDetailViewModel : GroupsRepositoryDelegate {
+class GroupMembersViewModel : GroupsRepositoryDelegate {
     
-    weak var delegate: GroupDetailViewModelDelegate?
-    weak var routingDelegate: GroupDetailViewModelRoutingDelegate?
+    weak var delegate: GroupMembersViewModelViewModelDelegate?
+    weak var routingDelegate: GroupMembersViewModelViewModelRoutingDelegate?
     
     private let groupsRepository: GroupsRepository
     private let groupId: Int
-
+    
     init(groupId: Int, groupsRepository: GroupsRepository) {
         self.groupId = groupId
         self.groupsRepository = groupsRepository
         self.groupsRepository.delegate = self
     }
     
-    func getGroupDetail() {
+    func getGroupMembers() {
         self.groupsRepository.getGroup(groupId: self.groupId)
     }
     
     func udateGroups(_: GroupsRepository, groups: UserGroups) { }
     
     func groupRetrieved(_: GroupsRepository, group: Group) {
-        self.delegate?.groupDetailRetrieved(self, group: group)
+        self.delegate?.groupMembersRetrieved(self, group: group.members)
     }
     
     func error(_: GroupsRepository, errorMsg: String) {
@@ -36,18 +36,15 @@ class GroupDetailViewModel : GroupsRepositoryDelegate {
     
 }
 
-protocol GroupDetailViewModelDelegate: class
+protocol GroupMembersViewModelViewModelDelegate: class
 {
     
-    func groupDetailRetrieved(_: GroupDetailViewModel, group: Group)
-
-    func error(_: GroupDetailViewModel, errorMsg: String)
+    func groupMembersRetrieved(_: GroupMembersViewModel, group: [User])
+    
+    func error(_: GroupMembersViewModel, errorMsg: String)
 }
 
-protocol GroupDetailViewModelRoutingDelegate: class
+protocol GroupMembersViewModelViewModelRoutingDelegate: class
 {
-    func finishGroupDetail(_ viewModel: GroupDetailViewModel)
+    func finishGroupDetail(_ viewModel: GroupMembersViewModel)
 }
-
-
-

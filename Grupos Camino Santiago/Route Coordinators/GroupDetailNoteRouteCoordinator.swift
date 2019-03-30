@@ -31,14 +31,17 @@ class GroupDetailRouteCoordinator
    
         //Item detail
         let groupDetailViewModel = GroupDetailViewModel(groupId: groupoId, groupsRepository: groupsRepository)
-        let controllerDetail = GroupDetailViewController(viewModel: groupDetailViewModel)
-        controllerDetail.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 0)
+        let groupDetailViewController = GroupDetailViewController(viewModel: groupDetailViewModel)
+        groupDetailViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 0)
 
         
-        //let secondViewController = controllerDetail
-        //secondViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 1)
+        //Item members
+        let groupMembersViewModel = GroupMembersViewModel(groupId: groupoId, groupsRepository: groupsRepository)
+        let groupMembersViewController = GroupMembersViewController(viewModel: groupMembersViewModel)
+        groupMembersViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .downloads, tag: 0)
+
         
-        let tabBarList = [controllerDetail]
+        let tabBarList = [groupDetailViewController, groupMembersViewController]
         
         self.navigationController = UITabBarController()
         self.navigationController.setViewControllers(tabBarList, animated: true)
