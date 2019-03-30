@@ -10,6 +10,8 @@ import UIKit
 
 class AddGroupViewController: UIViewController , AddGroupViewModelDelegate{
     
+    @IBOutlet weak var scrollview: UIScrollView!
+    
     @IBOutlet weak var titleGroup: UITextField!
     @IBOutlet weak var departurePlace: UITextField!
     @IBOutlet weak var descriptionGroup: UITextView!
@@ -38,9 +40,10 @@ class AddGroupViewController: UIViewController , AddGroupViewModelDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Crear grupo"
-        
-       addNavigationItems()
-       addDatePikerListener()
+                
+        addNavigationItems()
+        addDatePikerListener()
+       // self.scrollview.keyboardDismissMode
     }
     
     func addNavigationItems() {
@@ -51,7 +54,7 @@ class AddGroupViewController: UIViewController , AddGroupViewModelDelegate{
     func addDatePikerListener() {
         self.departureDate.addDatePicker(datePicker: datePickerDeparture)
         self.arrivalDate.addDatePicker(datePicker: datePickerArrival)
-
+        
         self.datePickerDeparture.addTarget(self, action: #selector(datePickerDepartureValueChanged), for: .valueChanged)
         self.datePickerArrival.addTarget(self, action: #selector(datePickerArrivalValueChanged), for: .valueChanged)
     }
