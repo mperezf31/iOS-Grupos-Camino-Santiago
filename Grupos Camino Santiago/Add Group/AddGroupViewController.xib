@@ -26,7 +26,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5f4-SE-CEe">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="5f4-SE-CEe">
                     <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8dt-CT-2MY" userLabel="contentView">
@@ -139,7 +139,6 @@
                         <constraint firstAttribute="bottom" secondItem="8dt-CT-2MY" secondAttribute="bottom" id="A1X-as-Mml"/>
                         <constraint firstItem="8dt-CT-2MY" firstAttribute="leading" secondItem="5f4-SE-CEe" secondAttribute="leading" id="DiV-BM-Zc0"/>
                         <constraint firstAttribute="trailing" secondItem="8dt-CT-2MY" secondAttribute="trailing" id="d0h-5y-Zmp"/>
-                        <constraint firstItem="8dt-CT-2MY" firstAttribute="centerY" secondItem="5f4-SE-CEe" secondAttribute="centerY" id="nt6-92-PA5"/>
                         <constraint firstItem="8dt-CT-2MY" firstAttribute="top" secondItem="5f4-SE-CEe" secondAttribute="top" id="pqM-MF-oyC"/>
                     </constraints>
                 </scrollView>
