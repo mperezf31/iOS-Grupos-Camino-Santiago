@@ -29,13 +29,13 @@ class GroupMembersViewController: UIViewController, GroupMembersViewModelViewMod
     }
     
     
-    func groupMembersRetrieved(_: GroupMembersViewModel, group: [User]) {
+    func groupMembersRetrieved(_: GroupMembersViewModel, members : [User]) {
         
-        print("item members mostrar")
+        print("GroupMembersViewController")
     }
     
     func error(_: GroupMembersViewModel, errorMsg: String) {
-        print("error members")
+        print("GroupMembersViewController")
     }
     
 }

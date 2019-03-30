@@ -12,19 +12,23 @@ class GroupsRepository
 {
     private let BASE_URL = "http://ec2-35-156-79-168.eu-central-1.compute.amazonaws.com/"
     
-    weak var delegate: GroupsRepositoryDelegate?
+    weak var delegateGroupList: GroupsRepositoryDelegate?
     weak var delegateAddGroup: AddGroupRepositoryDelegate?
+    weak var groupDetailDelegate: GroupDetailRepositoryDelegate?
+    weak var groupPostsDelegate: GroupPostsRepositoryDelegate?
+    weak var groupMembersDelegate :GroupMembersRepositoryDelegate?
     
     private(set) var userGroups: UserGroups?
-    
+    private(set) var group: Group?
+
     func getGroups() {
         
         AF.request(BASE_URL + "groups", method: .get,headers: getHeaders()).responseDecodable{ (response: DataResponse<UserGroups>) in
             if let userGroups = response.value {
                 self.userGroups = userGroups
-                self.delegate?.udateGroups(self, groups: userGroups)
+                self.delegateGroupList?.groupsRetrieved(self, groups: userGroups)
             }else{
-                self.delegate?.error(self, errorMsg: "Se ha producido un error al intentar recuperar los grupos")
+                self.delegateGroupList?.error(self, errorMsg: "Se ha producido un error al intentar recuperar los grupos")
             }
         }
         
@@ -46,7 +50,7 @@ class GroupsRepository
                     self.delegateAddGroup?.addGroupSuccess(self, groupAdded: group)
                     self.userGroups?.groupsCreated.append(group)
                     if let groups = self.userGroups {
-                        self.delegate?.udateGroups(self, groups: groups)
+                        self.delegateGroupList?.groupsRetrieved(self, groups: groups)
                     }
                 }else{
                     self.delegateAddGroup?.error(self, errorMsg: "Se ha producido un error al intentar crear el grupo")
@@ -61,11 +65,56 @@ class GroupsRepository
         
     }
     
-    func getGroup(groupId: Int){
-      //  self.delegate?.groupRetrieved(self, group: Group())
-        self.delegate?.error(self, errorMsg: "Se ha producido un error al intentar crear el grupo")
+    
+    private func getGroup(groupId: Int, completion: @escaping (Group)->(), error: @escaping (String)->()){
+        
+        AF.request(BASE_URL + "group/\(groupId)", method: .get, headers: getHeaders()).responseDecodable{ (response: DataResponse<Group>) in
+            if let group = response.value {
+                self.group = group
+                completion(group)
+            }else{
+                error("Se ha producido un error al intentar obtener la información del grupo")
+            }
+        }
     }
     
+    
+    func getGroup(groupId: Int){
+        if(self.group?.id == groupId){
+            self.groupDetailDelegate?.groupRetrieved(self, group: self.group!)
+        }else{
+            getGroup(groupId: groupId, completion:{ group in
+                self.groupDetailDelegate?.groupRetrieved(self, group: group )
+            },error:{ msgError in
+                self.groupDetailDelegate?.error(self, errorMsg: msgError)
+            })
+        }
+    }
+    
+    func getGroupMembers(groupId: Int){
+        if(self.group?.id == groupId){
+            self.groupMembersDelegate?.groupMemberRetrieved(self, members: self.group?.members ?? Array())
+        }else{
+            getGroup(groupId: groupId, completion:{ group in
+                self.groupMembersDelegate?.groupMemberRetrieved(self, members: group.members )
+            },error:{ msgError in
+                self.groupMembersDelegate?.error(self, errorMsg: msgError)
+            })
+        }
+    }
+    
+    func getGroupPosts(groupId: Int){
+        if(self.group?.id == groupId){
+            self.groupMembersDelegate?.groupMemberRetrieved(self, members: self.group?.members ?? Array())
+        }else{
+            getGroup(groupId: groupId, completion:{ group in
+                self.groupPostsDelegate?.groupPostsRetrieved(self, posts: self.group?.posts ?? Array())
+            },error:{ msgError in
+                self.groupPostsDelegate?.error(self, errorMsg:msgError)
+            })
+        }
+        
+    }
     
     func convertToDictionary(data: Data) -> [String: Any]? {
         do {
@@ -85,17 +134,39 @@ class GroupsRepository
     
 }
 
-protocol GroupsRepositoryDelegate: class
+protocol GroupsRepositoryDelegate: RepositoryDelegateBase
 {
-    func udateGroups(_: GroupsRepository, groups: UserGroups)
-    
-    func groupRetrieved(_: GroupsRepository, group: Group)
+    func groupsRetrieved(_: GroupsRepository, groups: UserGroups)
 
     func error(_: GroupsRepository, errorMsg: String)
 }
 
-protocol AddGroupRepositoryDelegate:class {
+protocol AddGroupRepositoryDelegate: RepositoryDelegateBase
+{
     func addGroupSuccess(_: GroupsRepository, groupAdded: Group)
     
+    func error(_: GroupsRepository, errorMsg: String)
+}
+
+protocol GroupDetailRepositoryDelegate: RepositoryDelegateBase
+{
+    
+    func groupRetrieved(_: GroupsRepository, group: Group)
+    
+}
+
+protocol GroupPostsRepositoryDelegate: RepositoryDelegateBase
+{
+    
+    func groupPostsRetrieved(_: GroupsRepository, posts:[Post])
+}
+
+protocol GroupMembersRepositoryDelegate: RepositoryDelegateBase
+{
+    func groupMemberRetrieved(_: GroupsRepository, members: [User])
+}
+
+protocol RepositoryDelegateBase: class
+{
     func error(_: GroupsRepository, errorMsg: String)
 }

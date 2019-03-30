@@ -6,7 +6,7 @@
 //  Copyright © 2019 Miguel Pérez. All rights reserved.
 //
 
-class GroupDetailViewModel : GroupsRepositoryDelegate {
+class GroupDetailViewModel : GroupDetailRepositoryDelegate {
     
     weak var delegate: GroupDetailViewModelDelegate?
     weak var routingDelegate: GroupDetailViewModelRoutingDelegate?
@@ -17,14 +17,14 @@ class GroupDetailViewModel : GroupsRepositoryDelegate {
     init(groupId: Int, groupsRepository: GroupsRepository) {
         self.groupId = groupId
         self.groupsRepository = groupsRepository
-        self.groupsRepository.delegate = self
+        self.groupsRepository.groupDetailDelegate = self
     }
     
     func getGroupDetail() {
         self.groupsRepository.getGroup(groupId: self.groupId)
     }
     
-    func udateGroups(_: GroupsRepository, groups: UserGroups) { }
+    func groupsRetrieved(_: GroupsRepository, groups: UserGroups) { }
     
     func groupRetrieved(_: GroupsRepository, group: Group) {
         self.delegate?.groupDetailRetrieved(self, group: group)

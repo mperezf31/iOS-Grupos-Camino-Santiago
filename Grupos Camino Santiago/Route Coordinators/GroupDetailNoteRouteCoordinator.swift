@@ -40,8 +40,12 @@ class GroupDetailRouteCoordinator
         let groupMembersViewController = GroupMembersViewController(viewModel: groupMembersViewModel)
         groupMembersViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .downloads, tag: 0)
 
+        //Group posts
+        let groupPostsViewModel = GroupPostsViewModel(groupId: groupoId, groupsRepository: groupsRepository)
+        let groupPostsViewController = GroupPostsViewController(viewModel: groupPostsViewModel)
+        groupPostsViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 0)
         
-        let tabBarList = [groupDetailViewController, groupMembersViewController]
+        let tabBarList = [groupDetailViewController, groupMembersViewController, groupPostsViewController]
         
         self.navigationController = UITabBarController()
         self.navigationController.setViewControllers(tabBarList, animated: true)

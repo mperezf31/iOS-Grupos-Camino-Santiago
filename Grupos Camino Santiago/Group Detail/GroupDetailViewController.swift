@@ -31,12 +31,12 @@ class GroupDetailViewController: UIViewController , GroupDetailViewModelDelegate
     
     
     func groupDetailRetrieved(_: GroupDetailViewModel, group: Group) {
-        print("item detalle mostrar")
-        
+        print("GroupDetailViewController")
+
     }
     
     func error(_: GroupDetailViewModel, errorMsg: String) {
-        print("error detalle")
+        print("GroupDetailViewController")
     }
     
 }

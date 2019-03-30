@@ -22,7 +22,7 @@ class GroupListViewModel: GroupsRepositoryDelegate {
     init(groupsRepository: GroupsRepository)
     {
         self.groupsRepository = groupsRepository
-        self.groupsRepository.delegate = self
+        self.groupsRepository.delegateGroupList = self
     }
     
     
@@ -32,7 +32,7 @@ class GroupListViewModel: GroupsRepositoryDelegate {
     }
     
     
-    func udateGroups(_: GroupsRepository, groups: UserGroups) {
+    func groupsRetrieved(_: GroupsRepository, groups: UserGroups) {
         groupsUserViewModels = groups.groupsCreated.map({ (group: Group) -> GroupViewModel in
             return GroupViewModel(group:group)
         }).reversed()
