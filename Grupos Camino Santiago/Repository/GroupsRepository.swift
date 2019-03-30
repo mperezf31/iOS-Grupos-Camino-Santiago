@@ -15,12 +15,13 @@ class GroupsRepository
     weak var delegate: GroupsRepositoryDelegate?
     weak var delegateAddGroup: AddGroupRepositoryDelegate?
     
-    private(set) var groups: UserGroups?
+    private(set) var userGroups: UserGroups?
     
     func getGroups() {
         
         AF.request(BASE_URL + "groups", method: .get,headers: getHeaders()).responseDecodable{ (response: DataResponse<UserGroups>) in
             if let userGroups = response.value {
+                self.userGroups = userGroups
                 self.delegate?.udateGroups(self, groups: userGroups)
             }else{
                 self.delegate?.error(self, errorMsg: "Se ha producido un error al intentar recuperar los grupos")
@@ -43,6 +44,10 @@ class GroupsRepository
                 
                 if let group = response.value {
                     self.delegateAddGroup?.addGroupSuccess(self, groupAdded: group)
+                    self.userGroups?.groupsCreated.append(group)
+                    if let groups = self.userGroups {
+                        self.delegate?.udateGroups(self, groups: groups)
+                    }
                 }else{
                     self.delegate?.error(self, errorMsg: "Se ha producido un error al intentar crear el grupo")
                 }

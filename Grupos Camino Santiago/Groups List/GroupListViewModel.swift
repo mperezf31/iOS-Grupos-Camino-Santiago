@@ -35,15 +35,15 @@ class GroupListViewModel: GroupsRepositoryDelegate {
     func udateGroups(_: GroupsRepository, groups: UserGroups) {
         groupsUserViewModels = groups.groupsCreated.map({ (group: Group) -> GroupViewModel in
             return GroupViewModel(group:group)
-        })
+        }).reversed()
         
         groupsMemberViewModels = groups.groupsAssociated.map({ (group: Group) -> GroupViewModel in
             return GroupViewModel(group:group)
-        })
+        }).reversed()
         
         otherGroupsViewModels = groups.otherGroups.map({ (group: Group) -> GroupViewModel in
             return GroupViewModel(group:group)
-        })
+        }).reversed()
         
         self.delegate?.groupsListViewModelDidUpdate(self)
     }
