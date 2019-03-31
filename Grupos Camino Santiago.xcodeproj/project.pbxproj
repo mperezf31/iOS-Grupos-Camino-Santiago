@@ -119,11 +119,11 @@
 		5F6249532246E15500394FDE /* Grupos Camino Santiago */ = {
 			isa = PBXGroup;
 			children = (
+				5F62499722478CEC00394FDE /* Route Coordinators */,
 				5FA4FC89224FF93D00025ECD /* Group Posts */,
 				5FA4FC82224FF4D700025ECD /* Group Members */,
 				5FA4FC7B224FE41500025ECD /* Group Detail */,
 				5F6249A62247F51C00394FDE /* Extensions */,
-				5F62499722478CEC00394FDE /* Route Coordinators */,
 				5F62497A2246E51300394FDE /* Groups List */,
 				5F62499B2247989C00394FDE /* Add Group */,
 				5F62498E2246FE8A00394FDE /* Model */,

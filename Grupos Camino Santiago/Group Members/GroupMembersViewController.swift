@@ -39,9 +39,16 @@ class GroupMembersViewController: UIViewController, UICollectionViewDelegate, UI
 
         self.collectionView.register(UINib(nibName: MEMBER_CELL_IDENTIFIER, bundle: nil), forCellWithReuseIdentifier: MEMBER_CELL_IDENTIFIER)
 
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Unirse", style: .plain, target: self, action: #selector(addMember))
+
         self.viewModel.getGroupMembers()
     }
     
+
+    @objc func addMember()
+    {
+
+    }
     
     func groupMembersRetrieved(_: GroupMembersViewModel, members : [User]) {
         self.collectionView.reloadData()
