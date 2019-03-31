@@ -20,6 +20,8 @@ class GroupsRepository
     
     private(set) var userGroups: UserGroups?
     private(set) var group: Group?
+    
+    let userId = 1
 
     func getGroups() {
         
@@ -93,19 +95,25 @@ class GroupsRepository
     
     func getGroupMembers(groupId: Int){
         if(self.group?.id == groupId){
-            self.groupMembersDelegate?.groupMemberRetrieved(self, members: self.group?.members ?? Array())
+            self.groupMembersDelegate?.groupMemberRetrieved(self,  idCurrentUser: self.userId, members: self.getmembers(group: self.group!) )
         }else{
             getGroup(groupId: groupId, completion:{ group in
-                self.groupMembersDelegate?.groupMemberRetrieved(self, members: group.members )
+                self.groupMembersDelegate?.groupMemberRetrieved(self,  idCurrentUser: self.userId, members: self.getmembers(group: group) )
             },error:{ msgError in
                 self.groupMembersDelegate?.error(self, errorMsg: msgError)
             })
         }
     }
     
+    private func getmembers(group : Group)-> [User]{
+        var members = group.members
+        members.insert(group.founder!, at: 0)
+        return members
+    }
+    
     func getGroupPosts(groupId: Int){
         if(self.group?.id == groupId){
-            self.groupMembersDelegate?.groupMemberRetrieved(self, members: self.group?.members ?? Array())
+            self.groupPostsDelegate?.groupPostsRetrieved(self, posts: self.group?.posts ?? Array())
         }else{
             getGroup(groupId: groupId, completion:{ group in
                 self.groupPostsDelegate?.groupPostsRetrieved(self, posts: self.group?.posts ?? Array())
@@ -128,7 +136,7 @@ class GroupsRepository
     
     func getHeaders() -> HTTPHeaders {
         var headers = HTTPHeaders()
-        headers["Authentication"] = "1"
+        headers["Authentication"] = "\(self.userId)"
         return headers
     }
     
@@ -163,7 +171,7 @@ protocol GroupPostsRepositoryDelegate: RepositoryDelegateBase
 
 protocol GroupMembersRepositoryDelegate: RepositoryDelegateBase
 {
-    func groupMemberRetrieved(_: GroupsRepository, members: [User])
+    func groupMemberRetrieved(_: GroupsRepository, idCurrentUser: Int, members: [User])
 }
 
 protocol RepositoryDelegateBase: class

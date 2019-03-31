@@ -11,6 +11,7 @@ class GroupMembersViewModel : GroupMembersRepositoryDelegate {
     weak var delegate: GroupMembersViewModelViewModelDelegate?
     weak var routingDelegate: GroupMembersViewModelViewModelRoutingDelegate?
     
+    private(set) var membersViewModels: [MemberViewModel] = []
     private let groupsRepository: GroupsRepository
     private let groupId: Int
     
@@ -24,7 +25,12 @@ class GroupMembersViewModel : GroupMembersRepositoryDelegate {
         self.groupsRepository.getGroupMembers(groupId: self.groupId)
     }
     
-    func groupMemberRetrieved(_: GroupsRepository, members: [User]) {
+    func groupMemberRetrieved(_: GroupsRepository, idCurrentUser: Int, members: [User]) {
+        
+        membersViewModels = members.map({ (user: User) -> MemberViewModel in
+            return MemberViewModel(idCurrentUser: idCurrentUser, user:user)
+        })
+        
         self.delegate?.groupMembersRetrieved(self, members: members)
     }
     
