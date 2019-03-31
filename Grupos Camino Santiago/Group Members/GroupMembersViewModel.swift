@@ -14,7 +14,9 @@ class GroupMembersViewModel : GroupMembersRepositoryDelegate {
     private(set) var membersViewModels: [MemberViewModel] = []
     private let groupsRepository: GroupsRepository
     private let groupId: Int
-    
+    public var isFounder : Bool = false
+    public var isMember : Bool = false
+
     init(groupId: Int, groupsRepository: GroupsRepository) {
         self.groupId = groupId
         self.groupsRepository = groupsRepository
@@ -25,11 +27,26 @@ class GroupMembersViewModel : GroupMembersRepositoryDelegate {
         self.groupsRepository.getGroupMembers(groupId: self.groupId)
     }
     
-    func groupMemberRetrieved(_: GroupsRepository, idCurrentUser: Int, members: [User]) {
-        
+    func joinGroup() {
+        self.groupsRepository.joinGroup(groupId: self.groupId , join: !self.isMember)
+    }
+    
+    func groupMemberRetrieved(_: GroupsRepository, idCurrentUser: Int, founder: User, members: [User]) {
+        if idCurrentUser == founder.id {
+            isFounder = true
+        }else{
+            isFounder = false
+        }
+ 
+        isMember = false
         membersViewModels = members.map({ (user: User) -> MemberViewModel in
-            return MemberViewModel(idCurrentUser: idCurrentUser, user:user)
+            if (user.id == idCurrentUser) {
+                isMember = true
+            }
+            return MemberViewModel(founder: false, user:user)
         })
+        
+        membersViewModels.insert(MemberViewModel(founder: true, user:founder), at: 0)
         
         self.delegate?.groupMembersRetrieved(self, members: members)
     }

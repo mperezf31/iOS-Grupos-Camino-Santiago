@@ -11,12 +11,12 @@ import Foundation
 class MemberViewModel {
     
     private let user: User
-    private let idCurrentUser :Int
+    private let founder: Bool
     
-    init(idCurrentUser: Int, user: User)
+    init(founder: Bool, user: User)
     {
+        self.founder = founder
         self.user = user
-        self.idCurrentUser = idCurrentUser
     }
     
     var id: Int
@@ -39,7 +39,7 @@ class MemberViewModel {
     {
         get
         {
-            if idCurrentUser == id{
+            if founder{
                 return "Administrador"
             }else{
                 return "Miembro"

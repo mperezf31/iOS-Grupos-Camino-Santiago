@@ -14,7 +14,13 @@ class GroupMembersViewController: UIViewController, UICollectionViewDelegate, UI
 
     private let viewModel: GroupMembersViewModel
     @IBOutlet weak var collectionView: UICollectionView!
-
+    
+    @IBOutlet weak var joinGroup: UIButton!
+    
+    @IBAction func joinGroupClick() {
+        self.viewModel.joinGroup()
+    }
+    
     init(viewModel: GroupMembersViewModel)
     {
         self.viewModel = viewModel
@@ -29,6 +35,8 @@ class GroupMembersViewController: UIViewController, UICollectionViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        joinGroup.isHidden = true
+        
         let myLayout = UICollectionViewFlowLayout()
         myLayout.scrollDirection = .vertical
         myLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
@@ -38,19 +46,23 @@ class GroupMembersViewController: UIViewController, UICollectionViewDelegate, UI
         self.collectionView.setCollectionViewLayout(myLayout, animated: false)
 
         self.collectionView.register(UINib(nibName: MEMBER_CELL_IDENTIFIER, bundle: nil), forCellWithReuseIdentifier: MEMBER_CELL_IDENTIFIER)
-
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Unirse", style: .plain, target: self, action: #selector(addMember))
-
         self.viewModel.getGroupMembers()
     }
     
-
-    @objc func addMember()
-    {
-
-    }
     
     func groupMembersRetrieved(_: GroupMembersViewModel, members : [User]) {
+        if (self.viewModel.isFounder){
+            joinGroup.isHidden = true
+        }else if(self.viewModel.isMember){
+            joinGroup.isHidden = false
+            joinGroup.isEnabled = true
+            joinGroup.setTitle("Salir del grupo", for: .normal)
+        }else{
+            joinGroup.isHidden = false
+            joinGroup.isEnabled = true
+            joinGroup.setTitle("Unirse al grupo", for: .normal)
+        }
+        
         self.collectionView.reloadData()
     }
     

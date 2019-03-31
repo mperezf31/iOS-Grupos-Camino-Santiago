@@ -40,7 +40,6 @@ class GroupsRepository
         
         do{
             let parameters = try groupToAdd.toDictionary()
-            print(parameters)
             
             AF.request(BASE_URL + "group", method: .post, parameters : parameters, encoding: JSONEncoding.default , headers: getHeaders()).responseDecodable{ (response: DataResponse<Group>) in
                 
@@ -95,20 +94,39 @@ class GroupsRepository
     
     func getGroupMembers(groupId: Int){
         if(self.group?.id == groupId){
-            self.groupMembersDelegate?.groupMemberRetrieved(self,  idCurrentUser: self.userId, members: self.getmembers(group: self.group!) )
+            self.groupMembersDelegate?.groupMemberRetrieved(self,  idCurrentUser: self.userId, founder: group!.founder!, members: self.group!.members )
         }else{
             getGroup(groupId: groupId, completion:{ group in
-                self.groupMembersDelegate?.groupMemberRetrieved(self,  idCurrentUser: self.userId, members: self.getmembers(group: group) )
+                self.groupMembersDelegate?.groupMemberRetrieved(self,  idCurrentUser: self.userId, founder: group.founder!, members: self.group!.members )
             },error:{ msgError in
                 self.groupMembersDelegate?.error(self, errorMsg: msgError)
             })
         }
     }
     
-    private func getmembers(group : Group)-> [User]{
-        var members = group.members
-        members.insert(group.founder!, at: 0)
-        return members
+    func joinGroup(groupId: Int , join: Bool) {
+        
+        if(join){
+            AF.request(BASE_URL + "group/\(groupId)/pilgrim", method: .post, headers: getHeaders()).responseDecodable{ (response: DataResponse<Group>) in
+                if let group = response.value {
+                    self.group = group
+                    self.groupMembersDelegate?.groupMemberRetrieved(self, idCurrentUser: self.userId, founder: group.founder!, members: self.group!.members )
+                }else{
+                    self.groupMembersDelegate?.error(self, errorMsg: "Se ha producido al intentar unirse al grupo")
+                }
+            }
+            
+        }else{
+            AF.request(BASE_URL + "group/\(groupId)/pilgrim", method: .delete, headers: getHeaders()).responseDecodable{ (response: DataResponse<Group>) in
+                if let group = response.value {
+                    self.group = group
+                    self.groupMembersDelegate?.groupMemberRetrieved(self, idCurrentUser: self.userId, founder: group.founder!, members: self.group!.members )
+                }else{
+                    self.groupMembersDelegate?.error(self, errorMsg: "Se ha producido al intentar unirse al grupo")
+                }
+            }
+        }
+      
     }
     
     func getGroupPosts(groupId: Int){
@@ -171,7 +189,7 @@ protocol GroupPostsRepositoryDelegate: RepositoryDelegateBase
 
 protocol GroupMembersRepositoryDelegate: RepositoryDelegateBase
 {
-    func groupMemberRetrieved(_: GroupsRepository, idCurrentUser: Int, members: [User])
+    func groupMemberRetrieved(_: GroupsRepository, idCurrentUser: Int, founder: User, members: [User])
 }
 
 protocol RepositoryDelegateBase: class

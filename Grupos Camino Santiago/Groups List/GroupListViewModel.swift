@@ -62,9 +62,9 @@ class GroupListViewModel: GroupsRepositoryDelegate {
         case 0:
             self.routingDelegate?.showGroupDedtail(self,routeId: groupsUserViewModels[index].id)
         case 1:
-            self.routingDelegate?.showGroupDedtail(self,routeId: groupsUserViewModels[index].id)
+            self.routingDelegate?.showGroupDedtail(self,routeId: groupsMemberViewModels[index].id)
         default:
-            self.routingDelegate?.showGroupDedtail(self,routeId: groupsUserViewModels[index].id)
+            self.routingDelegate?.showGroupDedtail(self,routeId: otherGroupsViewModels[index].id)
         }
 
     }

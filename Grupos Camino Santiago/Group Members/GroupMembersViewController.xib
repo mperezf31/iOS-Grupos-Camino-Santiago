@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GroupMembersViewController" customModule="Grupos_Camino_Santiago" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="ggq-kx-Txs" id="ged-S0-T5i"/>
+                <outlet property="joinGroup" destination="D92-3O-hbv" id="xxU-UE-m0d"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ggq-kx-Txs">
-                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="599"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tms-q5-g18">
                         <size key="itemSize" width="50" height="50"/>
@@ -35,13 +36,35 @@
                         <outlet property="delegate" destination="-1" id="18k-SE-kLz"/>
                     </connections>
                 </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D92-3O-hbv">
+                    <rect key="frame" x="88" y="627" width="199" height="33"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="33" id="M15-bF-kHU"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="Unirse al grupo"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.makeBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="joinGroupClick" destination="-1" eventType="touchDown" id="ym8-C1-tl3"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="ggq-kx-Txs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="1iP-os-Q5O"/>
-                <constraint firstItem="ggq-kx-Txs" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="4cy-wv-78M"/>
-                <constraint firstItem="ggq-kx-Txs" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="NbM-S5-29s"/>
-                <constraint firstItem="ggq-kx-Txs" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Sok-pX-D5Y"/>
+                <constraint firstItem="D92-3O-hbv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="88" id="9IN-Pb-stY"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="D92-3O-hbv" secondAttribute="trailing" constant="88" id="A8D-s5-GPZ"/>
+                <constraint firstItem="ggq-kx-Txs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="FXl-pL-nPP"/>
+                <constraint firstItem="D92-3O-hbv" firstAttribute="top" secondItem="ggq-kx-Txs" secondAttribute="bottom" constant="8" id="MkC-VP-lW2"/>
+                <constraint firstItem="ggq-kx-Txs" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="kxd-JY-lGB"/>
+                <constraint firstItem="D92-3O-hbv" firstAttribute="top" secondItem="ggq-kx-Txs" secondAttribute="bottom" constant="8" id="oQH-fq-cdC"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="D92-3O-hbv" secondAttribute="bottom" constant="7" id="obb-tF-ISq"/>
+                <constraint firstItem="ggq-kx-Txs" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="x4Z-Nv-qd5"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="138.40000000000001" y="146.17691154422789"/>
