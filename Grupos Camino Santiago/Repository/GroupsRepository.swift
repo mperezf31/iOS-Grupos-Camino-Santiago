@@ -63,7 +63,6 @@ class GroupsRepository
             self.delegateAddGroup?.error(self, errorMsg: "Los datos introducidos no son correctos")
         }
         
-        
     }
     
     
@@ -111,6 +110,8 @@ class GroupsRepository
                 if let group = response.value {
                     self.group = group
                     self.groupMembersDelegate?.groupMemberRetrieved(self, idCurrentUser: self.userId, founder: group.founder!, members: self.group!.members )
+                    //Update groups
+                    self.getGroups()
                 }else{
                     self.groupMembersDelegate?.error(self, errorMsg: "Se ha producido al intentar unirse al grupo")
                 }
@@ -121,6 +122,8 @@ class GroupsRepository
                 if let group = response.value {
                     self.group = group
                     self.groupMembersDelegate?.groupMemberRetrieved(self, idCurrentUser: self.userId, founder: group.founder!, members: self.group!.members )
+                    //Update groups
+                    self.getGroups()
                 }else{
                     self.groupMembersDelegate?.error(self, errorMsg: "Se ha producido al intentar unirse al grupo")
                 }

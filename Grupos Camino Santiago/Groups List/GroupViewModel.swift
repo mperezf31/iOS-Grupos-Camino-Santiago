@@ -10,11 +10,13 @@ import Foundation
 
 class GroupViewModel {
     
+    let formatter = DateFormatter()
     private let group: Group
     
     init(group: Group)
     {
         self.group = group
+        self.formatter.dateFormat = "dd/MM/yyyy"
     }
     
     var id: Int
@@ -37,15 +39,56 @@ class GroupViewModel {
     {
         get
         {
-            
-            let formatter = DateFormatter()
-            formatter.dateFormat = "dd/MM/yyyy"
-            
             if let date = group.departureDate{
-                return "Salida el día " + formatter.string(from: date)
+                return formatter.string(from: date)
             }else{
-                return "Fecha salida: Sin definir"
+                return ""
             }
         }
     }
+    
+    var arrivalDate: String
+    {
+        get
+        {
+            if let date = group.arrivalDate{
+                return formatter.string(from: date)
+            }else{
+                return ""
+            }
+        }
+    }
+    
+    var description: String
+    {
+        get
+        {
+            return group.description ?? ""
+        }
+    }
+    
+    var departurePlace: String
+    {
+        get
+        {
+            return group.departurePlace ?? ""
+        }
+    }
+    
+    var founderName: String
+    {
+        get
+        {
+            return group.founder?.name ?? ""
+        }
+    }
+    
+    var founderEmail: String
+    {
+        get
+        {
+            return group.founder?.email ?? ""
+        }
+    }
+    
 }

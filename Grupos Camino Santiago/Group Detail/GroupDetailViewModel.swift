@@ -27,7 +27,7 @@ class GroupDetailViewModel : GroupDetailRepositoryDelegate {
     func groupsRetrieved(_: GroupsRepository, groups: UserGroups) { }
     
     func groupRetrieved(_: GroupsRepository, group: Group) {
-        self.delegate?.groupDetailRetrieved(self, group: group)
+        self.delegate?.groupDetailRetrieved(self, group: GroupViewModel(group: group))
     }
     
     func error(_: GroupsRepository, errorMsg: String) {
@@ -39,7 +39,7 @@ class GroupDetailViewModel : GroupDetailRepositoryDelegate {
 protocol GroupDetailViewModelDelegate: class
 {
     
-    func groupDetailRetrieved(_: GroupDetailViewModel, group: Group)
+    func groupDetailRetrieved(_: GroupDetailViewModel, group: GroupViewModel)
 
     func error(_: GroupDetailViewModel, errorMsg: String)
 }
