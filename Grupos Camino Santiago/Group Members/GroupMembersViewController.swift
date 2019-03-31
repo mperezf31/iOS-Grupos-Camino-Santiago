@@ -41,7 +41,7 @@ class GroupMembersViewController: UIViewController, UICollectionViewDelegate, UI
         myLayout.scrollDirection = .vertical
         
         let size = (collectionView.frame.size.width - CGFloat(90)) / CGFloat(3)
-        myLayout.itemSize = CGSize(width: size, height: 100)
+        myLayout.itemSize = CGSize(width: size, height: 110)
         
         myLayout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         myLayout.minimumInteritemSpacing = 10

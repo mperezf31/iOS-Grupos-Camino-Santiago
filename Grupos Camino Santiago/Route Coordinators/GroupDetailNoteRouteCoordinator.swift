@@ -32,18 +32,19 @@ class GroupDetailRouteCoordinator
         //Item detail
         let groupDetailViewModel = GroupDetailViewModel(groupId: groupoId, groupsRepository: groupsRepository)
         let groupDetailViewController = GroupDetailViewController(viewModel: groupDetailViewModel)
-        groupDetailViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 0)
+        groupDetailViewController.tabBarItem =  UITabBarItem(title: "Detalle", image: UIImage(named: "TabDetail"), tag: 1)
 
         
         //Item members
         let groupMembersViewModel = GroupMembersViewModel(groupId: groupoId, groupsRepository: groupsRepository)
         let groupMembersViewController = GroupMembersViewController(viewModel: groupMembersViewModel)
-        groupMembersViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .downloads, tag: 0)
+        groupMembersViewController.tabBarItem =  UITabBarItem(title: "Miembros", image: UIImage(named: "TabMembers"), tag: 1)
 
         //Group posts
         let groupPostsViewModel = GroupPostsViewModel(groupId: groupoId, groupsRepository: groupsRepository)
         let groupPostsViewController = GroupPostsViewController(viewModel: groupPostsViewModel)
-        groupPostsViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 0)
+        groupPostsViewController.tabBarItem =  UITabBarItem(title: "Chat", image: UIImage(named: "TabPosts"), tag: 1)
+        
         
         let tabBarList = [groupDetailViewController, groupMembersViewController, groupPostsViewController]
         
