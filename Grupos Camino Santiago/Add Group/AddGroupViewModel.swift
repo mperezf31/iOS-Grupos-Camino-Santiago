@@ -13,9 +13,9 @@ class AddGroupViewModel : AddGroupRepositoryDelegate {
     weak var delegate: AddGroupViewModelDelegate?
     weak var routingDelegate: AddGroupViewModelRoutingDelegate?
     
-    private let groupsRepository: GroupsRepository
+    private let groupsRepository: GroupsStorage
     
-    init(groupsRepository: GroupsRepository) {
+    init(groupsRepository: GroupsStorage) {
         self.groupsRepository = groupsRepository
         self.groupsRepository.delegateAddGroup = self
     }
@@ -24,7 +24,7 @@ class AddGroupViewModel : AddGroupRepositoryDelegate {
         self.groupsRepository.addGroup(groupToAdd: groupToAdd)
     }
     
-    func addGroupSuccess(_: GroupsRepository, groupAdded: Group) {
+    func addGroupSuccess(_: GroupsStorage, groupAdded: Group) {
         self.routingDelegate?.dimissAddGroupPage(self)
     }
     
@@ -32,7 +32,7 @@ class AddGroupViewModel : AddGroupRepositoryDelegate {
         self.routingDelegate?.dimissAddGroupPage(self)
     }
     
-    func error(_: GroupsRepository, errorMsg: String) {
+    func error(_: GroupsStorage, errorMsg: String) {
         self.delegate?.error(self,errorMsg: errorMsg)
     }
     

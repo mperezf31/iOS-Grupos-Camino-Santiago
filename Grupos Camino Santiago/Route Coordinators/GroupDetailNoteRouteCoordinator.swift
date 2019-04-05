@@ -23,9 +23,9 @@ class GroupDetailRouteCoordinator
     
     private let navigationController: UITabBarController
     
-    private let groupsRepository: GroupsRepository
+    private let groupsRepository: GroupsStorage
     
-    init(groupoId: Int, groupsRepository: GroupsRepository)
+    init(groupoId: Int, groupsRepository: GroupsStorage)
     {
         self.groupsRepository = groupsRepository
    

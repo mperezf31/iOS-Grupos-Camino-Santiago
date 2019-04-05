@@ -20,7 +20,7 @@ class GroupPostsViewController: UIViewController , GroupPostsViewModelViewModelD
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        self.init(viewModel: GroupPostsViewModel(groupId: 0, groupsRepository: GroupsRepository()))
+        self.init(viewModel: GroupPostsViewModel(groupId: 0, groupsRepository: GroupsStorage(baseUrl: "")))
     }
     
     override func viewDidLoad() {

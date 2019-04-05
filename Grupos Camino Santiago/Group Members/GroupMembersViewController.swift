@@ -29,7 +29,7 @@ class GroupMembersViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        self.init(viewModel: GroupMembersViewModel(groupId: 0, groupsRepository: GroupsRepository()))
+        self.init(viewModel: GroupMembersViewModel(groupId: 0, groupsRepository:GroupsStorage(baseUrl: "")))
     }
     
     override func viewDidLoad() {

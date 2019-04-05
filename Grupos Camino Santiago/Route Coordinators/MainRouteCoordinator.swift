@@ -23,9 +23,9 @@ class MainRouteCoordinator: GroupsListViewModelRoutingDelegate, AddGroupViewMode
     private let navigationController: UINavigationController
     private var groupDetailRouteCoordinator: GroupDetailRouteCoordinator?
 
-    private let groupsRepository: GroupsRepository
+    private let groupsRepository: GroupsStorage
     
-    init(groupsRepository: GroupsRepository)
+    init(groupsRepository: GroupsStorage)
     {
         self.groupsRepository = groupsRepository
         let rootViewModel = GroupListViewModel(groupsRepository: groupsRepository)

@@ -8,9 +8,9 @@
 
 import Alamofire
 
-class GroupsRepository
+class GroupsStorage
 {
-    private let BASE_URL = "http://ec2-35-156-79-168.eu-central-1.compute.amazonaws.com/"
+    let BASE_URL = "http://ec2-35-156-79-168.eu-central-1.compute.amazonaws.com/"
     
     weak var delegateGroupList: GroupsRepositoryDelegate?
     weak var delegateAddGroup: AddGroupRepositoryDelegate?
@@ -22,15 +22,26 @@ class GroupsRepository
     private(set) var group: Group?
     
     let userId = 1
-
+    
+    
+    let networkStorage :NetworkStorage
+    
+    init(baseUrl: String) {
+        self.networkStorage = NetworkStorage(baseUrl: baseUrl)
+    }
+    
     func getGroups() {
         
-        AF.request(BASE_URL + "groups", method: .get,headers: getHeaders()).responseDecodable{ (response: DataResponse<UserGroups>) in
-            if let userGroups = response.value {
-                self.userGroups = userGroups
-                self.delegateGroupList?.groupsRetrieved(self, groups: userGroups)
-            }else{
-                self.delegateGroupList?.error(self, errorMsg: "Se ha producido un error al intentar recuperar los grupos")
+        self.networkStorage.getGroups(userId: userId) { (response) in
+            
+            switch response {
+                
+            case let .success(groups):
+                self.delegateGroupList?.groupsRetrieved(self, groups: groups)
+                
+            case let .error(error):
+                self.delegateGroupList?.error(self, errorMsg: error as! String)
+                
             }
         }
         
@@ -129,7 +140,7 @@ class GroupsRepository
                 }
             }
         }
-      
+        
     }
     
     func getGroupPosts(groupId: Int){
@@ -165,37 +176,49 @@ class GroupsRepository
 
 protocol GroupsRepositoryDelegate: RepositoryDelegateBase
 {
-    func groupsRetrieved(_: GroupsRepository, groups: UserGroups)
-
-    func error(_: GroupsRepository, errorMsg: String)
+    func groupsRetrieved(_: GroupsStorage, groups: UserGroups)
+    
+    func error(_: GroupsStorage, errorMsg: String)
 }
 
 protocol AddGroupRepositoryDelegate: RepositoryDelegateBase
 {
-    func addGroupSuccess(_: GroupsRepository, groupAdded: Group)
+    func addGroupSuccess(_: GroupsStorage, groupAdded: Group)
     
-    func error(_: GroupsRepository, errorMsg: String)
+    func error(_: GroupsStorage, errorMsg: String)
 }
 
 protocol GroupDetailRepositoryDelegate: RepositoryDelegateBase
 {
     
-    func groupRetrieved(_: GroupsRepository, group: Group)
+    func groupRetrieved(_: GroupsStorage, group: Group)
     
 }
 
 protocol GroupPostsRepositoryDelegate: RepositoryDelegateBase
 {
     
-    func groupPostsRetrieved(_: GroupsRepository, posts:[Post])
+    func groupPostsRetrieved(_: GroupsStorage, posts:[Post])
 }
 
 protocol GroupMembersRepositoryDelegate: RepositoryDelegateBase
 {
-    func groupMemberRetrieved(_: GroupsRepository, idCurrentUser: Int, founder: User, members: [User])
+    func groupMemberRetrieved(_: GroupsStorage, idCurrentUser: Int, founder: User, members: [User])
 }
 
 protocol RepositoryDelegateBase: class
 {
-    func error(_: GroupsRepository, errorMsg: String)
+    func error(_: GroupsStorage, errorMsg: String)
+}
+
+
+enum Result<T> {
+    case success(T)
+    case error(Error)
+}
+
+enum StorageError: Error
+{
+    case invalidData(String)
+    case networkError(String)
 }

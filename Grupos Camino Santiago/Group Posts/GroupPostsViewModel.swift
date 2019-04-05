@@ -11,10 +11,10 @@ class GroupPostsViewModel : GroupPostsRepositoryDelegate {
     weak var delegate: GroupPostsViewModelViewModelDelegate?
     weak var routingDelegate: GroupPostsViewModelViewModelRoutingDelegate?
     
-    private let groupsRepository: GroupsRepository
+    private let groupsRepository: GroupsStorage
     private let groupId: Int
     
-    init(groupId: Int, groupsRepository: GroupsRepository) {
+    init(groupId: Int, groupsRepository: GroupsStorage) {
         self.groupId = groupId
         self.groupsRepository = groupsRepository
         self.groupsRepository.groupPostsDelegate = self
@@ -24,11 +24,11 @@ class GroupPostsViewModel : GroupPostsRepositoryDelegate {
         self.groupsRepository.getGroupPosts(groupId: self.groupId)
     }
     
-    func groupPostsRetrieved(_: GroupsRepository, posts: [Post]) {
+    func groupPostsRetrieved(_: GroupsStorage, posts: [Post]) {
         self.delegate?.grouPostsRetrieved(self, posts: posts)
     }
     
-    func error(_: GroupsRepository, errorMsg: String) {
+    func error(_: GroupsStorage, errorMsg: String) {
         self.delegate?.error(self,errorMsg: errorMsg)
     }
     

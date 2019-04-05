@@ -17,9 +17,9 @@ class GroupListViewModel: GroupsRepositoryDelegate {
     weak var delegate: GroupsListViewModelDelegate?
     weak var routingDelegate: GroupsListViewModelRoutingDelegate?
 
-    private let groupsRepository: GroupsRepository
+    private let groupsRepository: GroupsStorage
     
-    init(groupsRepository: GroupsRepository)
+    init(groupsRepository: GroupsStorage)
     {
         self.groupsRepository = groupsRepository
         self.groupsRepository.delegateGroupList = self
@@ -32,7 +32,7 @@ class GroupListViewModel: GroupsRepositoryDelegate {
     }
     
     
-    func groupsRetrieved(_: GroupsRepository, groups: UserGroups) {
+    func groupsRetrieved(_: GroupsStorage, groups: UserGroups) {
         groupsUserViewModels = groups.groupsCreated.map({ (group: Group) -> GroupViewModel in
             return GroupViewModel(group:group)
         }).reversed()
@@ -48,7 +48,7 @@ class GroupListViewModel: GroupsRepositoryDelegate {
         self.delegate?.groupsListViewModelDidUpdate(self)
     }
     
-    func groupRetrieved(_: GroupsRepository, group: Group) {
+    func groupRetrieved(_: GroupsStorage, group: Group) {
         
     }
     
@@ -69,7 +69,7 @@ class GroupListViewModel: GroupsRepositoryDelegate {
 
     }
     
-    func error(_: GroupsRepository, errorMsg: String) {
+    func error(_: GroupsStorage, errorMsg: String) {
         self.delegate?.error(self,errorMsg: errorMsg)
     }
     

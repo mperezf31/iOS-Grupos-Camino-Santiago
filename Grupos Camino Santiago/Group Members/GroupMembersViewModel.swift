@@ -12,12 +12,12 @@ class GroupMembersViewModel : GroupMembersRepositoryDelegate {
     weak var routingDelegate: GroupMembersViewModelViewModelRoutingDelegate?
     
     private(set) var membersViewModels: [MemberViewModel] = []
-    private let groupsRepository: GroupsRepository
+    private let groupsRepository: GroupsStorage
     private let groupId: Int
     public var isFounder : Bool = false
     public var isMember : Bool = false
 
-    init(groupId: Int, groupsRepository: GroupsRepository) {
+    init(groupId: Int, groupsRepository: GroupsStorage) {
         self.groupId = groupId
         self.groupsRepository = groupsRepository
         self.groupsRepository.groupMembersDelegate = self
@@ -31,7 +31,7 @@ class GroupMembersViewModel : GroupMembersRepositoryDelegate {
         self.groupsRepository.joinGroup(groupId: self.groupId , join: !self.isMember)
     }
     
-    func groupMemberRetrieved(_: GroupsRepository, idCurrentUser: Int, founder: User, members: [User]) {
+    func groupMemberRetrieved(_: GroupsStorage, idCurrentUser: Int, founder: User, members: [User]) {
         if idCurrentUser == founder.id {
             isFounder = true
         }else{
@@ -51,7 +51,7 @@ class GroupMembersViewModel : GroupMembersRepositoryDelegate {
         self.delegate?.groupMembersRetrieved(self, members: members)
     }
     
-    func error(_: GroupsRepository, errorMsg: String) {
+    func error(_: GroupsStorage, errorMsg: String) {
         self.delegate?.error(self,errorMsg: errorMsg)
     }
     
