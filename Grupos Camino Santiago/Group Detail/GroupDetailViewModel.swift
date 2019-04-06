@@ -11,16 +11,16 @@ class GroupDetailViewModel {
     weak var delegate: GroupDetailViewModelDelegate?
     weak var routingDelegate: GroupDetailViewModelRoutingDelegate?
     
-    private let groupsRepository: GroupsStorage
+    private let groupsStorage: GroupsStorage
     private let groupId: Int
 
-    init(groupId: Int, groupsRepository: GroupsStorage) {
+    init(groupId: Int, groupsStorage: GroupsStorage) {
         self.groupId = groupId
-        self.groupsRepository = groupsRepository
+        self.groupsStorage = groupsStorage
     }
     
     func getGroupDetail() {
-        self.groupsRepository.getGroup(groupId: self.groupId){ (response) in
+        self.groupsStorage.getGroup(groupId: self.groupId){ (response) in
             switch response {
                 
             case let .success(group):

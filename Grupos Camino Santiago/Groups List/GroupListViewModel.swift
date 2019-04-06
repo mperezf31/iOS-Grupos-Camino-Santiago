@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GroupListViewModel: GroupsRepositoryDelegate {
+class GroupListViewModel: GroupsStorageDelegate {
 
     private(set) var groupsUserViewModels: [GroupViewModel] = []
     private(set) var groupsMemberViewModels: [GroupViewModel] = []
@@ -17,18 +17,18 @@ class GroupListViewModel: GroupsRepositoryDelegate {
     weak var delegate: GroupsListViewModelDelegate?
     weak var routingDelegate: GroupsListViewModelRoutingDelegate?
 
-    private let groupsRepository: GroupsStorage
+    private let groupsStorage: GroupsStorage
     
-    init(groupsRepository: GroupsStorage)
+    init(groupsStorage: GroupsStorage)
     {
-        self.groupsRepository = groupsRepository
-        self.groupsRepository.delegate = self
+        self.groupsStorage = groupsStorage
+        self.groupsStorage.delegate = self
     }
     
     
     func loadGroups()
     {
-        self.groupsRepository.getGroups()
+        self.groupsStorage.getGroups()
     }
     
     

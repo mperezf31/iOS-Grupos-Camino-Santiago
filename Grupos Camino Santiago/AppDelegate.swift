@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        mainRouteCoordinator = MainRouteCoordinator(groupsRepository: GroupsStorage(baseUrl: "http://ec2-35-156-79-168.eu-central-1.compute.amazonaws.com/"))
+        mainRouteCoordinator = MainRouteCoordinator(groupsStorage: GroupsStorage(baseUrl: "http://ec2-35-156-79-168.eu-central-1.compute.amazonaws.com/"))
     
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = mainRouteCoordinator?.rootViewController

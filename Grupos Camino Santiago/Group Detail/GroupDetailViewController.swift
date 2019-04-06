@@ -31,7 +31,7 @@ class GroupDetailViewController: UIViewController , GroupDetailViewModelDelegate
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        self.init(viewModel: GroupDetailViewModel(groupId: 0, groupsRepository: GroupsStorage(baseUrl: "")))
+        self.init(viewModel: GroupDetailViewModel(groupId: 0, groupsStorage: GroupsStorage(baseUrl: "")))
     }
     
     override func viewDidLoad() {

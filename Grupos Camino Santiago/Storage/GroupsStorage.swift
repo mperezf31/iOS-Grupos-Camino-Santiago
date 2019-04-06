@@ -1,5 +1,5 @@
 //
-//  GroupsRepository.swift
+//  GroupsStorage.swift
 //  Grupos Camino Santiago
 //
 //  Created by Miguel Perez on 23/03/2019.
@@ -12,7 +12,7 @@ class GroupsStorage
 {
     let BASE_URL = "http://ec2-35-156-79-168.eu-central-1.compute.amazonaws.com/"
     
-    weak var delegate: GroupsRepositoryDelegate?
+    weak var delegate: GroupsStorageDelegate?
     
     var authUser : User?
     
@@ -173,7 +173,7 @@ class GroupsStorage
     
 }
 
-protocol GroupsRepositoryDelegate: class
+protocol GroupsStorageDelegate: class
 {
     func groupsUpdate(_: GroupsStorage, groups: UserGroups)
     

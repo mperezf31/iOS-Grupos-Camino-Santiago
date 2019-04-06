@@ -23,12 +23,12 @@ class MainRouteCoordinator: GroupsListViewModelRoutingDelegate, AddGroupViewMode
     private let navigationController: UINavigationController
     private var groupDetailRouteCoordinator: GroupDetailRouteCoordinator?
 
-    private let groupsRepository: GroupsStorage
+    private let groupsStorage: GroupsStorage
     
-    init(groupsRepository: GroupsStorage)
+    init(groupsStorage: GroupsStorage)
     {
-        self.groupsRepository = groupsRepository
-        let rootViewModel = GroupListViewModel(groupsRepository: groupsRepository)
+        self.groupsStorage = groupsStorage
+        let rootViewModel = GroupListViewModel(groupsStorage: groupsStorage)
         let rootVC = GroupListViewController(viewModel: rootViewModel)
         navigationController = UINavigationController(rootViewController: rootVC)
         rootViewModel.routingDelegate = self
@@ -36,7 +36,7 @@ class MainRouteCoordinator: GroupsListViewModelRoutingDelegate, AddGroupViewMode
     
     
     func groupListViewModeWantsToAddGroup(_ viewModel: GroupListViewModel) {
-        let addGroupViewModel = AddGroupViewModel(groupsRepository: groupsRepository)
+        let addGroupViewModel = AddGroupViewModel(groupsStorage: groupsStorage)
         addGroupViewModel.routingDelegate = self
         let addGroupViewController = AddGroupViewController(viewModel: addGroupViewModel)
         rootViewController.present(UINavigationController(rootViewController: addGroupViewController), animated: true, completion: nil)
@@ -49,7 +49,7 @@ class MainRouteCoordinator: GroupsListViewModelRoutingDelegate, AddGroupViewMode
     
     
     func showGroupDedtail(_ viewModel: GroupListViewModel, routeId : Int) {
-        let groupDetailRouteCoordinator = GroupDetailRouteCoordinator(groupoId: routeId, groupsRepository: groupsRepository)
+        let groupDetailRouteCoordinator = GroupDetailRouteCoordinator(groupoId: routeId, groupsStorage: groupsStorage)
         groupDetailRouteCoordinator.delegate = self
         navigationController.pushViewController(groupDetailRouteCoordinator.rootViewController, animated: true)
         self.groupDetailRouteCoordinator = groupDetailRouteCoordinator

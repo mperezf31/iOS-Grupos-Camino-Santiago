@@ -12,20 +12,20 @@ class GroupMembersViewModel {
     weak var routingDelegate: GroupMembersViewModelViewModelRoutingDelegate?
     
     private(set) var membersViewModels: [MemberViewModel] = []
-    private let groupsRepository: GroupsStorage
+    private let groupsStorage: GroupsStorage
     private let groupId: Int
     public var isFounder : Bool = false
     public var isMember : Bool = false
     public var currentuserId : Int
 
-    init(groupId: Int, groupsRepository: GroupsStorage) {
+    init(groupId: Int, groupsStorage: GroupsStorage) {
         self.groupId = groupId
-        self.groupsRepository = groupsRepository
-        self.currentuserId = groupsRepository.getAuthUserId() ?? 0
+        self.groupsStorage = groupsStorage
+        self.currentuserId = groupsStorage.getAuthUserId() ?? 0
     }
     
     func getGroupMembers() {
-        self.groupsRepository.getGroup(groupId: self.groupId){ (response) in
+        self.groupsStorage.getGroup(groupId: self.groupId){ (response) in
             switch response {
                 
             case let .success(group):
@@ -59,7 +59,7 @@ class GroupMembersViewModel {
 
     
     func joinGroup() {
-        self.groupsRepository.joinGroup(groupId: self.groupId , join: !self.isMember){ (response) in
+        self.groupsStorage.joinGroup(groupId: self.groupId , join: !self.isMember){ (response) in
             switch response {
                 
             case let .success(group):

@@ -23,25 +23,25 @@ class GroupDetailRouteCoordinator
     
     private let navigationController: UITabBarController
     
-    private let groupsRepository: GroupsStorage
+    private let groupsStorage: GroupsStorage
     
-    init(groupoId: Int, groupsRepository: GroupsStorage)
+    init(groupoId: Int, groupsStorage: GroupsStorage)
     {
-        self.groupsRepository = groupsRepository
+        self.groupsStorage = groupsStorage
    
         //Item detail
-        let groupDetailViewModel = GroupDetailViewModel(groupId: groupoId, groupsRepository: groupsRepository)
+        let groupDetailViewModel = GroupDetailViewModel(groupId: groupoId, groupsStorage: groupsStorage)
         let groupDetailViewController = GroupDetailViewController(viewModel: groupDetailViewModel)
         groupDetailViewController.tabBarItem =  UITabBarItem(title: "Detalle", image: UIImage(named: "TabDetail"), tag: 1)
 
         
         //Item members
-        let groupMembersViewModel = GroupMembersViewModel(groupId: groupoId, groupsRepository: groupsRepository)
+        let groupMembersViewModel = GroupMembersViewModel(groupId: groupoId, groupsStorage: groupsStorage)
         let groupMembersViewController = GroupMembersViewController(viewModel: groupMembersViewModel)
         groupMembersViewController.tabBarItem =  UITabBarItem(title: "Miembros", image: UIImage(named: "TabMembers"), tag: 1)
 
         //Group posts
-        let groupPostsViewModel = GroupPostsViewModel(groupId: groupoId, groupsRepository: groupsRepository)
+        let groupPostsViewModel = GroupPostsViewModel(groupId: groupoId, groupsStorage: groupsStorage)
         let groupPostsViewController = GroupPostsViewController(viewModel: groupPostsViewModel)
         groupPostsViewController.tabBarItem =  UITabBarItem(title: "Chat", image: UIImage(named: "TabPosts"), tag: 1)
         

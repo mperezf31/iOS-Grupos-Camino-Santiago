@@ -26,7 +26,7 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        self.init(viewModel: GroupListViewModel(groupsRepository: GroupsStorage(baseUrl: "")))
+        self.init(viewModel: GroupListViewModel(groupsStorage: GroupsStorage(baseUrl: "")))
     }
     
     override func viewDidLoad() {

@@ -13,14 +13,14 @@ class AddGroupViewModel {
     weak var delegate: AddGroupViewModelDelegate?
     weak var routingDelegate: AddGroupViewModelRoutingDelegate?
     
-    private let groupsRepository: GroupsStorage
+    private let groupsStorage: GroupsStorage
     
-    init(groupsRepository: GroupsStorage) {
-        self.groupsRepository = groupsRepository
+    init(groupsStorage: GroupsStorage) {
+        self.groupsStorage = groupsStorage
     }
     
     func addGroup(groupToAdd: Group) {
-        self.groupsRepository.addGroup(groupToAdd: groupToAdd){ (response) in
+        self.groupsStorage.addGroup(groupToAdd: groupToAdd){ (response) in
             switch response {
                 
             case .success(_):
