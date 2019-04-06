@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1010"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B4069F366FD9C4A84EFD3B746E94428D"
+               BlueprintIdentifier = "94F9A80D8102BA821C42397A2DEB3329"
                BuildableName = "Pods_Grupos_Camino_Santiago.framework"
                BlueprintName = "Pods-Grupos Camino Santiago"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B4069F366FD9C4A84EFD3B746E94428D"
+            BlueprintIdentifier = "94F9A80D8102BA821C42397A2DEB3329"
             BuildableName = "Pods_Grupos_Camino_Santiago.framework"
             BlueprintName = "Pods-Grupos Camino Santiago"
             ReferencedContainer = "container:Pods.xcodeproj">

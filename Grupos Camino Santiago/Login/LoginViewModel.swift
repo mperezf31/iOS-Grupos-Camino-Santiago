@@ -27,6 +27,10 @@ class LoginViewModel {
 
     }
     
+    func register() {
+        self.routingDelegate?.showRegisgter(self)
+    }
+    
     
     func error(_: GroupsStorage, error: StorageError) {
         self.delegate?.error(self, errorMsg: error.msgError)

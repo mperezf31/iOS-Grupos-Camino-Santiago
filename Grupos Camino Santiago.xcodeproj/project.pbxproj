@@ -45,6 +45,8 @@
 		5FA4FC9F225919E300025ECD /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC9E225919E300025ECD /* LoginViewModel.swift */; };
 		5FA4FCA222591B7D00025ECD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FCA022591B7D00025ECD /* LoginViewController.swift */; };
 		5FA4FCA322591B7D00025ECD /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA4FCA122591B7D00025ECD /* LoginViewController.xib */; };
+		5FA4FCAE22594ADD00025ECD /* LoginHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FCAD22594ADD00025ECD /* LoginHeader.swift */; };
+		5FA4FCB022594AF200025ECD /* LoginHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA4FCAF22594AF200025ECD /* LoginHeader.xib */; };
 		5FC1624022498613003785B0 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC1623E22498613003785B0 /* GroupTableViewCell.swift */; };
 		5FC1624122498613003785B0 /* GroupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FC1623F22498613003785B0 /* GroupTableViewCell.xib */; };
 		5FC162472249911A003785B0 /* GroupListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FC162452249911A003785B0 /* GroupListViewController.xib */; };
@@ -91,6 +93,8 @@
 		5FA4FC9E225919E300025ECD /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		5FA4FCA022591B7D00025ECD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5FA4FCA122591B7D00025ECD /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		5FA4FCAD22594ADD00025ECD /* LoginHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHeader.swift; sourceTree = "<group>"; };
+		5FA4FCAF22594AF200025ECD /* LoginHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginHeader.xib; sourceTree = "<group>"; };
 		5FC1623E22498613003785B0 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
 		5FC1623F22498613003785B0 /* GroupTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupTableViewCell.xib; sourceTree = "<group>"; };
 		5FC162452249911A003785B0 /* GroupListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupListViewController.xib; sourceTree = "<group>"; };
@@ -253,6 +257,8 @@
 				5FA4FC9E225919E300025ECD /* LoginViewModel.swift */,
 				5FA4FCA022591B7D00025ECD /* LoginViewController.swift */,
 				5FA4FCA122591B7D00025ECD /* LoginViewController.xib */,
+				5FA4FCAD22594ADD00025ECD /* LoginHeader.swift */,
+				5FA4FCAF22594AF200025ECD /* LoginHeader.xib */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -352,6 +358,7 @@
 				5FC1624122498613003785B0 /* GroupTableViewCell.xib in Resources */,
 				5F62495A2246E15500394FDE /* Main.storyboard in Resources */,
 				5FA4FC86224FF52300025ECD /* GroupMembersViewController.xib in Resources */,
+				5FA4FCB022594AF200025ECD /* LoginHeader.xib in Resources */,
 				5FA4FC7F224FE44000025ECD /* GroupDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,10 +407,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Grupos Camino Santiago/Pods-Grupos Camino Santiago-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -445,6 +454,7 @@
 				5FA4FC9522501ED000025ECD /* MemberViewModel.swift in Sources */,
 				5FA4FC8B224FF9BF00025ECD /* GroupPostsViewModel.swift in Sources */,
 				5F6249802246EAF200394FDE /* GroupViewModel.swift in Sources */,
+				5FA4FCAE22594ADD00025ECD /* LoginHeader.swift in Sources */,
 				5FA4FC81224FE49500025ECD /* GroupDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,5 +8,6 @@ target 'Grupos Camino Santiago' do
   # Pods for Grupos Camino Santiago
 
   pod 'Alamofire', '~> 5.0.0-beta.3'
+  pod 'Eureka'
 
 end
