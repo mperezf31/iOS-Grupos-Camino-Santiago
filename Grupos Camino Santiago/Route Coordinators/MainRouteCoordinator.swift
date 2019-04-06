@@ -8,10 +8,9 @@
 
 import UIKit
 
-class MainRouteCoordinator: GroupsListViewModelRoutingDelegate, AddGroupViewModelRoutingDelegate , GroupDetailRouteCoordinatorDelegate
+class MainRouteCoordinator: GroupsListViewModelRoutingDelegate, AddGroupViewModelRoutingDelegate , GroupDetailRouteCoordinatorDelegate , LoginRouteCoordinatorDelegate
 {
     
-  
     var rootViewController: UIViewController
     {
         get
@@ -20,7 +19,9 @@ class MainRouteCoordinator: GroupsListViewModelRoutingDelegate, AddGroupViewMode
         }
     }
     
-    private let navigationController: UINavigationController
+    private var navigationController: UINavigationController
+    
+    private var loginRouteCoordinator: LoginRouteCoordinator?
     private var groupDetailRouteCoordinator: GroupDetailRouteCoordinator?
 
     private let groupsStorage: GroupsStorage
@@ -28,10 +29,19 @@ class MainRouteCoordinator: GroupsListViewModelRoutingDelegate, AddGroupViewMode
     init(groupsStorage: GroupsStorage)
     {
         self.groupsStorage = groupsStorage
-        let rootViewModel = GroupListViewModel(groupsStorage: groupsStorage)
-        let rootVC = GroupListViewController(viewModel: rootViewModel)
-        navigationController = UINavigationController(rootViewController: rootVC)
-        rootViewModel.routingDelegate = self
+        
+        if let _ = groupsStorage.getAuthUserId(){
+            let rootViewModel = GroupListViewModel(groupsStorage: groupsStorage)
+            self.navigationController = UINavigationController(rootViewController: GroupListViewController(viewModel: rootViewModel))
+            rootViewModel.routingDelegate = self
+            
+        }else{
+            let loginRouteCoordinator = LoginRouteCoordinator(groupsStorage: groupsStorage)
+            self.navigationController = UINavigationController(rootViewController: loginRouteCoordinator.rootViewController)
+            loginRouteCoordinator.delegate = self
+            self.loginRouteCoordinator = loginRouteCoordinator
+        }
+
     }
     
     
@@ -53,12 +63,18 @@ class MainRouteCoordinator: GroupsListViewModelRoutingDelegate, AddGroupViewMode
         groupDetailRouteCoordinator.delegate = self
         navigationController.pushViewController(groupDetailRouteCoordinator.rootViewController, animated: true)
         self.groupDetailRouteCoordinator = groupDetailRouteCoordinator
-
     }
     
     func groupDetailRouteCoordinatorDelegateFinish(_ groupDetailRouteCoordinator: GroupDetailRouteCoordinator) {
         rootViewController.dismiss(animated: true, completion: nil)
         self.groupDetailRouteCoordinator = nil
     }
+    
+    func loginRouteCoordinatorDelegateFinish(_ loginRouteCoordinator: LoginRouteCoordinator) {
+        let rootViewModel = GroupListViewModel(groupsStorage: groupsStorage)
+        self.navigationController = UINavigationController(rootViewController: GroupListViewController(viewModel: rootViewModel))
+        rootViewModel.routingDelegate = self
+    }
+    
     
 }

@@ -41,6 +41,10 @@
 		5FA4FC9522501ED000025ECD /* MemberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC9422501ED000025ECD /* MemberViewModel.swift */; };
 		5FA4FC972257B44F00025ECD /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC962257B44F00025ECD /* LocalStorage.swift */; };
 		5FA4FC992257B46A00025ECD /* NetworkStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC982257B46A00025ECD /* NetworkStorage.swift */; };
+		5FA4FC9D225918E800025ECD /* LoginRouteCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC9C225918E800025ECD /* LoginRouteCoordinator.swift */; };
+		5FA4FC9F225919E300025ECD /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC9E225919E300025ECD /* LoginViewModel.swift */; };
+		5FA4FCA222591B7D00025ECD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FCA022591B7D00025ECD /* LoginViewController.swift */; };
+		5FA4FCA322591B7D00025ECD /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA4FCA122591B7D00025ECD /* LoginViewController.xib */; };
 		5FC1624022498613003785B0 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC1623E22498613003785B0 /* GroupTableViewCell.swift */; };
 		5FC1624122498613003785B0 /* GroupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FC1623F22498613003785B0 /* GroupTableViewCell.xib */; };
 		5FC162472249911A003785B0 /* GroupListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FC162452249911A003785B0 /* GroupListViewController.xib */; };
@@ -83,6 +87,10 @@
 		5FA4FC9422501ED000025ECD /* MemberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberViewModel.swift; sourceTree = "<group>"; };
 		5FA4FC962257B44F00025ECD /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		5FA4FC982257B46A00025ECD /* NetworkStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStorage.swift; sourceTree = "<group>"; };
+		5FA4FC9C225918E800025ECD /* LoginRouteCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouteCoordinator.swift; sourceTree = "<group>"; };
+		5FA4FC9E225919E300025ECD /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		5FA4FCA022591B7D00025ECD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5FA4FCA122591B7D00025ECD /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		5FC1623E22498613003785B0 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
 		5FC1623F22498613003785B0 /* GroupTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupTableViewCell.xib; sourceTree = "<group>"; };
 		5FC162452249911A003785B0 /* GroupListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupListViewController.xib; sourceTree = "<group>"; };
@@ -124,11 +132,13 @@
 			isa = PBXGroup;
 			children = (
 				5F62499722478CEC00394FDE /* Route Coordinators */,
+				5FA4FC9A2259185100025ECD /* Login */,
+				5FA4FC9B2259186900025ECD /* Register */,
+				5F62497A2246E51300394FDE /* Groups List */,
 				5FA4FC89224FF93D00025ECD /* Group Posts */,
 				5FA4FC82224FF4D700025ECD /* Group Members */,
 				5FA4FC7B224FE41500025ECD /* Group Detail */,
 				5F6249A62247F51C00394FDE /* Extensions */,
-				5F62497A2246E51300394FDE /* Groups List */,
 				5F62499B2247989C00394FDE /* Add Group */,
 				5F62498E2246FE8A00394FDE /* Model */,
 				5F6249712246E42A00394FDE /* Storage */,
@@ -178,6 +188,7 @@
 		5F62499722478CEC00394FDE /* Route Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				5FA4FC9C225918E800025ECD /* LoginRouteCoordinator.swift */,
 				5F62499822478D0300394FDE /* MainRouteCoordinator.swift */,
 				5FA4FC79224FDD8A00025ECD /* GroupDetailNoteRouteCoordinator.swift */,
 			);
@@ -234,6 +245,23 @@
 				5FA4FC8A224FF9BF00025ECD /* GroupPostsViewModel.swift */,
 			);
 			path = "Group Posts";
+			sourceTree = "<group>";
+		};
+		5FA4FC9A2259185100025ECD /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				5FA4FC9E225919E300025ECD /* LoginViewModel.swift */,
+				5FA4FCA022591B7D00025ECD /* LoginViewController.swift */,
+				5FA4FCA122591B7D00025ECD /* LoginViewController.xib */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		5FA4FC9B2259186900025ECD /* Register */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Register;
 			sourceTree = "<group>";
 		};
 		A0F04A0AF1B47E311958ABE7 /* Pods */ = {
@@ -316,6 +344,7 @@
 			files = (
 				5FC162472249911A003785B0 /* GroupListViewController.xib in Resources */,
 				5F62499F2247991D00394FDE /* AddGroupViewController.xib in Resources */,
+				5FA4FCA322591B7D00025ECD /* LoginViewController.xib in Resources */,
 				5FA4FC8F224FFA6D00025ECD /* GroupPostsViewController.xib in Resources */,
 				5F62495F2246E15600394FDE /* LaunchScreen.storyboard in Resources */,
 				5FA4FC9322501E4400025ECD /* GroupMemberUiCellCollectionViewCell.xib in Resources */,
@@ -393,11 +422,13 @@
 				5FA4FC88224FF55300025ECD /* GroupMembersViewModel.swift in Sources */,
 				5FA4FC7E224FE44000025ECD /* GroupDetailViewController.swift in Sources */,
 				5FC1624022498613003785B0 /* GroupTableViewCell.swift in Sources */,
+				5FA4FCA222591B7D00025ECD /* LoginViewController.swift in Sources */,
 				5F6249822246ECBE00394FDE /* GroupListViewModel.swift in Sources */,
 				5F62499A2247984A00394FDE /* MainRouteCoordinator.swift in Sources */,
 				5FA4FC85224FF52300025ECD /* GroupMembersViewController.swift in Sources */,
 				5FA4FC992257B46A00025ECD /* NetworkStorage.swift in Sources */,
 				5F6249A822482DC000394FDE /* UITextField+DatePicker.swift in Sources */,
+				5FA4FC9D225918E800025ECD /* LoginRouteCoordinator.swift in Sources */,
 				5F6249A52247F44C00394FDE /* Codable+Dictionary.swift in Sources */,
 				5F62499E2247991D00394FDE /* AddGroupViewController.swift in Sources */,
 				5F6249942246FF8D00394FDE /* UserGroups.swift in Sources */,
@@ -407,6 +438,7 @@
 				5FA4FC9222501E4400025ECD /* GroupMemberUiCellCollectionViewCell.swift in Sources */,
 				5FA4FC972257B44F00025ECD /* LocalStorage.swift in Sources */,
 				5F6249A122479F3300394FDE /* AddGroupViewModel.swift in Sources */,
+				5FA4FC9F225919E300025ECD /* LoginViewModel.swift in Sources */,
 				5F6249932246FF8D00394FDE /* Post.swift in Sources */,
 				5F522AAE224A9CB8006D9CDB /* GroupListViewController.swift in Sources */,
 				5F6249962246FF8D00394FDE /* User.swift in Sources */,
