@@ -12,205 +12,173 @@ class GroupsStorage
 {
     let BASE_URL = "http://ec2-35-156-79-168.eu-central-1.compute.amazonaws.com/"
     
-    weak var delegateGroupList: GroupsRepositoryDelegate?
-    weak var delegateAddGroup: AddGroupRepositoryDelegate?
-    weak var groupDetailDelegate: GroupDetailRepositoryDelegate?
-    weak var groupPostsDelegate: GroupPostsRepositoryDelegate?
-    weak var groupMembersDelegate :GroupMembersRepositoryDelegate?
+    weak var delegate: GroupsRepositoryDelegate?
     
-    private(set) var userGroups: UserGroups?
-    private(set) var group: Group?
-    
-    let userId = 1
-    
+    var authUser : User?
     
     let networkStorage :NetworkStorage
+    let localStorage: LocalStorage
     
     init(baseUrl: String) {
         self.networkStorage = NetworkStorage(baseUrl: baseUrl)
+        self.localStorage = LocalStorage()
+    }
+    
+    func getAuthUser() ->User? {
+        if let user = self.authUser {
+            return user
+        }else{
+            self.authUser = self.localStorage.getAuthUser()
+            return self.authUser
+        }
+    }
+    
+    func getAuthUserId() ->Int? {
+        return getAuthUser()?.id
     }
     
     func getGroups() {
-        
-        self.networkStorage.getGroups(userId: userId) { (response) in
-            
-            switch response {
+        if let authUserId = getAuthUserId(){
+            self.networkStorage.getGroups(userId: authUserId) { (response) in
                 
-            case let .success(groups):
-                self.delegateGroupList?.groupsRetrieved(self, groups: groups)
-                
-            case let .error(error):
-                self.delegateGroupList?.error(self, errorMsg: error as! String)
-                
+                switch response {
+                    
+                case let .success(groups):
+                    self.delegate?.groupsUpdate(self, groups: groups)
+                    
+                case let .error(error):
+                    self.delegate?.error(self, error:error as! StorageError)
+                    
+                }
             }
+        }else{
+            self.delegate?.error(self, error: .unauthenticatedUser("Usuario no autenticado"))
         }
         
     }
     
-    func addGroup(groupToAdd: Group) {
-        
-        do{
-            let parameters = try groupToAdd.toDictionary()
-            
-            AF.request(BASE_URL + "group", method: .post, parameters : parameters, encoding: JSONEncoding.default , headers: getHeaders()).responseDecodable{ (response: DataResponse<Group>) in
+    func addGroup(groupToAdd: Group, completion: @escaping ((Result<Group>) -> ())) {
+        if let authUserId = getAuthUserId(){
+            self.networkStorage.addGroup(userId: authUserId, groupToAdd: groupToAdd){ (response) in
                 
-                print(response.response?.statusCode ?? "status code not found")
-                print(response.error ?? "error not found")
-                print(response.value ?? "data not found")
-                
-                if let group = response.value {
-                    self.delegateAddGroup?.addGroupSuccess(self, groupAdded: group)
-                    self.userGroups?.groupsCreated.append(group)
-                    if let groups = self.userGroups {
-                        self.delegateGroupList?.groupsRetrieved(self, groups: groups)
+                //if success pdate the groups list
+                if case .success(let group) = response {
+                    self.localStorage.addUserGroup(groupToAdd: group)
+                    if let groups = self.localStorage.getUserGroups(){
+                        self.delegate?.groupsUpdate(self, groups: groups)
                     }
-                }else{
-                    self.delegateAddGroup?.error(self, errorMsg: "Se ha producido un error al intentar crear el grupo")
+                    
                 }
+                
+                completion(response)
             }
-        }
-        catch
-        {
-            self.delegateAddGroup?.error(self, errorMsg: "Los datos introducidos no son correctos")
+            
+        }else{
+            completion(.error(StorageError.unauthenticatedUser("Usuario no autenticado")))
         }
         
     }
     
     
-    private func getGroup(groupId: Int, completion: @escaping (Group)->(), error: @escaping (String)->()){
-        
-        AF.request(BASE_URL + "group/\(groupId)", method: .get, headers: getHeaders()).responseDecodable{ (response: DataResponse<Group>) in
-            if let group = response.value {
-                self.group = group
-                completion(group)
+    func getGroup(groupId: Int, completion: @escaping ((Result<Group>) -> ())){
+        if let authUserId = getAuthUserId(){
+            
+            if let group = self.localStorage.getGroupDetail(groupId: groupId){
+                completion(.success(group))
             }else{
-                error("Se ha producido un error al intentar obtener la información del grupo")
-            }
-        }
-    }
-    
-    
-    func getGroup(groupId: Int){
-        if(self.group?.id == groupId){
-            self.groupDetailDelegate?.groupRetrieved(self, group: self.group!)
-        }else{
-            getGroup(groupId: groupId, completion:{ group in
-                self.groupDetailDelegate?.groupRetrieved(self, group: group )
-            },error:{ msgError in
-                self.groupDetailDelegate?.error(self, errorMsg: msgError)
-            })
-        }
-    }
-    
-    func getGroupMembers(groupId: Int){
-        if(self.group?.id == groupId){
-            self.groupMembersDelegate?.groupMemberRetrieved(self,  idCurrentUser: self.userId, founder: group!.founder!, members: self.group!.members )
-        }else{
-            getGroup(groupId: groupId, completion:{ group in
-                self.groupMembersDelegate?.groupMemberRetrieved(self,  idCurrentUser: self.userId, founder: group.founder!, members: self.group!.members )
-            },error:{ msgError in
-                self.groupMembersDelegate?.error(self, errorMsg: msgError)
-            })
-        }
-    }
-    
-    func joinGroup(groupId: Int , join: Bool) {
-        
-        if(join){
-            AF.request(BASE_URL + "group/\(groupId)/pilgrim", method: .post, headers: getHeaders()).responseDecodable{ (response: DataResponse<Group>) in
-                if let group = response.value {
-                    self.group = group
-                    self.groupMembersDelegate?.groupMemberRetrieved(self, idCurrentUser: self.userId, founder: group.founder!, members: self.group!.members )
-                    //Update groups
-                    self.getGroups()
-                }else{
-                    self.groupMembersDelegate?.error(self, errorMsg: "Se ha producido al intentar unirse al grupo")
+                networkStorage.getGroup(userId: authUserId, groupId: groupId){(response) in
+                    
+                    if case .success(let group) = response {
+                        self.localStorage.addGroupDetail(group: group)
+                    }
+                    
+                    completion(response)
                 }
             }
             
         }else{
-            AF.request(BASE_URL + "group/\(groupId)/pilgrim", method: .delete, headers: getHeaders()).responseDecodable{ (response: DataResponse<Group>) in
-                if let group = response.value {
-                    self.group = group
-                    self.groupMembersDelegate?.groupMemberRetrieved(self, idCurrentUser: self.userId, founder: group.founder!, members: self.group!.members )
-                    //Update groups
-                    self.getGroups()
-                }else{
-                    self.groupMembersDelegate?.error(self, errorMsg: "Se ha producido al intentar unirse al grupo")
+            completion(.error(StorageError.unauthenticatedUser("Usuario no autenticado")))
+        }
+    }
+    
+    
+    func getGroupPosts(groupId: Int, completion: @escaping ((Result<[Post]>) -> ())){
+        if let group = self.localStorage.getGroupDetail(groupId: groupId){
+            completion(.success(group.posts))
+        }else{
+            getGroup( groupId: groupId){(response) in
+                
+                switch response {
+                    
+                case let .success(group):
+                    completion(.success(group.posts))
+                    
+                case let .error(error):
+                    completion(.error(error))
+                    
                 }
             }
         }
-        
     }
     
-    func getGroupPosts(groupId: Int){
-        if(self.group?.id == groupId){
-            self.groupPostsDelegate?.groupPostsRetrieved(self, posts: self.group?.posts ?? Array())
+    
+    func joinGroup(groupId: Int , join: Bool, completion: @escaping ((Result<Group>) -> ())) {
+        
+        if let authUserId = getAuthUserId(){
+            
+            if(join){
+                self.networkStorage.joinGroup(userId: authUserId, groupId: groupId) { (response) in
+                    
+                    switch response {
+                        
+                    case let .success(group):
+                        //Update groups
+                        self.getGroups()
+                        completion(.success(group))
+                        
+                    case let .error(error):
+                        completion(.error(error))
+                    }
+                    
+                }
+                
+            }else{
+                self.networkStorage.leaveGroup(userId: authUserId, groupId: groupId) { (response) in
+                    
+                    switch response {
+                        
+                    case let .success(group):
+                        //Update groups
+                        self.getGroups()
+                        completion(.success(group))
+                        
+                    case let .error(error):
+                        completion(.error(error))
+                    }
+                    
+                }
+            }
+            
         }else{
-            getGroup(groupId: groupId, completion:{ group in
-                self.groupPostsDelegate?.groupPostsRetrieved(self, posts: self.group?.posts ?? Array())
-            },error:{ msgError in
-                self.groupPostsDelegate?.error(self, errorMsg:msgError)
-            })
+            completion(.error(StorageError.unauthenticatedUser("Usuario no autenticado")))
         }
         
     }
     
-    func convertToDictionary(data: Data) -> [String: Any]? {
-        do {
-            return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-        } catch {
-            print(error.localizedDescription)
-        }
-        
-        return nil
-    }
-    
-    func getHeaders() -> HTTPHeaders {
+    func getHeaders(userId : Int) -> HTTPHeaders {
         var headers = HTTPHeaders()
-        headers["Authentication"] = "\(self.userId)"
+        headers["Authentication"] = "\(userId)"
         return headers
     }
     
 }
 
-protocol GroupsRepositoryDelegate: RepositoryDelegateBase
+protocol GroupsRepositoryDelegate: class
 {
-    func groupsRetrieved(_: GroupsStorage, groups: UserGroups)
+    func groupsUpdate(_: GroupsStorage, groups: UserGroups)
     
-    func error(_: GroupsStorage, errorMsg: String)
+    func error(_: GroupsStorage, error: StorageError)
 }
-
-protocol AddGroupRepositoryDelegate: RepositoryDelegateBase
-{
-    func addGroupSuccess(_: GroupsStorage, groupAdded: Group)
-    
-    func error(_: GroupsStorage, errorMsg: String)
-}
-
-protocol GroupDetailRepositoryDelegate: RepositoryDelegateBase
-{
-    
-    func groupRetrieved(_: GroupsStorage, group: Group)
-    
-}
-
-protocol GroupPostsRepositoryDelegate: RepositoryDelegateBase
-{
-    
-    func groupPostsRetrieved(_: GroupsStorage, posts:[Post])
-}
-
-protocol GroupMembersRepositoryDelegate: RepositoryDelegateBase
-{
-    func groupMemberRetrieved(_: GroupsStorage, idCurrentUser: Int, founder: User, members: [User])
-}
-
-protocol RepositoryDelegateBase: class
-{
-    func error(_: GroupsStorage, errorMsg: String)
-}
-
 
 enum Result<T> {
     case success(T)
@@ -221,4 +189,6 @@ enum StorageError: Error
 {
     case invalidData(String)
     case networkError(String)
+    case unauthenticatedUser(String)
+    
 }

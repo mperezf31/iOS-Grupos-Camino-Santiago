@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AddGroupViewModel : AddGroupRepositoryDelegate {
+class AddGroupViewModel {
     
     weak var delegate: AddGroupViewModelDelegate?
     weak var routingDelegate: AddGroupViewModelRoutingDelegate?
@@ -17,23 +17,24 @@ class AddGroupViewModel : AddGroupRepositoryDelegate {
     
     init(groupsRepository: GroupsStorage) {
         self.groupsRepository = groupsRepository
-        self.groupsRepository.delegateAddGroup = self
     }
     
     func addGroup(groupToAdd: Group) {
-        self.groupsRepository.addGroup(groupToAdd: groupToAdd)
+        self.groupsRepository.addGroup(groupToAdd: groupToAdd){ (response) in
+            switch response {
+                
+            case .success(_):
+                self.routingDelegate?.dimissAddGroupPage(self)
+
+            case let .error(error):
+                self.delegate?.error(self,errorMsg: error as! String)
+            }
+        }
     }
     
-    func addGroupSuccess(_: GroupsStorage, groupAdded: Group) {
-        self.routingDelegate?.dimissAddGroupPage(self)
-    }
     
     func dimissAddGroupPage() {
         self.routingDelegate?.dimissAddGroupPage(self)
-    }
-    
-    func error(_: GroupsStorage, errorMsg: String) {
-        self.delegate?.error(self,errorMsg: errorMsg)
     }
     
 }

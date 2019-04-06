@@ -22,7 +22,7 @@ class GroupListViewModel: GroupsRepositoryDelegate {
     init(groupsRepository: GroupsStorage)
     {
         self.groupsRepository = groupsRepository
-        self.groupsRepository.delegateGroupList = self
+        self.groupsRepository.delegate = self
     }
     
     
@@ -32,7 +32,7 @@ class GroupListViewModel: GroupsRepositoryDelegate {
     }
     
     
-    func groupsRetrieved(_: GroupsStorage, groups: UserGroups) {
+    func groupsUpdate(_: GroupsStorage, groups: UserGroups) {
         groupsUserViewModels = groups.groupsCreated.map({ (group: Group) -> GroupViewModel in
             return GroupViewModel(group:group)
         }).reversed()
@@ -72,6 +72,12 @@ class GroupListViewModel: GroupsRepositoryDelegate {
     func error(_: GroupsStorage, errorMsg: String) {
         self.delegate?.error(self,errorMsg: errorMsg)
     }
+    
+    
+    func error(_: GroupsStorage, error: StorageError) {
+        self.delegate?.error(self, errorMsg: "error")
+    }
+    
     
 }
 

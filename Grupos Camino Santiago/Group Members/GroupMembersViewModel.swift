@@ -6,7 +6,7 @@
 //  Copyright © 2019 Miguel Pérez. All rights reserved.
 //
 
-class GroupMembersViewModel : GroupMembersRepositoryDelegate {
+class GroupMembersViewModel {
     
     weak var delegate: GroupMembersViewModelViewModelDelegate?
     weak var routingDelegate: GroupMembersViewModelViewModelRoutingDelegate?
@@ -16,23 +16,28 @@ class GroupMembersViewModel : GroupMembersRepositoryDelegate {
     private let groupId: Int
     public var isFounder : Bool = false
     public var isMember : Bool = false
+    public var currentuserId : Int
 
     init(groupId: Int, groupsRepository: GroupsStorage) {
         self.groupId = groupId
         self.groupsRepository = groupsRepository
-        self.groupsRepository.groupMembersDelegate = self
+        self.currentuserId = groupsRepository.getAuthUserId() ?? 0
     }
     
     func getGroupMembers() {
-        self.groupsRepository.getGroupMembers(groupId: self.groupId)
+        self.groupsRepository.getGroup(groupId: self.groupId){ (response) in
+            switch response {
+                
+            case let .success(group):
+                self.parseMemberRetrieved(founder: group.founder!,members: group.members)
+            case let .error(error):
+                self.delegate?.error(self,errorMsg: error as! String)
+            }
+        }
     }
-    
-    func joinGroup() {
-        self.groupsRepository.joinGroup(groupId: self.groupId , join: !self.isMember)
-    }
-    
-    func groupMemberRetrieved(_: GroupsStorage, idCurrentUser: Int, founder: User, members: [User]) {
-        if idCurrentUser == founder.id {
+
+    func parseMemberRetrieved(founder: User, members: [User]) {
+        if self.currentuserId == founder.id {
             isFounder = true
         }else{
             isFounder = false
@@ -40,7 +45,7 @@ class GroupMembersViewModel : GroupMembersRepositoryDelegate {
  
         isMember = false
         membersViewModels = members.map({ (user: User) -> MemberViewModel in
-            if (user.id == idCurrentUser) {
+            if (user.id == self.currentuserId) {
                 isMember = true
             }
             return MemberViewModel(founder: false, user:user)
@@ -51,9 +56,20 @@ class GroupMembersViewModel : GroupMembersRepositoryDelegate {
         self.delegate?.groupMembersRetrieved(self, members: members)
     }
     
-    func error(_: GroupsStorage, errorMsg: String) {
-        self.delegate?.error(self,errorMsg: errorMsg)
+
+    
+    func joinGroup() {
+        self.groupsRepository.joinGroup(groupId: self.groupId , join: !self.isMember){ (response) in
+            switch response {
+                
+            case let .success(group):
+                self.parseMemberRetrieved(founder: group.founder!,members: group.members)
+            case let .error(error):
+                self.delegate?.error(self,errorMsg: error as! String)
+            }
+        }
     }
+    
     
 }
 
