@@ -31,7 +31,7 @@ class GroupMembersViewModel {
             case let .success(group):
                 self.parseMemberRetrieved(founder: group.founder!,members: group.members)
             case let .error(error):
-                self.delegate?.error(self,errorMsg: error as! String)
+                self.delegate?.error(self,errorMsg: error.msgError)
             }
         }
     }
@@ -65,7 +65,7 @@ class GroupMembersViewModel {
             case let .success(group):
                 self.parseMemberRetrieved(founder: group.founder!,members: group.members)
             case let .error(error):
-                self.delegate?.error(self,errorMsg: error as! String)
+                self.delegate?.error(self,errorMsg: error.msgError)
             }
         }
     }

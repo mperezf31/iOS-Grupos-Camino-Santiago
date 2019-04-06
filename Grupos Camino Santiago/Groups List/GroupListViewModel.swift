@@ -69,15 +69,9 @@ class GroupListViewModel: GroupsStorageDelegate {
 
     }
     
-    func error(_: GroupsStorage, errorMsg: String) {
-        self.delegate?.error(self,errorMsg: errorMsg)
-    }
-    
-    
     func error(_: GroupsStorage, error: StorageError) {
-        self.delegate?.error(self, errorMsg: "error")
+        self.delegate?.error(self, errorMsg: error.msgError)
     }
-    
     
 }
 

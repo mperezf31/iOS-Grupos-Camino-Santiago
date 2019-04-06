@@ -10,7 +10,6 @@ import Alamofire
 
 class GroupsStorage
 {
-    let BASE_URL = "http://ec2-35-156-79-168.eu-central-1.compute.amazonaws.com/"
     
     weak var delegate: GroupsStorageDelegate?
     
@@ -38,6 +37,7 @@ class GroupsStorage
     }
     
     func getGroups() {
+        
         if let authUserId = getAuthUserId(){
             self.networkStorage.getGroups(userId: authUserId) { (response) in
                 
@@ -47,14 +47,13 @@ class GroupsStorage
                     self.delegate?.groupsUpdate(self, groups: groups)
                     
                 case let .error(error):
-                    self.delegate?.error(self, error:error as! StorageError)
-                    
+                    self.delegate?.error(self, error:error)
+
                 }
             }
         }else{
-            self.delegate?.error(self, error: .unauthenticatedUser("Usuario no autenticado"))
+            self.delegate?.error(self, error: StorageError(code: .unauthenticatedUser, msgError: "Usuario no autenticado"))
         }
-        
     }
     
     func addGroup(groupToAdd: Group, completion: @escaping ((Result<Group>) -> ())) {
@@ -74,7 +73,7 @@ class GroupsStorage
             }
             
         }else{
-            completion(.error(StorageError.unauthenticatedUser("Usuario no autenticado")))
+            completion(.error(StorageError(code: .unauthenticatedUser, msgError: "Usuario no autenticado")))
         }
         
     }
@@ -97,7 +96,7 @@ class GroupsStorage
             }
             
         }else{
-            completion(.error(StorageError.unauthenticatedUser("Usuario no autenticado")))
+            completion(.error(StorageError(code: .unauthenticatedUser, msgError: "Usuario no autenticado")))
         }
     }
     
@@ -160,7 +159,7 @@ class GroupsStorage
             }
             
         }else{
-            completion(.error(StorageError.unauthenticatedUser("Usuario no autenticado")))
+            completion(.error(StorageError(code: .unauthenticatedUser, msgError: "Usuario no autenticado")))
         }
         
     }
@@ -182,13 +181,23 @@ protocol GroupsStorageDelegate: class
 
 enum Result<T> {
     case success(T)
-    case error(Error)
+    case error(StorageError)
 }
 
-enum StorageError: Error
+struct StorageError
 {
-    case invalidData(String)
-    case networkError(String)
-    case unauthenticatedUser(String)
+    let code: ErrorCode
+    let msgError : String
     
+    init(code:ErrorCode, msgError: String) {
+        self.code = code
+        self.msgError = msgError
+    }
+    
+}
+
+enum ErrorCode {
+    case invalidData
+    case networkError
+    case unauthenticatedUser
 }

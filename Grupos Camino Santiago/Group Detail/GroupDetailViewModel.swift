@@ -27,7 +27,7 @@ class GroupDetailViewModel {
                 self.delegate?.groupDetailRetrieved(self, group: GroupViewModel(group: group))
 
             case let .error(error):
-                self.delegate?.error(self,errorMsg: error as! String)
+                self.delegate?.error(self,errorMsg: error.msgError)
             }
         }
     }

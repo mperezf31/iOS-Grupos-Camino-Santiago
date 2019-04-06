@@ -26,9 +26,8 @@ class NetworkStorage {
                 if let userGroups = response.value {
                     completion(.success(userGroups))
                 }else{
-                    completion(.error(StorageError.networkError("Se ha producido un error al intentar recuperar los grupos")))
+                    completion(.error(StorageError(code: .networkError, msgError: "Se ha producido un error al intentar recuperar los grupos")))
                 }
-                
         }
         
     }
@@ -44,13 +43,13 @@ class NetworkStorage {
                 if let group = response.value {
                     completion(.success(group))
                 }else{
-                    completion(.error(StorageError.networkError("Se ha producido un error al intentar crear el grupo")))
+                    completion(.error(StorageError(code: .networkError, msgError: "Se ha producido un error al intentar crear el grupo")))
                 }
             }
         }
         catch
         {
-            completion(.error(StorageError.invalidData("Los datos introducidos no son correctos")))
+            completion(.error(StorageError(code: .invalidData, msgError: "Los datos introducidos no son correctos")))
         }
         
     }
@@ -62,7 +61,7 @@ class NetworkStorage {
             if let group = response.value {
                 completion(.success(group))
             }else{
-                completion(.error(StorageError.networkError("Se ha producido un error al intentar obtener la información del grupo")))
+               completion(.error(StorageError(code: .networkError, msgError: "Se ha producido un error al intentar obtener la información del grupo")))
             }
             
         }
@@ -76,7 +75,7 @@ class NetworkStorage {
             if let group = response.value {
                 completion(.success(group))
             }else{
-                completion(.error(StorageError.networkError("Se ha producido al intentar unirse al grupo")))
+                completion(.error(StorageError(code: .networkError, msgError: "Se ha producido al intentar unirse al grupo")))
             }
             
         }
@@ -90,7 +89,7 @@ class NetworkStorage {
             if let group = response.value {
                 completion(.success(group))
             }else{
-                completion(.error(StorageError.networkError("Se ha producido al intentar dejar al grupo")))
+                completion(.error(StorageError(code: .networkError, msgError: "Se ha producido al intentar dejar al grupo")))
             }
             
         }

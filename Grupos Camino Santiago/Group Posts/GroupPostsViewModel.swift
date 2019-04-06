@@ -27,7 +27,7 @@ class GroupPostsViewModel {
                 self.delegate?.grouPostsRetrieved(self, posts: posts)
 
             case let .error(error):
-                self.delegate?.error(self,errorMsg: error as! String)
+                self.delegate?.error(self,errorMsg: error.msgError)
             }
         }
     }
