@@ -23,8 +23,10 @@ class RegisterViewModel {
     
     func registerClick(user: User)
     {
+        self.delegate?.showIndicator(self, msg: "Creando cuenta...")
         self.groupsStorage.register(user: user){ (response) in
-            
+            self.delegate?.hideIndicator(self)
+
             switch response {
                 
             case .success(_):
@@ -44,8 +46,11 @@ class RegisterViewModel {
 protocol RegisterViewModelDelegate: class
 {
     
-    func error(_: RegisterViewModel, errorMsg: String)
+    func showIndicator(_: RegisterViewModel, msg: String)
     
+    func hideIndicator(_: RegisterViewModel)
+
+    func error(_: RegisterViewModel, errorMsg: String)
 }
 
 protocol RegisterViewModelRoutingDelegate: class

@@ -9,5 +9,7 @@ target 'Grupos Camino Santiago' do
 
   pod 'Alamofire', '~> 5.0.0-beta.3'
   pod 'Eureka'
+  pod 'MaterialComponents/Snackbar'
+  pod 'JGProgressHUD'
 
 end

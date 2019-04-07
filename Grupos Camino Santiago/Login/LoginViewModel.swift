@@ -24,7 +24,11 @@ class LoginViewModel {
     
     func loginClick(email: String, password: String)
     {
+        self.delegate?.showIndicator(self, msg: "Iniciando sesión...")
+        
         self.groupsStorage.login(email: email, password: password){ (response) in
+            
+            self.delegate?.hideIndicator(self)
             
             switch response {
                 
@@ -51,6 +55,10 @@ class LoginViewModel {
 
 protocol LoginViewModelDelegate: class
 {
+    
+    func showIndicator(_: LoginViewModel, msg: String)
+    
+    func hideIndicator(_: LoginViewModel)
     
     func error(_: LoginViewModel, errorMsg: String)
     

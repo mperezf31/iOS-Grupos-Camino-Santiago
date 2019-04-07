@@ -8,12 +8,14 @@
 
 import UIKit
 import Eureka
+import MaterialComponents.MaterialSnackbar
+import JGProgressHUD
 
 class RegisterViewController: FormViewController, RegisterViewModelDelegate{
-
     
     private var viewModel: RegisterViewModel?
-    
+    private let hud = JGProgressHUD(style: .dark)
+
     init(viewModel: RegisterViewModel)
     {
         self.viewModel = viewModel
@@ -126,7 +128,9 @@ class RegisterViewController: FormViewController, RegisterViewModelDelegate{
                 user.password = pass
                 viewModel?.registerClick(user: user)
             }else{
-                //Todo: Show error
+                let message = MDCSnackbarMessage()
+                message.text = "Las contraseñas no coinciden"
+                MDCSnackbarManager.show(message)
             }
             
         }
@@ -134,8 +138,19 @@ class RegisterViewController: FormViewController, RegisterViewModelDelegate{
     }
 
     
+    func showIndicator(_: RegisterViewModel, msg: String) {
+        hud.textLabel.text = msg
+        hud.show(in: self.view)
+    }
+    
+    func hideIndicator(_: RegisterViewModel) {
+        hud.dismiss()
+    }
+    
     func error(_: RegisterViewModel, errorMsg: String) {
-        
+        let message = MDCSnackbarMessage()
+        message.text = errorMsg
+        MDCSnackbarManager.show(message)
     }
 
 }

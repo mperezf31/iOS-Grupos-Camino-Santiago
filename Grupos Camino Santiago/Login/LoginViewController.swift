@@ -8,12 +8,14 @@
 
 import UIKit
 import Eureka
+import MaterialComponents.MaterialSnackbar
+import JGProgressHUD
 
 class LoginViewController: FormViewController , LoginViewModelDelegate{
     
     
     private var viewModel: LoginViewModel?
-    
+    private let hud = JGProgressHUD(style: .dark)
     
     init(viewModel: LoginViewModel)
     {
@@ -109,8 +111,19 @@ class LoginViewController: FormViewController , LoginViewModelDelegate{
     }
     
     
+    func showIndicator(_: LoginViewModel, msg: String) {
+        hud.textLabel.text = msg
+        hud.show(in: self.view)
+    }
+    
+    func hideIndicator(_: LoginViewModel) {
+        hud.dismiss()
+    }
+    
     func error(_: LoginViewModel, errorMsg: String) {
-        
+        let message = MDCSnackbarMessage()
+        message.text = errorMsg
+        MDCSnackbarManager.show(message)
     }
     
     
