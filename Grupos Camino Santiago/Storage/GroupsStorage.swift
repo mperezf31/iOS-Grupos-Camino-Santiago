@@ -33,8 +33,7 @@ class GroupsStorage
     }
     
     func getAuthUserId() ->Int? {
-        // return getAuthUser()?.id
-        return nil
+         return getAuthUser()?.id
     }
     
     func getGroups() {

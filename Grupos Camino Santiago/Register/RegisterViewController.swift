@@ -31,7 +31,7 @@ class RegisterViewController: FormViewController, RegisterViewModelDelegate{
         super.viewDidLoad()
         
         title = "Crear cuenta"
-        
+
         tableView.separatorStyle = .none
         tableView.backgroundColor = #colorLiteral(red: 0.1843137255, green: 0.2549019608, blue: 0.3490196078, alpha: 1)
         createForm()
@@ -45,6 +45,14 @@ class RegisterViewController: FormViewController, RegisterViewModelDelegate{
                     return LoginHeader.instanceFromNib()
                 }))
             }()
+            }
+            
+            <<< ImageRow("phot"){ row in
+                row.title = "Avatar"
+                row.cell.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+                row.cell.tintColor = #colorLiteral(red: 0.1843137255, green: 0.2549019608, blue: 0.3490196078, alpha: 1)
+                row.cell.layer.cornerRadius = 10
+                row.add(rule: RuleRequired())
             }
             
             <<< NameRow("name"){ row in

@@ -33,6 +33,7 @@ class LoginViewController: FormViewController , LoginViewModelDelegate{
         super.viewDidLoad()
         
         title = "Grupos Camino de Santiago"
+        navigationItem.backBarButtonItem = UIBarButtonItem()
         
         tableView.separatorStyle = .none
         tableView.backgroundColor = #colorLiteral(red: 0.1843137255, green: 0.2549019608, blue: 0.3490196078, alpha: 1)
@@ -77,7 +78,7 @@ class LoginViewController: FormViewController , LoginViewModelDelegate{
             }
             
             <<< ButtonRow(){ row in
-                row.title = "Login"
+                row.title = "Acceder"
                 row.cell.backgroundColor = #colorLiteral(red: 0.2588235294, green: 0.4588235294, blue: 0.8705882353, alpha: 1)
                 row.cell.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
                 let bgColorView = UIView()

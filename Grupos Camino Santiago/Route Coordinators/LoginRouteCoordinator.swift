@@ -45,7 +45,7 @@ class LoginRouteCoordinator : LoginViewModelRoutingDelegate, RegisterViewModelRo
     }
     
     func showGroupsList() {
-     
+        delegate?.loginRouteCoordinatorDelegateFinish(self)
     }
     
 }

@@ -104,10 +104,22 @@ class NetworkStorage {
             
             AF.request(baseUrl + "login", method: .post, parameters : parameters, encoding: JSONEncoding.default , headers: HTTPHeaders()).responseDecodable{ (response: DataResponse<User>) in
                 
-                if let user = response.value {
-                    completion(.success(user))
-                }else{
+                
+                switch response.response?.statusCode {
+                    
+                case 200:
+                    if let user = response.value {
+                        completion(.success(user))
+                    }else{
+                        completion(.error(StorageError(code: .networkError, msgError: "Se ha producido un error al intentar iniciar sesión")))
+                    }
+
+                case 404:
+                    completion(.error(StorageError(code: .networkError, msgError: "Usuario o contraseña incorrectos")))
+
+                default:
                     completion(.error(StorageError(code: .networkError, msgError: "Se ha producido un error al intentar iniciar sesión")))
+
                 }
             }
         }
