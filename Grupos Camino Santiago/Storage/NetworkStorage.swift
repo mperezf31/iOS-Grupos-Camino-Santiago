@@ -95,6 +95,51 @@ class NetworkStorage {
         }
     }
     
+    func login(email: String, password: String, completion: @escaping ((Result<User>) -> ())){
+        
+        let user  = User(email: email, password: password)
+
+        do{
+            let parameters = try user.toDictionary()
+            
+            AF.request(baseUrl + "login", method: .post, parameters : parameters, encoding: JSONEncoding.default , headers: HTTPHeaders()).responseDecodable{ (response: DataResponse<User>) in
+                
+                if let user = response.value {
+                    completion(.success(user))
+                }else{
+                    completion(.error(StorageError(code: .networkError, msgError: "Se ha producido un error al intentar iniciar sesión")))
+                }
+            }
+        }
+        catch
+        {
+            completion(.error(StorageError(code: .invalidData, msgError: "Los datos introducidos no son correctos")))
+        }
+       
+    }
+    
+    
+    func register(user: User, completion: @escaping ((Result<User>) -> ())){
+        
+        do{
+            let parameters = try user.toDictionary()
+            
+            AF.request(baseUrl + "user", method: .post, parameters : parameters, encoding: JSONEncoding.default , headers: HTTPHeaders()).responseDecodable{ (response: DataResponse<User>) in
+                
+                if let user = response.value {
+                    completion(.success(user))
+                }else{
+                    completion(.error(StorageError(code: .networkError, msgError: "Se ha producido un error al intentar crear la cuenta")))
+                }
+            }
+        }
+        catch
+        {
+            completion(.error(StorageError(code: .invalidData, msgError: "Los datos introducidos no son correctos")))
+        }
+        
+    }
+    
     
     func getHeaders(userId: Int) -> HTTPHeaders {
         var headers = HTTPHeaders()

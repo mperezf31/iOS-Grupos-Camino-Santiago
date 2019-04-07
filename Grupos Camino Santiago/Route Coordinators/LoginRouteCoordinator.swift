@@ -8,8 +8,8 @@
 
 import UIKit
 
-class LoginRouteCoordinator : LoginViewModelRoutingDelegate {
-    
+class LoginRouteCoordinator : LoginViewModelRoutingDelegate, RegisterViewModelRoutingDelegate {
+
     weak var delegate: LoginRouteCoordinatorDelegate?
 
     var rootViewController: UIViewController
@@ -23,13 +23,29 @@ class LoginRouteCoordinator : LoginViewModelRoutingDelegate {
         rootViewModel.routingDelegate = self
     }
     
-    
     func showGroupsList(_ viewModel: LoginViewModel) {
-        
+        showGroupsList()
     }
     
-    func showRegisgter(_ viewModel: LoginViewModel) {
-        
+    func showRegister(_ viewModel: LoginViewModel) {
+        let registerViewModel = RegisterViewModel(groupsStorage: groupsStorage)
+        let registerViewController = RegisterViewController(viewModel: registerViewModel)
+        self.rootViewController.show(registerViewController, sender: nil)
+        registerViewModel.routingDelegate = self
+    }
+    
+    func showGroupsList(_ viewModel: RegisterViewModel) {
+        showGroupsList()
+    }
+    
+    func showLogin(_ viewModel: RegisterViewModel) {
+        let rootViewModel = LoginViewModel(groupsStorage: groupsStorage)
+        self.rootViewController = LoginViewController(viewModel: rootViewModel)
+        rootViewModel.routingDelegate = self
+    }
+    
+    func showGroupsList() {
+     
     }
     
 }

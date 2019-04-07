@@ -14,9 +14,10 @@ class User : Codable
     var email: String?
     var password: String?
     
-    init(id: Int) {
-        self.id = id
+    init() {
+        
     }
+    
     init(email: String,password: String ) {
         self.email = email
         self.password = password

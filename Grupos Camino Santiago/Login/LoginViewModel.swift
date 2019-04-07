@@ -22,13 +22,24 @@ class LoginViewModel {
     }
     
     
-    func loginClick()
+    func loginClick(email: String, password: String)
     {
-
+        self.groupsStorage.login(email: email, password: password){ (response) in
+            
+            switch response {
+                
+            case .success(_):
+                self.routingDelegate?.showGroupsList(self)
+                
+            case let .error(error):
+                self.delegate?.error(self, errorMsg: error.msgError)
+            }
+            
+        }
     }
     
-    func register() {
-        self.routingDelegate?.showRegisgter(self)
+    func goToRegister() {
+        self.routingDelegate?.showRegister(self)
     }
     
     
@@ -49,6 +60,6 @@ protocol LoginViewModelRoutingDelegate: class
 {
     func showGroupsList(_ viewModel: LoginViewModel)
     
-    func showRegisgter(_ viewModel: LoginViewModel)
+    func showRegister(_ viewModel: LoginViewModel)
 }
 

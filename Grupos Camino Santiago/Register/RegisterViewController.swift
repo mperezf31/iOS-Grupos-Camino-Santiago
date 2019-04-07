@@ -1,21 +1,20 @@
 //
-//  LoginViewController.swift
+//  RegisterViewController.swift
 //  Grupos Camino Santiago
 //
-//  Created by Miguel Perez on 06/04/2019.
+//  Created by Miguel Perez on 07/04/2019.
 //  Copyright © 2019 Miguel Pérez. All rights reserved.
 //
 
 import UIKit
 import Eureka
 
-class LoginViewController: FormViewController , LoginViewModelDelegate{
+class RegisterViewController: FormViewController, RegisterViewModelDelegate{
+
     
+    private var viewModel: RegisterViewModel?
     
-    private var viewModel: LoginViewModel?
-    
-    
-    init(viewModel: LoginViewModel)
+    init(viewModel: RegisterViewModel)
     {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -23,14 +22,13 @@ class LoginViewController: FormViewController , LoginViewModelDelegate{
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        self.init(viewModel: LoginViewModel(groupsStorage: GroupsStorage(baseUrl: "")))
+        self.init(viewModel: RegisterViewModel(groupsStorage: GroupsStorage(baseUrl: "")))
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Grupos Camino de Santiago"
+        title = "Crear cuenta"
         
         tableView.separatorStyle = .none
         tableView.backgroundColor = #colorLiteral(red: 0.1843137255, green: 0.2549019608, blue: 0.3490196078, alpha: 1)
@@ -45,6 +43,18 @@ class LoginViewController: FormViewController , LoginViewModelDelegate{
                     return LoginHeader.instanceFromNib()
                 }))
             }()
+            }
+            
+            <<< NameRow("name"){ row in
+                row.title = "Nombre"
+                row.cell.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+                row.cell.tintColor = #colorLiteral(red: 0.1843137255, green: 0.2549019608, blue: 0.3490196078, alpha: 1)
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }.cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
             }
             
             <<< EmailRow("email"){ row in
@@ -74,8 +84,21 @@ class LoginViewController: FormViewController , LoginViewModelDelegate{
                     
             }
             
+            <<< PasswordRow("confirmPassword"){ row in
+                row.title = "Confirmar contraseña"
+                row.cell.backgroundColor =  #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+                row.cell.tintColor = #colorLiteral(red: 0.1843137255, green: 0.2549019608, blue: 0.3490196078, alpha: 1)
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }.cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
+                    
+            }
+            
             <<< ButtonRow(){ row in
-                row.title = "Login"
+                row.title = "Crear cuenta"
                 row.cell.backgroundColor = #colorLiteral(red: 0.2588235294, green: 0.4588235294, blue: 0.8705882353, alpha: 1)
                 row.cell.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
                 let bgColorView = UIView()
@@ -83,35 +106,36 @@ class LoginViewController: FormViewController , LoginViewModelDelegate{
                 row.cell.selectedBackgroundView = bgColorView
                 
                 }.onCellSelection({ (_, _) in
-                    self.onClickLogin()
-                })
-            
-            <<< ButtonRow(){ row in
-                row.title = "Crear cuenta"
-                row.cell.textLabel?.font = .systemFont(ofSize: 13)
-                row.cell.backgroundColor = #colorLiteral(red: 0.1843137255, green: 0.2549019608, blue: 0.3490196078, alpha: 1)
-                row.cell.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-                let bgColorView = UIView()
-                bgColorView.backgroundColor = #colorLiteral(red: 0.1843137255, green: 0.2220466526, blue: 0.3490196078, alpha: 1)
-                row.cell.selectedBackgroundView = bgColorView
-                }.onCellSelection({ (_, _) in
-                    self.viewModel?.goToRegister()
+                    self.onClickRegister()
                 })
         
     }
     
-    
-    func onClickLogin() {
-        if self.form.validate().count == 0 {
+    func onClickRegister(){
+        let formErrors = form.validate()
+        
+        if(formErrors.count == 0){
             let formValues = form.values()
-            self.viewModel?.loginClick(email: formValues["email"] as! String, password:  formValues["password"] as! String)
+            let pass = formValues["password"] as? String
+            let confirmPass = formValues["confirmPassword"] as? String
+            
+            if(pass == confirmPass){
+                let user = User()
+                user.name = formValues["name"] as? String
+                user.email = formValues["email"] as? String
+                user.password = pass
+                viewModel?.registerClick(user: user)
+            }else{
+                //Todo: Show error
+            }
+            
         }
+    
     }
+
     
-    
-    func error(_: LoginViewModel, errorMsg: String) {
+    func error(_: RegisterViewModel, errorMsg: String) {
         
     }
-    
-    
+
 }

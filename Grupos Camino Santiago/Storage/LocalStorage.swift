@@ -15,7 +15,10 @@ class LocalStorage {
     private var authuser : User?
     
     init() {
-        self.authuser = User(id : 1)
+    }
+    
+    func saveAuthUser(authUser: User) {
+        self.authuser = authUser
     }
 
     func getAuthUser() ->User? {

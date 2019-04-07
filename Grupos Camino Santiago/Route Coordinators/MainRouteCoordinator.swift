@@ -44,8 +44,8 @@ class MainRouteCoordinator: GroupsListViewModelRoutingDelegate, AddGroupViewMode
         
         self.navigationController.navigationBar.barTintColor =  #colorLiteral(red: 0.1843137255, green: 0.2549019608, blue: 0.3490196078, alpha: 1)
         self.navigationController.navigationBar.tintColor = #colorLiteral(red: 0.1843137255, green: 0.2549019608, blue: 0.3490196078, alpha: 1)
-        self.navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)]
-
+        self.navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)]
+        self.navigationController.navigationBar.isTranslucent = false
     }
     
     

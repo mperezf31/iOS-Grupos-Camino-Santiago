@@ -33,7 +33,7 @@ class GroupsStorage
     }
     
     func getAuthUserId() ->Int? {
-       // return getAuthUser()?.id
+        // return getAuthUser()?.id
         return nil
     }
     
@@ -49,7 +49,7 @@ class GroupsStorage
                     
                 case let .error(error):
                     self.delegate?.error(self, error:error)
-
+                    
                 }
             }
         }else{
@@ -161,6 +161,36 @@ class GroupsStorage
             
         }else{
             completion(.error(StorageError(code: .unauthenticatedUser, msgError: "Usuario no autenticado")))
+        }
+        
+    }
+    
+    
+    func login(email: String, password: String, completion: @escaping ((Result<User>) -> ())){
+        
+        self.networkStorage.login(email: email, password: password) { (response) in
+            
+            //iSave authentication user
+            if case .success(let user) = response {
+                self.localStorage.saveAuthUser(authUser: user)
+            }
+            completion(response)
+            
+        }
+        
+    }
+    
+    
+    func register(user: User, completion: @escaping ((Result<User>) -> ())){
+        
+        self.networkStorage.register(user: user) { (response) in
+            
+            //iSave register user
+            if case .success(let user) = response {
+                self.localStorage.saveAuthUser(authUser: user)
+            }
+            completion(response)
+            
         }
         
     }
