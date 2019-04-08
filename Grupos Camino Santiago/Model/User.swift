@@ -10,6 +10,7 @@
 class User : Codable
 {
     var id: Int?
+    var photo: String?
     var name: String?
     var email: String?
     var password: String?

@@ -47,12 +47,16 @@ class RegisterViewController: FormViewController, RegisterViewModelDelegate{
             }()
             }
             
-            <<< ImageRow("phot"){ row in
+            <<< ImageRow("photo"){ row in
                 row.title = "Avatar"
                 row.cell.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
                 row.cell.tintColor = #colorLiteral(red: 0.1843137255, green: 0.2549019608, blue: 0.3490196078, alpha: 1)
-                row.cell.layer.cornerRadius = 10
+
                 row.add(rule: RuleRequired())
+            }.cellUpdate { cell, row in
+                cell.accessoryView?.clipsToBounds = true;
+                cell.accessoryView?.layer.cornerRadius = 20;
+                
             }
             
             <<< NameRow("name"){ row in
@@ -122,6 +126,8 @@ class RegisterViewController: FormViewController, RegisterViewModelDelegate{
     }
     
     func onClickRegister(){
+
+        
         let formErrors = form.validate()
         
         if(formErrors.count == 0){
@@ -129,8 +135,19 @@ class RegisterViewController: FormViewController, RegisterViewModelDelegate{
             let pass = formValues["password"] as? String
             let confirmPass = formValues["confirmPassword"] as? String
             
+            
+            
             if(pass == confirmPass){
+                var photo = form.values()["photo"] as? UIImage
+                
+                if let image = photo{
+                    photo = image.resizeImage(width: 100)
+                }
+                
+                let photoBase64 = photo?.jpegData(compressionQuality: 1.0)!.base64EncodedString()
+                
                 let user = User()
+                user.photo =  photoBase64
                 user.name = formValues["name"] as? String
                 user.email = formValues["email"] as? String
                 user.password = pass
@@ -144,6 +161,7 @@ class RegisterViewController: FormViewController, RegisterViewModelDelegate{
         }
     
     }
+    
 
     
     func showIndicator(_: RegisterViewModel, msg: String) {

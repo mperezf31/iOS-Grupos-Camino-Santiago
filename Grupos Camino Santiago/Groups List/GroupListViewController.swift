@@ -35,7 +35,8 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
         self.tableView.dataSource = self
         
         title = "Grupos Camino de Santiago"
-        
+        navigationItem.backBarButtonItem = UIBarButtonItem()
+
         tableView.register(UINib(nibName: GROUP_CELL_IDENTIFIER, bundle: nil), forCellReuseIdentifier: GROUP_CELL_IDENTIFIER)
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTodoNote))

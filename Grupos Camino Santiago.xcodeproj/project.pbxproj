@@ -52,6 +52,7 @@
 		5FA4FCBC225A03CD00025ECD /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FCBB225A03CD00025ECD /* LoginViewModel.swift */; };
 		5FA4FCC1225A19DB00025ECD /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FCBF225A19DB00025ECD /* ImagePickerController.swift */; };
 		5FA4FCC2225A19DB00025ECD /* ImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FCC0225A19DB00025ECD /* ImageRow.swift */; };
+		5FA4FCC4225BD9ED00025ECD /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FCC3225BD9ED00025ECD /* UIImage+Resize.swift */; };
 		5FC1624022498613003785B0 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC1623E22498613003785B0 /* GroupTableViewCell.swift */; };
 		5FC1624122498613003785B0 /* GroupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FC1623F22498613003785B0 /* GroupTableViewCell.xib */; };
 		5FC162472249911A003785B0 /* GroupListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FC162452249911A003785B0 /* GroupListViewController.xib */; };
@@ -105,6 +106,7 @@
 		5FA4FCBB225A03CD00025ECD /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		5FA4FCBF225A19DB00025ECD /* ImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImagePickerController.swift; path = "../../../../../../../Eureka-master/Example/Example/CustomRows/ImageRow/ImagePickerController.swift"; sourceTree = "<group>"; };
 		5FA4FCC0225A19DB00025ECD /* ImageRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageRow.swift; path = "../../../../../../../Eureka-master/Example/Example/CustomRows/ImageRow/ImageRow.swift"; sourceTree = "<group>"; };
+		5FA4FCC3225BD9ED00025ECD /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		5FC1623E22498613003785B0 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
 		5FC1623F22498613003785B0 /* GroupTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupTableViewCell.xib; sourceTree = "<group>"; };
 		5FC162452249911A003785B0 /* GroupListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupListViewController.xib; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 			children = (
 				5F6249A42247F44C00394FDE /* Codable+Dictionary.swift */,
 				5F6249A722482DC000394FDE /* UITextField+DatePicker.swift */,
+				5FA4FCC3225BD9ED00025ECD /* UIImage+Resize.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 				5FA4FC8E224FFA6D00025ECD /* GroupPostsViewController.swift in Sources */,
 				5FA4FC7A224FDD8A00025ECD /* GroupDetailNoteRouteCoordinator.swift in Sources */,
 				5F6249552246E15500394FDE /* AppDelegate.swift in Sources */,
+				5FA4FCC4225BD9ED00025ECD /* UIImage+Resize.swift in Sources */,
 				5FA4FCB62259FF6500025ECD /* RegisterViewModel.swift in Sources */,
 				5FA4FC9222501E4400025ECD /* GroupMemberUiCellCollectionViewCell.swift in Sources */,
 				5FA4FCBC225A03CD00025ECD /* LoginViewModel.swift in Sources */,
