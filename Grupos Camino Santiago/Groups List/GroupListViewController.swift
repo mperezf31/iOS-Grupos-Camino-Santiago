@@ -17,6 +17,13 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     private var mainRouteCoordinator : MainRouteCoordinator?
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControl.Event.valueChanged)
+        refreshControl.tintColor = UIColor.blue
+        
+        return refreshControl
+    }()
     
     init(viewModel: GroupListViewModel)
     {
@@ -31,9 +38,8 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        
+        self.tableView.addSubview(self.refreshControl)
+
         title = "Grupos Camino de Santiago"
         navigationItem.backBarButtonItem = UIBarButtonItem()
 
@@ -47,6 +53,11 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
     @objc func addTodoNote()
     {
         self.viewModel?.handleAddGroup()
+    }
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl)
+    {
+        self.viewModel?.loadGroups()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -99,13 +110,17 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func groupsListViewModelDidUpdate(_: GroupListViewModel) {
         self.tableView.reloadData()
+        refreshControl.endRefreshing()
     }
     
     func error(_: GroupListViewModel, errorMsg: String) {
+        refreshControl.endRefreshing()
+
         let uiAlertController = UIAlertController(title: "Error", message:errorMsg,preferredStyle: .alert)
         let uiAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         uiAlertController.addAction(uiAction)
         present(uiAlertController, animated: true, completion: nil)
     }
+    
 }
 
