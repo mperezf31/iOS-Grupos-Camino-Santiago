@@ -6,25 +6,51 @@
 //  Copyright © 2019 Miguel Pérez. All rights reserved.
 //
 
+import UIKit
+
+
 class LocalStorage {
     
     
+    private let AUTH_USER = "auth_user"
     private var userGroups: UserGroups?
     private var groupDetail = [Int : Group]()
-    
-    private var authuser : User?
     
     init() {
     }
     
     func saveAuthUser(authUser: User) {
-        self.authuser = authUser
+       
+        do {
+            let jsonData = try JSONEncoder().encode(authUser)
+            let jsonString = String(data: jsonData, encoding: .utf8)
+            UserDefaults.standard.set(jsonString, forKey: AUTH_USER)
+        } catch {
+            print("Error al guardar el usuario")
+        }
+      
     }
-
+    
+    func closeSession() {
+        UserDefaults.standard.removeObject(forKey: AUTH_USER)
+    }
+    
     func getAuthUser() ->User? {
-        return authuser
+        
+        if let jsonString = UserDefaults.standard.string(forKey: AUTH_USER){
+            
+            do {
+                return try JSONDecoder().decode(User.self, from:Data(jsonString.utf8))
+            } catch {
+                return nil
+            }
+            
+        }else{
+            return nil
+        }
+        
     }
-
+    
     func addUserGroup(groupToAdd: Group) {
         self.userGroups?.groupsCreated.append(groupToAdd)
     }
