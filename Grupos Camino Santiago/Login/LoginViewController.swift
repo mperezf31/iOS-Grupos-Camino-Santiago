@@ -43,11 +43,7 @@ class LoginViewController: FormViewController , LoginViewModelDelegate{
     
     func createForm(){
         form +++ Section(){ section in
-            section.header = {
-                return HeaderFooterView<UIView>(.callback({
-                    return LoginHeader.instanceFromNib()
-                }))
-            }()
+                section.header =  HeaderFooterView<FormHeader>(.nibFile(name: "FormHeader", bundle: nil))
             }
             
             <<< EmailRow("email"){ row in

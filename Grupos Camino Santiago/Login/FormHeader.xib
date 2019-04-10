@@ -10,25 +10,26 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginHeader" customModule="Grupos_Camino_Santiago" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="FormHeader" customModule="Grupos_Camino_Santiago" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="566" height="200"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Header" translatesAutoresizingMaskIntoConstraints="NO" id="WFo-e3-g5D">
-                    <rect key="frame" x="0.0" y="0.0" width="566" height="200"/>
+                    <rect key="frame" x="0.0" y="0.0" width="566" height="199"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="200" id="Rj5-Ts-K3p"/>
+                        <constraint firstAttribute="width" constant="566" id="bUc-5T-Nj2"/>
+                        <constraint firstAttribute="height" constant="199" id="dzU-RW-VTY"/>
                     </constraints>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="WFo-e3-g5D" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="FJi-8h-XdU"/>
-                <constraint firstItem="WFo-e3-g5D" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="GjA-Yc-Bjw"/>
-                <constraint firstItem="WFo-e3-g5D" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Kss-yU-TWp"/>
-                <constraint firstItem="WFo-e3-g5D" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="V3g-hB-GCK"/>
+                <constraint firstItem="WFo-e3-g5D" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="7gT-as-PtP"/>
+                <constraint firstItem="WFo-e3-g5D" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="GUU-cp-ZTm"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="WFo-e3-g5D" secondAttribute="bottom" constant="1" id="Qej-4J-Azg"/>
+                <constraint firstItem="WFo-e3-g5D" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ygl-TC-6KD"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
