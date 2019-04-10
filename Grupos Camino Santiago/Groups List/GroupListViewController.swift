@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MaterialComponents.MaterialSnackbar
+import JGProgressHUD
 
 class GroupListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, GroupsListViewModelDelegate  {
     
@@ -14,6 +16,7 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     private let GROUP_CELL_IDENTIFIER = "GroupTableViewCell"
     private var viewModel: GroupListViewModel?
+    private let hud = JGProgressHUD(style: .dark)
     
     private var mainRouteCoordinator : MainRouteCoordinator?
     
@@ -21,7 +24,6 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControl.Event.valueChanged)
         refreshControl.tintColor = UIColor.blue
-        
         return refreshControl
     }()
     
@@ -46,7 +48,8 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.register(UINib(nibName: GROUP_CELL_IDENTIFIER, bundle: nil), forCellReuseIdentifier: GROUP_CELL_IDENTIFIER)
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTodoNote))
-        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(logout))
+
         self.viewModel?.loadGroups()
     }
     
@@ -54,6 +57,19 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
     {
         self.viewModel?.handleAddGroup()
     }
+    
+    
+    @objc func logout()
+    {
+        let uiAlertController = UIAlertController(title: "Cerrar sesión", message:"¿Seguro que desea cerrar sesión?", preferredStyle: .alert)
+        let uiActionAccept = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let uiActionCancel = UIAlertAction(title: "Cancelar", style: .default, handler: nil)
+        uiAlertController.addAction(uiActionAccept)
+        uiAlertController.addAction(uiActionCancel)
+        present(uiAlertController, animated: true, completion: nil)
+    }
+    
+
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl)
     {
@@ -113,13 +129,22 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
         refreshControl.endRefreshing()
     }
     
+    
+    func showIndicator(_: GroupListViewModel, msg: String) {
+        hud.textLabel.text = msg
+        hud.show(in: self.view)
+    }
+    
+    func hideIndicator(_: GroupListViewModel) {
+        hud.dismiss()
+    }
+    
     func error(_: GroupListViewModel, errorMsg: String) {
         refreshControl.endRefreshing()
-
-        let uiAlertController = UIAlertController(title: "Error", message:errorMsg,preferredStyle: .alert)
-        let uiAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        uiAlertController.addAction(uiAction)
-        present(uiAlertController, animated: true, completion: nil)
+        
+        let message = MDCSnackbarMessage()
+        message.text = errorMsg
+        MDCSnackbarManager.show(message)
     }
     
 }

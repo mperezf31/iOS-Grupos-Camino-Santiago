@@ -28,6 +28,7 @@ class GroupListViewModel: GroupsStorageDelegate {
     
     func loadGroups()
     {
+        self.delegate?.showIndicator(self, msg: "Obteniendo grupos...")
         self.groupsStorage.getGroups()
     }
     
@@ -45,12 +46,10 @@ class GroupListViewModel: GroupsStorageDelegate {
             return GroupViewModel(group:group)
         }).reversed()
         
+        self.delegate?.hideIndicator(self)
         self.delegate?.groupsListViewModelDidUpdate(self)
     }
     
-    func groupRetrieved(_: GroupsStorage, group: Group) {
-        
-    }
     
     func handleAddGroup() {
         self.routingDelegate?.groupListViewModeWantsToAddGroup(self)
@@ -77,6 +76,11 @@ class GroupListViewModel: GroupsStorageDelegate {
 
 protocol GroupsListViewModelDelegate: class
 {
+    
+    func showIndicator(_: GroupListViewModel, msg: String)
+    
+    func hideIndicator(_: GroupListViewModel)
+    
     func groupsListViewModelDidUpdate(_: GroupListViewModel)
     
     func error(_: GroupListViewModel, errorMsg: String)
