@@ -22,12 +22,19 @@ class NetworkStorage {
         
         AF.request(baseUrl + "groups", method: .get,headers: self.getHeaders(userId: userId))
             .responseDecodable{ (response: DataResponse<UserGroups>) in
-                
+    
+            switch response.response?.statusCode {
+            case 200:
                 if let userGroups = response.value {
                     completion(.success(userGroups))
                 }else{
-                    completion(.error(StorageError(code: .networkError, msgError: "Se ha producido un error al intentar recuperar los grupos")))
+                    completion(.error(StorageError(code: .networkError, msgError: "Se ha producido un error al intentar obtener los grupos")))
                 }
+                
+            default:
+                completion(.error(StorageError(code: .networkError, msgError: "Error de conexión internet")))
+                
+            }
         }
         
     }

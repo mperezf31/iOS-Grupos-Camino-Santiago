@@ -74,6 +74,7 @@ class GroupListViewModel: GroupsStorageDelegate {
     }
     
     func error(_: GroupsStorage, error: StorageError) {
+        self.delegate?.hideIndicator(self)
         self.delegate?.error(self, errorMsg: error.msgError)
     }
     

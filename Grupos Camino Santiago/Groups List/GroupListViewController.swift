@@ -23,7 +23,7 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControl.Event.valueChanged)
-        refreshControl.tintColor = UIColor.blue
+        refreshControl.tintColor = UIColor(named: "PickledBluewood")
         return refreshControl
     }()
     
@@ -128,7 +128,6 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func groupsListViewModelDidUpdate(_: GroupListViewModel) {
         self.tableView.reloadData()
-        refreshControl.endRefreshing()
     }
     
     
@@ -139,10 +138,10 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func hideIndicator(_: GroupListViewModel) {
         hud.dismiss()
+        refreshControl.endRefreshing()
     }
     
     func error(_: GroupListViewModel, errorMsg: String) {
-        refreshControl.endRefreshing()
         
         let message = MDCSnackbarMessage()
         message.text = errorMsg
