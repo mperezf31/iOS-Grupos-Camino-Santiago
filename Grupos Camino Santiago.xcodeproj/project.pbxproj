@@ -53,6 +53,7 @@
 		5FA4FCC1225A19DB00025ECD /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FCBF225A19DB00025ECD /* ImagePickerController.swift */; };
 		5FA4FCC2225A19DB00025ECD /* ImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FCC0225A19DB00025ECD /* ImageRow.swift */; };
 		5FA4FCC4225BD9ED00025ECD /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FCC3225BD9ED00025ECD /* UIImage+Resize.swift */; };
+		5FA4FCC62264792E00025ECD /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FA4FCC52264792E00025ECD /* Colors.xcassets */; };
 		5FC1624022498613003785B0 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC1623E22498613003785B0 /* GroupTableViewCell.swift */; };
 		5FC1624122498613003785B0 /* GroupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FC1623F22498613003785B0 /* GroupTableViewCell.xib */; };
 		5FC162472249911A003785B0 /* GroupListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FC162452249911A003785B0 /* GroupListViewController.xib */; };
@@ -107,6 +108,7 @@
 		5FA4FCBF225A19DB00025ECD /* ImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImagePickerController.swift; path = "../../../../../../../Eureka-master/Example/Example/CustomRows/ImageRow/ImagePickerController.swift"; sourceTree = "<group>"; };
 		5FA4FCC0225A19DB00025ECD /* ImageRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageRow.swift; path = "../../../../../../../Eureka-master/Example/Example/CustomRows/ImageRow/ImageRow.swift"; sourceTree = "<group>"; };
 		5FA4FCC3225BD9ED00025ECD /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
+		5FA4FCC52264792E00025ECD /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		5FC1623E22498613003785B0 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
 		5FC1623F22498613003785B0 /* GroupTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupTableViewCell.xib; sourceTree = "<group>"; };
 		5FC162452249911A003785B0 /* GroupListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupListViewController.xib; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				5F6249582246E15500394FDE /* Main.storyboard */,
 				5F6249542246E15500394FDE /* AppDelegate.swift */,
 				5F62495B2246E15600394FDE /* Assets.xcassets */,
+				5FA4FCC52264792E00025ECD /* Colors.xcassets */,
 				5F62495D2246E15600394FDE /* LaunchScreen.storyboard */,
 				5F6249602246E15600394FDE /* Info.plist */,
 			);
@@ -395,6 +398,7 @@
 				5FA4FC86224FF52300025ECD /* GroupMembersViewController.xib in Resources */,
 				5FA4FCB022594AF200025ECD /* FormHeader.xib in Resources */,
 				5FA4FC7F224FE44000025ECD /* GroupDetailViewController.xib in Resources */,
+				5FA4FCC62264792E00025ECD /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

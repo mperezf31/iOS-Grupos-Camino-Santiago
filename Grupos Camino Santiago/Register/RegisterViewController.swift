@@ -33,7 +33,7 @@ class RegisterViewController: FormViewController, RegisterViewModelDelegate{
         title = "Crear cuenta"
 
         tableView.separatorStyle = .none
-        tableView.backgroundColor = #colorLiteral(red: 0.1843137255, green: 0.2549019608, blue: 0.3490196078, alpha: 1)
+        tableView.backgroundColor = UIColor(named: "PickledBluewood")
         createForm()
     }
     
@@ -45,20 +45,17 @@ class RegisterViewController: FormViewController, RegisterViewModelDelegate{
             
             <<< ImageRow("photo"){ row in
                 row.title = "Avatar"
-                row.cell.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-                row.cell.tintColor = #colorLiteral(red: 0.1843137255, green: 0.2549019608, blue: 0.3490196078, alpha: 1)
-
-                row.add(rule: RuleRequired())
-            }.cellUpdate { cell, row in
-                cell.accessoryView?.clipsToBounds = true;
-                cell.accessoryView?.layer.cornerRadius = 20;
-                
-            }
+                row.cell.backgroundColor = UIColor(named: "Silver")
+                row.cell.tintColor = UIColor(named: "RoyalBlue")
+                }.cellUpdate { cell, row in
+                    cell.accessoryView?.layer.cornerRadius = 17
+                    cell.accessoryView?.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+                }
             
             <<< NameRow("name"){ row in
                 row.title = "Nombre"
-                row.cell.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-                row.cell.tintColor = #colorLiteral(red: 0.1843137255, green: 0.2549019608, blue: 0.3490196078, alpha: 1)
+                row.cell.backgroundColor = UIColor(named: "Silver")
+                row.cell.tintColor = UIColor(named: "RoyalBlue")
                 row.add(rule: RuleRequired())
                 row.validationOptions = .validatesOnChangeAfterBlurred
                 }.cellUpdate { cell, row in
@@ -70,8 +67,8 @@ class RegisterViewController: FormViewController, RegisterViewModelDelegate{
             <<< EmailRow("email"){ row in
                 row.title = "Email"
                 row.placeholder = "ejemplo@icloud.com"
-                row.cell.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-                row.cell.tintColor = #colorLiteral(red: 0.1843137255, green: 0.2549019608, blue: 0.3490196078, alpha: 1)
+                row.cell.backgroundColor = UIColor(named: "Silver")
+                row.cell.tintColor = UIColor(named: "RoyalBlue")
                 row.add(rule: RuleRequired())
                 row.add(rule: RuleEmail())
                 row.validationOptions = .validatesOnChangeAfterBlurred
@@ -83,8 +80,8 @@ class RegisterViewController: FormViewController, RegisterViewModelDelegate{
             
             <<< PasswordRow("password"){ row in
                 row.title = "Contraseña"
-                row.cell.backgroundColor =  #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-                row.cell.tintColor = #colorLiteral(red: 0.1843137255, green: 0.2549019608, blue: 0.3490196078, alpha: 1)
+                row.cell.backgroundColor = UIColor(named: "Silver")
+                row.cell.tintColor = UIColor(named: "RoyalBlue")
                 row.add(rule: RuleRequired())
                 row.validationOptions = .validatesOnChangeAfterBlurred
                 }.cellUpdate { cell, row in
@@ -96,8 +93,8 @@ class RegisterViewController: FormViewController, RegisterViewModelDelegate{
             
             <<< PasswordRow("confirmPassword"){ row in
                 row.title = "Confirmar contraseña"
-                row.cell.backgroundColor =  #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-                row.cell.tintColor = #colorLiteral(red: 0.1843137255, green: 0.2549019608, blue: 0.3490196078, alpha: 1)
+                row.cell.backgroundColor = UIColor(named: "Silver")
+                row.cell.tintColor = UIColor(named: "RoyalBlue")
                 row.add(rule: RuleRequired())
                 row.validationOptions = .validatesOnChangeAfterBlurred
                 }.cellUpdate { cell, row in
@@ -109,10 +106,10 @@ class RegisterViewController: FormViewController, RegisterViewModelDelegate{
             
             <<< ButtonRow(){ row in
                 row.title = "Crear cuenta"
-                row.cell.backgroundColor = #colorLiteral(red: 0.2588235294, green: 0.4588235294, blue: 0.8705882353, alpha: 1)
-                row.cell.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                row.cell.backgroundColor = UIColor(named: "RoyalBlue")
+                row.cell.tintColor = UIColor(named: "White")
                 let bgColorView = UIView()
-                bgColorView.backgroundColor = #colorLiteral(red: 0.2588235294, green: 0.3089947623, blue: 0.8705882353, alpha: 1)
+                bgColorView.backgroundColor =  UIColor(named: "RoyalBlueDark")
                 row.cell.selectedBackgroundView = bgColorView
                 
                 }.onCellSelection({ (_, _) in
@@ -130,8 +127,6 @@ class RegisterViewController: FormViewController, RegisterViewModelDelegate{
             let formValues = form.values()
             let pass = formValues["password"] as? String
             let confirmPass = formValues["confirmPassword"] as? String
-            
-            
             
             if(pass == confirmPass){
                 var photo = form.values()["photo"] as? UIImage

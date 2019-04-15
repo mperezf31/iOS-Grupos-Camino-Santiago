@@ -106,7 +106,6 @@ class NetworkStorage {
                 
                 
                 switch response.response?.statusCode {
-                    
                 case 200:
                     if let user = response.value {
                         completion(.success(user))
@@ -118,7 +117,7 @@ class NetworkStorage {
                     completion(.error(StorageError(code: .networkError, msgError: "Usuario o contraseña incorrectos")))
 
                 default:
-                    completion(.error(StorageError(code: .networkError, msgError: "Se ha producido un error al intentar iniciar sesión")))
+                    completion(.error(StorageError(code: .networkError, msgError: "Error de conexión internet")))
 
                 }
             }
@@ -138,10 +137,20 @@ class NetworkStorage {
             
             AF.request(baseUrl + "user", method: .post, parameters : parameters, encoding: JSONEncoding.default , headers: HTTPHeaders()).responseDecodable{ (response: DataResponse<User>) in
                 
-                if let user = response.value {
-                    completion(.success(user))
-                }else{
-                    completion(.error(StorageError(code: .networkError, msgError: "Se ha producido un error al intentar crear la cuenta")))
+                switch response.response?.statusCode {
+                case 200:
+                    if let user = response.value {
+                        completion(.success(user))
+                    }else{
+                        completion(.error(StorageError(code: .networkError, msgError: "Se ha producido un error al intentar crear la cuenta")))
+                    }
+                    
+                case 400:
+                    completion(.error(StorageError(code: .networkError, msgError: "Ya existe otra cuenta con ese email")))
+                    
+                default:
+                    completion(.error(StorageError(code: .networkError, msgError: "Error de conexión internet")))
+                    
                 }
             }
         }
