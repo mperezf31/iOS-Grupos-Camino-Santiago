@@ -43,14 +43,13 @@ class GroupDetailRouteCoordinator
         //Group posts
         let groupPostsViewModel = GroupPostsViewModel(groupId: groupoId, groupsStorage: groupsStorage)
         let groupPostsViewController = GroupPostsViewController(viewModel: groupPostsViewModel)
-        groupPostsViewController.tabBarItem =  UITabBarItem(title: "Chat", image: UIImage(named: "TabPosts"), tag: 1)
+        groupPostsViewController.tabBarItem =  UITabBarItem(title: "Mensajes", image: UIImage(named: "TabPosts"), tag: 1)
         
         
         let tabBarList = [groupDetailViewController, groupMembersViewController, groupPostsViewController]
         
         self.navigationController = UITabBarController()
         self.navigationController.setViewControllers(tabBarList, animated: true)
-
     }
     
     func closeDetailConttroller() {
