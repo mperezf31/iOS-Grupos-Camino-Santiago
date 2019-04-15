@@ -135,10 +135,8 @@ class RegisterViewController: FormViewController, RegisterViewModelDelegate{
                     photo = image.resizeImage(width: 100)
                 }
                 
-                let photoBase64 = photo?.jpegData(compressionQuality: 1.0)!.base64EncodedString()
-                
                 let user = User()
-                user.photo =  photoBase64
+                user.photo =  photo?.toBase64()
                 user.name = formValues["name"] as? String
                 user.email = formValues["email"] as? String
                 user.password = pass

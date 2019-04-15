@@ -210,6 +210,7 @@ class GroupsStorage
     }
     
     func logout(){
+        self.authUser = nil
         self.localStorage.closeSession()
     }
     

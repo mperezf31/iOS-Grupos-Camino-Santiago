@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1D2D3C281C8B10620BEFEE0E /* Pods_Grupos_Camino_Santiago.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62DFD874927CF6C5021228A8 /* Pods_Grupos_Camino_Santiago.framework */; };
 		5F0AACF52265112D0026B364 /* LocationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0AACF42265112D0026B364 /* LocationRow.swift */; };
+		5F0AACF7226529A60026B364 /* UIImage+Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0AACF6226529A60026B364 /* UIImage+Base64.swift */; };
 		5F522AAE224A9CB8006D9CDB /* GroupListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F522AAD224A9CB8006D9CDB /* GroupListViewController.swift */; };
 		5F6249552246E15500394FDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249542246E15500394FDE /* AppDelegate.swift */; };
 		5F62495A2246E15500394FDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6249582246E15500394FDE /* Main.storyboard */; };
@@ -26,7 +27,6 @@
 		5F62499F2247991D00394FDE /* AddGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F62499D2247991D00394FDE /* AddGroupViewController.xib */; };
 		5F6249A122479F3300394FDE /* AddGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249A022479F3300394FDE /* AddGroupViewModel.swift */; };
 		5F6249A52247F44C00394FDE /* Codable+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249A42247F44C00394FDE /* Codable+Dictionary.swift */; };
-		5F6249A822482DC000394FDE /* UITextField+DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249A722482DC000394FDE /* UITextField+DatePicker.swift */; };
 		5FA4FC7A224FDD8A00025ECD /* GroupDetailNoteRouteCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC79224FDD8A00025ECD /* GroupDetailNoteRouteCoordinator.swift */; };
 		5FA4FC7E224FE44000025ECD /* GroupDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC7C224FE44000025ECD /* GroupDetailViewController.swift */; };
 		5FA4FC7F224FE44000025ECD /* GroupDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA4FC7D224FE44000025ECD /* GroupDetailViewController.xib */; };
@@ -63,6 +63,7 @@
 /* Begin PBXFileReference section */
 		38173DDCBE534B4AEF3768AE /* Pods-Grupos Camino Santiago.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grupos Camino Santiago.release.xcconfig"; path = "Pods/Target Support Files/Pods-Grupos Camino Santiago/Pods-Grupos Camino Santiago.release.xcconfig"; sourceTree = "<group>"; };
 		5F0AACF42265112D0026B364 /* LocationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRow.swift; sourceTree = "<group>"; };
+		5F0AACF6226529A60026B364 /* UIImage+Base64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Base64.swift"; sourceTree = "<group>"; };
 		5F522AAD224A9CB8006D9CDB /* GroupListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListViewController.swift; sourceTree = "<group>"; };
 		5F6249512246E15500394FDE /* Grupos Camino Santiago.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grupos Camino Santiago.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F6249542246E15500394FDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,7 +83,6 @@
 		5F62499D2247991D00394FDE /* AddGroupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddGroupViewController.xib; sourceTree = "<group>"; };
 		5F6249A022479F3300394FDE /* AddGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupViewModel.swift; sourceTree = "<group>"; };
 		5F6249A42247F44C00394FDE /* Codable+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+Dictionary.swift"; sourceTree = "<group>"; };
-		5F6249A722482DC000394FDE /* UITextField+DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+DatePicker.swift"; sourceTree = "<group>"; };
 		5FA4FC79224FDD8A00025ECD /* GroupDetailNoteRouteCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailNoteRouteCoordinator.swift; sourceTree = "<group>"; };
 		5FA4FC7C224FE44000025ECD /* GroupDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailViewController.swift; sourceTree = "<group>"; };
 		5FA4FC7D224FE44000025ECD /* GroupDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupDetailViewController.xib; sourceTree = "<group>"; };
@@ -239,8 +239,8 @@
 			isa = PBXGroup;
 			children = (
 				5F6249A42247F44C00394FDE /* Codable+Dictionary.swift */,
-				5F6249A722482DC000394FDE /* UITextField+DatePicker.swift */,
 				5FA4FCC3225BD9ED00025ECD /* UIImage+Resize.swift */,
+				5F0AACF6226529A60026B364 /* UIImage+Base64.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -493,8 +493,8 @@
 				5F6249822246ECBE00394FDE /* GroupListViewModel.swift in Sources */,
 				5F62499A2247984A00394FDE /* MainRouteCoordinator.swift in Sources */,
 				5FA4FC85224FF52300025ECD /* GroupMembersViewController.swift in Sources */,
+				5F0AACF7226529A60026B364 /* UIImage+Base64.swift in Sources */,
 				5FA4FC992257B46A00025ECD /* NetworkStorage.swift in Sources */,
-				5F6249A822482DC000394FDE /* UITextField+DatePicker.swift in Sources */,
 				5FA4FC9D225918E800025ECD /* LoginRouteCoordinator.swift in Sources */,
 				5F6249A52247F44C00394FDE /* Codable+Dictionary.swift in Sources */,
 				5F62499E2247991D00394FDE /* AddGroupViewController.swift in Sources */,

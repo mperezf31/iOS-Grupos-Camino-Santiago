@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class GroupViewModel {
     
@@ -32,6 +33,18 @@ class GroupViewModel {
         get
         {
             return group.title ?? ""
+        }
+    }
+    
+    var photo: UIImage
+    {
+        get
+        {
+            if let imageBase64 = group.photo{
+                return UIImage(imageString: imageBase64) ?? UIImage(named: "Group")!
+            }else{
+                return UIImage(named: "Group")!
+            }
         }
     }
     

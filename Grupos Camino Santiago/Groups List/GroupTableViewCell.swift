@@ -10,6 +10,7 @@ import UIKit
 
 class GroupTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var groupImage: UIImageView!
     @IBOutlet weak var title: UILabel!
     
     @IBOutlet weak var departureDate: UILabel!
@@ -36,6 +37,9 @@ class GroupTableViewCell: UITableViewCell {
     private func updateViews()
     {
         self.title?.text = viewModel?.title
+        self.groupImage.image = viewModel?.photo
+        self.groupImage.layer.cornerRadius = 30
+        self.groupImage.clipsToBounds = true
         self.departureDate?.text = "Salida el día \(viewModel!.departureDate)"
         
     }

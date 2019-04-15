@@ -67,11 +67,9 @@ class AddGroupViewController: FormViewController , AddGroupViewModelDelegate {
                 if let image = photo{
                     photo = image.resizeImage(width: 100)
                 }
-                
-                let photoBase64 = photo?.jpegData(compressionQuality: 1.0)!.base64EncodedString()
-                
+                                
                 let group = Group()
-                group.photo =  photoBase64
+                group.photo =  photo?.toBase64()
                 group.title = formValues["Title"] as? String
                 group.description = formValues["Description"] as? String
                 group.departurePlace = formValues["DeparturePlace"] as? String

@@ -60,12 +60,13 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="departureDate" destination="FSg-kT-vA3" id="vx7-70-mT8"/>
+                <outlet property="groupImage" destination="WOF-MC-D3n" id="LEq-aW-QsF"/>
                 <outlet property="title" destination="Wjd-V6-ssO" id="Zbw-GT-CAr"/>
             </connections>
             <point key="canvasLocation" x="178.40000000000001" y="170.46476761619192"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Group" width="1247" height="1198"/>
+        <image name="Group" width="120" height="120"/>
     </resources>
 </document>
