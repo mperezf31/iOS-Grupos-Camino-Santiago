@@ -48,7 +48,7 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.register(UINib(nibName: GROUP_CELL_IDENTIFIER, bundle: nil), forCellReuseIdentifier: GROUP_CELL_IDENTIFIER)
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTodoNote))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(logout))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Logout"), style: .plain, target: self, action: #selector(logout))
 
         self.viewModel?.loadGroups()
     }
