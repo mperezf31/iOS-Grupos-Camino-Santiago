@@ -40,6 +40,23 @@ class NetworkStorage {
     }
     
     
+    func deleteGroup(userId: Int, goupId: Int, completion: @escaping ((Result<Bool>) -> ())) {
+
+        AF.request(baseUrl + "group/\(goupId)", method: .delete,headers: self.getHeaders(userId: userId)).responseDecodable{ (response: DataResponse<String>) in
+            
+            switch response.response?.statusCode {
+            case 200:
+                completion(.success(true))
+            case 404:
+                completion(.error(StorageError(code: .networkError, msgError: "El grupo a eliminar no existe")))
+            default:
+                completion(.error(StorageError(code: .networkError, msgError: "Error de conexión internet")))
+                
+            }
+        }
+        
+    }
+    
     func addGroup(userId: Int, groupToAdd: Group,  completion: @escaping ((Result<Group>) -> ())) {
         
         do{

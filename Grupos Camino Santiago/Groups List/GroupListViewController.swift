@@ -96,7 +96,8 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: GROUP_CELL_IDENTIFIER, for: indexPath) as! GroupTableViewCell
-        
+        cell.selectionStyle = .none
+
         switch indexPath.section {
         case 0:
             cell.viewModel = viewModel?.groupsUserViewModels[indexPath.row]
@@ -125,6 +126,19 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
         self.viewModel?.itemSelected(section: indexPath.section, index: indexPath.row)
     }
     
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "Eliminar"
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return indexPath.section == 0
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.viewModel?.deleteGroup(section: indexPath.section, index: indexPath.row)
+        }
+    }
     
     func groupsListViewModelDidUpdate(_: GroupListViewModel) {
         self.tableView.reloadData()

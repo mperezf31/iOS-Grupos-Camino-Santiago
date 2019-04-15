@@ -35,7 +35,7 @@ class GroupDetailViewController: UIViewController , GroupDetailViewModelDelegate
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
         self.viewModel.getGroupDetail()
     }
     

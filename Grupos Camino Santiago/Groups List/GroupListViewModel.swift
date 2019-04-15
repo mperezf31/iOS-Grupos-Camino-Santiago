@@ -9,14 +9,14 @@
 import Foundation
 
 class GroupListViewModel: GroupsStorageDelegate {
-
+    
     private(set) var groupsUserViewModels: [GroupViewModel] = []
     private(set) var groupsMemberViewModels: [GroupViewModel] = []
     private(set) var otherGroupsViewModels: [GroupViewModel] = []
     
     weak var delegate: GroupsListViewModelDelegate?
     weak var routingDelegate: GroupsListViewModelRoutingDelegate?
-
+    
     private let groupsStorage: GroupsStorage
     
     init(groupsStorage: GroupsStorage)
@@ -37,6 +37,10 @@ class GroupListViewModel: GroupsStorageDelegate {
         self.routingDelegate?.showLogin(self)
     }
     
+    func deleteGroup(section : Int, index: Int) {
+        self.delegate?.showIndicator(self, msg: "Eliminando grupo...")
+        self.groupsStorage.deleteGroup(groupId: getGroupBySection(section: section, index: index).id)
+    }
     
     func groupsUpdate(_: GroupsStorage, groups: UserGroups) {
         groupsUserViewModels = groups.groupsCreated.map({ (group: Group) -> GroupViewModel in
@@ -62,20 +66,23 @@ class GroupListViewModel: GroupsStorageDelegate {
     
     
     func itemSelected(section : Int, index: Int) {
-        switch section {
-        case 0:
-            self.routingDelegate?.showGroupDedtail(self,routeId: groupsUserViewModels[index].id)
-        case 1:
-            self.routingDelegate?.showGroupDedtail(self,routeId: groupsMemberViewModels[index].id)
-        default:
-            self.routingDelegate?.showGroupDedtail(self,routeId: otherGroupsViewModels[index].id)
-        }
-
+        self.routingDelegate?.showGroupDedtail(self,routeId: getGroupBySection(section: section, index: index).id)
     }
     
     func error(_: GroupsStorage, error: StorageError) {
         self.delegate?.hideIndicator(self)
         self.delegate?.error(self, errorMsg: error.msgError)
+    }
+    
+    private func getGroupBySection(section : Int, index: Int) -> GroupViewModel{
+        switch section {
+        case 0:
+            return self.groupsUserViewModels[index]
+        case 1:
+            return self.groupsMemberViewModels[index]
+        default:
+            return self.otherGroupsViewModels[index]
+        }
     }
     
 }

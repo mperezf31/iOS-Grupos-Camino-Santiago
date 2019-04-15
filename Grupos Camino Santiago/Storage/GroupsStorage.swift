@@ -55,6 +55,25 @@ class GroupsStorage
             self.delegate?.error(self, error: StorageError(code: .unauthenticatedUser, msgError: "Usuario no autenticado"))
         }
     }
+
+    func deleteGroup(groupId: Int){
+        if let authUserId = getAuthUserId(){
+            self.networkStorage.deleteGroup(userId: authUserId, goupId: groupId) { (response) in
+                
+                switch response {
+                    
+                case .success(_):
+                    self.getGroups()
+                    
+                case let .error(error):
+                    self.delegate?.error(self, error:error)
+                }
+            }
+            
+        }else{
+            self.delegate?.error(self, error: StorageError(code: .unauthenticatedUser, msgError: "Usuario no autenticado"))
+        }
+    }
     
     func addGroup(groupToAdd: Group, completion: @escaping ((Result<Group>) -> ())) {
         if let authUserId = getAuthUserId(){
