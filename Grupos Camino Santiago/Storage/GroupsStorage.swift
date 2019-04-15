@@ -13,11 +13,11 @@ class GroupsStorage
     
     weak var delegate: GroupsStorageDelegate?
     
-    var authUser : User?
+    private let networkStorage :NetworkStorage
+    private let localStorage: LocalStorage
     
-    let networkStorage :NetworkStorage
-    let localStorage: LocalStorage
-    
+    private var authUser : User?
+
     init(baseUrl: String) {
         self.networkStorage = NetworkStorage(baseUrl: baseUrl)
         self.localStorage = LocalStorage()
@@ -193,6 +193,11 @@ class GroupsStorage
         }
         
     }
+    
+    func logout(){
+        self.localStorage.closeSession()
+    }
+    
     
     func getHeaders(userId : Int) -> HTTPHeaders {
         var headers = HTTPHeaders()

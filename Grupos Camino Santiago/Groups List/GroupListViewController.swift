@@ -62,7 +62,9 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
     @objc func logout()
     {
         let uiAlertController = UIAlertController(title: "Cerrar sesión", message:"¿Seguro que desea cerrar sesión?", preferredStyle: .alert)
-        let uiActionAccept = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let uiActionAccept = UIAlertAction(title: "OK", style: .default){ _ in
+            self.viewModel?.logout()
+        }
         let uiActionCancel = UIAlertAction(title: "Cancelar", style: .default, handler: nil)
         uiAlertController.addAction(uiActionAccept)
         uiAlertController.addAction(uiActionCancel)

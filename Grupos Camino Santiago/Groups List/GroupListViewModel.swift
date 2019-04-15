@@ -32,6 +32,11 @@ class GroupListViewModel: GroupsStorageDelegate {
         self.groupsStorage.getGroups()
     }
     
+    func logout() {
+        self.groupsStorage.logout()
+        self.routingDelegate?.showLogin(self)
+    }
+    
     
     func groupsUpdate(_: GroupsStorage, groups: UserGroups) {
         groupsUserViewModels = groups.groupsCreated.map({ (group: Group) -> GroupViewModel in
@@ -92,5 +97,7 @@ protocol GroupsListViewModelRoutingDelegate: class
     func groupListViewModeWantsToAddGroup(_ viewModel: GroupListViewModel)
     
     func showGroupDedtail(_ viewModel: GroupListViewModel, routeId : Int)
+    
+    func showLogin(_ viewModel: GroupListViewModel)
 }
 

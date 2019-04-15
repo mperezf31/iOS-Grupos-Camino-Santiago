@@ -42,12 +42,15 @@ class MainRouteCoordinator: GroupsListViewModelRoutingDelegate, AddGroupViewMode
             self.loginRouteCoordinator = loginRouteCoordinator
         }
         
+        customizeNavigationController()
+    }
+    
+    private func customizeNavigationController() {
         self.navigationController.navigationBar.barTintColor =  #colorLiteral(red: 0.1843137255, green: 0.2549019608, blue: 0.3490196078, alpha: 1)
         self.navigationController.navigationBar.tintColor = .white
         self.navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)]
         self.navigationController.navigationBar.isTranslucent = false
     }
-    
     
     func groupListViewModeWantsToAddGroup(_ viewModel: GroupListViewModel) {
         let addGroupViewModel = AddGroupViewModel(groupsStorage: groupsStorage)
@@ -79,6 +82,15 @@ class MainRouteCoordinator: GroupsListViewModelRoutingDelegate, AddGroupViewMode
         let groupListViewController = GroupListViewController(viewModel: rootViewModel)
         rootViewModel.routingDelegate = self
         navigationController.setViewControllers([groupListViewController], animated: true)
+    }
+    
+    
+    func showLogin(_ viewModel: GroupListViewModel) {
+        
+        let loginRouteCoordinator = LoginRouteCoordinator(groupsStorage: groupsStorage)
+        navigationController.setViewControllers([loginRouteCoordinator.rootViewController], animated: true)
+        loginRouteCoordinator.delegate = self
+        self.loginRouteCoordinator = loginRouteCoordinator
     }
     
     
