@@ -51,14 +51,6 @@ class LocalStorage {
         
     }
     
-    func addUserGroup(groupToAdd: Group) {
-        self.userGroups?.groupsCreated.append(groupToAdd)
-    }
-    
-    
-    func getUserGroups() -> UserGroups? {
-        return userGroups
-    }
     
     func addGroupDetail(group: Group) {
         if let id = group.id {

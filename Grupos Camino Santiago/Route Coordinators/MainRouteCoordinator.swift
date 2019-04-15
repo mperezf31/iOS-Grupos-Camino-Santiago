@@ -56,7 +56,12 @@ class MainRouteCoordinator: GroupsListViewModelRoutingDelegate, AddGroupViewMode
         let addGroupViewModel = AddGroupViewModel(groupsStorage: groupsStorage)
         addGroupViewModel.routingDelegate = self
         let addGroupViewController = AddGroupViewController(viewModel: addGroupViewModel)
-        rootViewController.present(UINavigationController(rootViewController: addGroupViewController), animated: true, completion: nil)
+        let navigationController = UINavigationController(rootViewController: addGroupViewController)
+        navigationController.navigationBar.barTintColor =  UIColor(named: "PickledBluewood")
+        navigationController.navigationBar.tintColor = .white
+        navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "White")!]
+        navigationController.navigationBar.isTranslucent = false
+        rootViewController.present(navigationController, animated: true, completion: nil)
     }
 
     

@@ -36,7 +36,7 @@ class LoginViewController: FormViewController , LoginViewModelDelegate{
         navigationItem.backBarButtonItem = UIBarButtonItem()
         
         tableView.separatorStyle = .none
-        tableView.backgroundColor = UIColor(named: "PickledBluewood")
+        tableView.backgroundColor = UIColor(named: "PickledBluewoodLight")
         createForm()
     }
     
@@ -88,7 +88,7 @@ class LoginViewController: FormViewController , LoginViewModelDelegate{
             <<< ButtonRow(){ row in
                 row.title = "Crear cuenta"
                 row.cell.textLabel?.font = .systemFont(ofSize: 13)
-                row.cell.backgroundColor = UIColor(named: "PickledBluewood")
+                row.cell.backgroundColor = UIColor(named: "PickledBluewoodLight")
                 row.cell.tintColor = UIColor(named: "White")
                 let bgColorView = UIView()
                 bgColorView.backgroundColor = UIColor(named: "PickledBluewood")

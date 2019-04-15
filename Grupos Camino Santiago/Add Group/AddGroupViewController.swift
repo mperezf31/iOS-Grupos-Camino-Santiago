@@ -7,23 +7,16 @@
 //
 
 import UIKit
+import MaterialComponents.MaterialSnackbar
+import Eureka
+import MapKit
+import JGProgressHUD
 
-class AddGroupViewController: UIViewController , AddGroupViewModelDelegate{
+
+class AddGroupViewController: FormViewController , AddGroupViewModelDelegate {
     
-    @IBOutlet weak var scrollview: UIScrollView!
-    
-    @IBOutlet weak var titleGroup: UITextField!
-    @IBOutlet weak var departurePlace: UITextField!
-    @IBOutlet weak var descriptionGroup: UITextView!
-    @IBOutlet weak var departureDate: UITextField!
-    @IBOutlet weak var arrivalDate: UITextField!
-    
-    let datePickerDeparture = UIDatePicker()
-    let datePickerArrival = UIDatePicker()
-    
-    var dateDeparture : Date?
-    var dateArrival : Date?
-    
+    private let hud = JGProgressHUD(style: .dark)
+
     private var viewModel: AddGroupViewModel?
     
     init(viewModel: AddGroupViewModel)
@@ -40,10 +33,11 @@ class AddGroupViewController: UIViewController , AddGroupViewModelDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Crear grupo"
-                
+        
         addNavigationItems()
-        addDatePikerListener()
-       // self.scrollview.keyboardDismissMode
+        
+        tableView.backgroundColor = UIColor(named: "PickledBluewoodLight")
+        createForm()
     }
     
     func addNavigationItems() {
@@ -51,29 +45,6 @@ class AddGroupViewController: UIViewController , AddGroupViewModelDelegate{
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(addNewGroup))
     }
     
-    func addDatePikerListener() {
-        self.departureDate.addDatePicker(datePicker: datePickerDeparture)
-        self.arrivalDate.addDatePicker(datePicker: datePickerArrival)
-        
-        self.datePickerDeparture.addTarget(self, action: #selector(datePickerDepartureValueChanged), for: .valueChanged)
-        self.datePickerArrival.addTarget(self, action: #selector(datePickerArrivalValueChanged), for: .valueChanged)
-    }
-    
-    @objc func datePickerDepartureValueChanged(sender:UIDatePicker) {
-        self.dateDeparture = sender.date
-        self.departureDate.text = getDateFormat().string(from: sender.date)
-    }
-    
-    @objc func datePickerArrivalValueChanged(sender:UIDatePicker) {
-        self.dateArrival = sender.date
-        self.arrivalDate.text = getDateFormat().string(from: sender.date)
-    }
-    
-    func getDateFormat() -> DateFormatter {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
-        return dateFormatter
-    }
     
     @objc func cancelAddGroup()
     {
@@ -82,59 +53,173 @@ class AddGroupViewController: UIViewController , AddGroupViewModelDelegate{
     
     @objc func addNewGroup()
     {
-        if isValidForm(){
-            self.viewModel?.addGroup(groupToAdd: Group(self.titleGroup.text!, self.descriptionGroup.text, self.departurePlace.text!, dateDeparture!, dateArrival!))
+        
+        let formErrors = form.validate()
+        
+        if(formErrors.count == 0){
+            let formValues = form.values()
+            let departureDate = formValues["DepartureDate"] as! Date
+            let arrivalDate = formValues["ArrivalDate"] as! Date
+            
+            if arrivalDate > departureDate {
+                var photo = form.values()["Photo"] as? UIImage
+                
+                if let image = photo{
+                    photo = image.resizeImage(width: 100)
+                }
+                
+                let photoBase64 = photo?.jpegData(compressionQuality: 1.0)!.base64EncodedString()
+                
+                let group = Group()
+                group.photo =  photoBase64
+                group.title = formValues["Title"] as? String
+                group.description = formValues["Description"] as? String
+                group.departurePlace = formValues["DeparturePlace"] as? String
+                group.latitude = (formValues["Place"] as? CLLocation)?.coordinate.latitude
+                group.longitude = (formValues["Place"] as? CLLocation)?.coordinate.longitude
+                group.departureDate = departureDate
+                group.arrivalDate = arrivalDate
+
+                self.viewModel?.addGroup(groupToAdd: group)
+
+            }else{
+                let message = MDCSnackbarMessage()
+                message.text = "La fecha de llegada debe de ser posterior a la de salida"
+                MDCSnackbarManager.show(message)
+            }
+            
         }
         
     }
     
-    func isValidForm() -> Bool {
-        var isValid = true
-        
-        if let title =  self.titleGroup.text, !title.isEmpty{
-            self.titleGroup.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        }else{
-            self.titleGroup.backgroundColor = #colorLiteral(red: 0.9513320327, green: 0.8564937711, blue: 0.8076108098, alpha: 1)
-            isValid = false
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        (view as? UITableViewHeaderFooterView)?.textLabel?.textColor = UIColor(named: "White")
+        (view as? UITableViewHeaderFooterView)?.textLabel?.textAlignment = .center
+        (view as? UITableViewHeaderFooterView)?.backgroundView?.backgroundColor = UIColor(named: "PickledBluewoodLight")
+        (view as? UITableViewHeaderFooterView)?.contentView.layoutMargins.top = 1
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
+    }
+    
+    func createForm(){
+        form +++ Section(){ section in
+            section.header =  HeaderFooterView<FormHeader>(.nibFile(name: "FormHeader", bundle: nil))
+            }
+            
+            +++ Section("Datos generales")
+            
+            <<< ImageRow("Photo"){ row in
+                row.title = "Imagen del grupo"
+                row.cell.backgroundColor = UIColor(named: "Silver")
+                row.cell.tintColor = UIColor(named: "RoyalBlue")
+            }
+            
+            <<< TextRow("Title"){ row in
+                row.title = "Título"
+                row.cell.backgroundColor = UIColor(named: "Silver")
+                row.cell.tintColor = UIColor(named: "RoyalBlue")
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }.cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
+            }
+            
+            <<< TextAreaRow("Description"){ row in
+                row.placeholder = "Descripción"
+                row.cell.backgroundColor = UIColor(named: "Silver")
+                row.cell.tintColor = UIColor(named: "RoyalBlue")
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }.cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.placeholderLabel?.textColor = .red
+                    }
+            }
+            
+            +++ Section("Datos de salida")
+            
+            <<< TextRow("DeparturePlace"){ row in
+                row.title = "Lugar de salida"
+                row.cell.backgroundColor = UIColor(named: "Silver")
+                row.cell.tintColor = UIColor(named: "RoyalBlue")
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }.cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
+                    
+            }
+            
+            <<< LocationRow("Place"){ row in
+                row.title = "Localización"
+                row.cell.backgroundColor = UIColor(named: "Silver")
+                row.cell.tintColor = UIColor(named: "RoyalBlue")
+                row.add(rule: RuleRequired())
+                }.cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.textLabel?.textColor = .red
+                    }
+            }
+            
+            <<< DateTimeRow("DepartureDate"){ row in
+                row.title = "Fecha de salida"
+                row.cell.backgroundColor = UIColor(named: "Silver")
+                row.cell.tintColor = UIColor(named: "RoyalBlue")
+                row.dateFormatter = self.getFormatter()
+                row.minimumDate = Date()
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }.cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.textLabel?.textColor = .red
+                    }
+            }
+            
+            +++ Section("Datos de llegada")
+            
+            <<< DateTimeRow("ArrivalDate"){ row in
+                row.title = "Fecha de llegada"
+                row.cell.backgroundColor = UIColor(named: "Silver")
+                row.cell.tintColor = UIColor(named: "RoyalBlue")
+                row.dateFormatter = self.getFormatter()
+                row.minimumDate = Date()
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
+                }.cellUpdate { cell, row in
+                    if !row.isValid {
+                        cell.textLabel?.textColor = .red
+                    }
+                    
         }
         
-        if let departurePlace =  self.departurePlace.text, !departurePlace.isEmpty{
-            self.departurePlace.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        }else{
-            self.departurePlace.backgroundColor =  #colorLiteral(red: 0.9513320327, green: 0.8564937711, blue: 0.8076108098, alpha: 1)
-            isValid = false
-        }
-        
-        if let descriptionGroup =  self.descriptionGroup.text, !descriptionGroup.isEmpty{
-            self.descriptionGroup.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        }else{
-            self.descriptionGroup.backgroundColor =  #colorLiteral(red: 0.9513320327, green: 0.8564937711, blue: 0.8076108098, alpha: 1)
-            isValid = false
-        }
-        
-        if self.dateDeparture != nil{
-            self.departureDate.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        }else{
-            self.departureDate.backgroundColor =  #colorLiteral(red: 0.9513320327, green: 0.8564937711, blue: 0.8076108098, alpha: 1)
-            isValid = false
-        }
-        
-        if self.dateArrival != nil{
-            self.arrivalDate.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        }else{
-            self.arrivalDate.backgroundColor =  #colorLiteral(red: 0.9513320327, green: 0.8564937711, blue: 0.8076108098, alpha: 1)
-            isValid = false
-        }
-        
-        return isValid
-        
+    }
+    
+    func getFormatter() -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm dd/MM/yyyy"
+        formatter.locale = Locale.init(identifier: "es")
+        return formatter
+    }
+    
+    func showIndicator(_: AddGroupViewModel, msg: String) {
+        hud.textLabel.text = msg
+        hud.show(in: self.view)
+    }
+    
+    func hideIndicator(_: AddGroupViewModel) {
+        hud.dismiss()
     }
     
     func error(_: AddGroupViewModel, errorMsg: String) {
-        let uiAlertController = UIAlertController(title: "Error", message:errorMsg,preferredStyle: .alert)
-        let uiAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        uiAlertController.addAction(uiAction)
-        present(uiAlertController, animated: true, completion: nil)
+        let message = MDCSnackbarMessage()
+        message.text = errorMsg
+        MDCSnackbarManager.show(message)
     }
     
 }

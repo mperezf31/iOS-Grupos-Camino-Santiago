@@ -33,7 +33,7 @@ class RegisterViewController: FormViewController, RegisterViewModelDelegate{
         title = "Crear cuenta"
 
         tableView.separatorStyle = .none
-        tableView.backgroundColor = UIColor(named: "PickledBluewood")
+        tableView.backgroundColor = UIColor(named: "PickledBluewoodLight")
         createForm()
     }
     

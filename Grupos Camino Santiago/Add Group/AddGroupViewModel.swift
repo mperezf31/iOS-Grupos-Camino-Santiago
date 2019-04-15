@@ -20,9 +20,13 @@ class AddGroupViewModel {
     }
     
     func addGroup(groupToAdd: Group) {
+        self.delegate?.showIndicator(self, msg: "Creando grupo...")
+
         self.groupsStorage.addGroup(groupToAdd: groupToAdd){ (response) in
+            self.delegate?.hideIndicator(self)
+
             switch response {
-                
+            
             case .success(_):
                 self.routingDelegate?.dimissAddGroupPage(self)
 
@@ -41,6 +45,9 @@ class AddGroupViewModel {
 
 protocol AddGroupViewModelDelegate: class
 {
+    func showIndicator(_: AddGroupViewModel, msg: String)
+    
+    func hideIndicator(_: AddGroupViewModel)
     
     func error(_: AddGroupViewModel, errorMsg: String)
     

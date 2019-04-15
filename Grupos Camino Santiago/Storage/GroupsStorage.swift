@@ -80,12 +80,8 @@ class GroupsStorage
             self.networkStorage.addGroup(userId: authUserId, groupToAdd: groupToAdd){ (response) in
                 
                 //if success pdate the groups list
-                if case .success(let group) = response {
-                    self.localStorage.addUserGroup(groupToAdd: group)
-                    if let groups = self.localStorage.getUserGroups(){
-                        self.delegate?.groupsUpdate(self, groups: groups)
-                    }
-                    
+                if case .success( _) = response {
+                    self.getGroups()
                 }
                 
                 completion(response)

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1D2D3C281C8B10620BEFEE0E /* Pods_Grupos_Camino_Santiago.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62DFD874927CF6C5021228A8 /* Pods_Grupos_Camino_Santiago.framework */; };
+		5F0AACF52265112D0026B364 /* LocationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0AACF42265112D0026B364 /* LocationRow.swift */; };
 		5F522AAE224A9CB8006D9CDB /* GroupListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F522AAD224A9CB8006D9CDB /* GroupListViewController.swift */; };
 		5F6249552246E15500394FDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249542246E15500394FDE /* AppDelegate.swift */; };
 		5F62495A2246E15500394FDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6249582246E15500394FDE /* Main.storyboard */; };
@@ -61,6 +62,7 @@
 
 /* Begin PBXFileReference section */
 		38173DDCBE534B4AEF3768AE /* Pods-Grupos Camino Santiago.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grupos Camino Santiago.release.xcconfig"; path = "Pods/Target Support Files/Pods-Grupos Camino Santiago/Pods-Grupos Camino Santiago.release.xcconfig"; sourceTree = "<group>"; };
+		5F0AACF42265112D0026B364 /* LocationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRow.swift; sourceTree = "<group>"; };
 		5F522AAD224A9CB8006D9CDB /* GroupListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListViewController.swift; sourceTree = "<group>"; };
 		5F6249512246E15500394FDE /* Grupos Camino Santiago.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grupos Camino Santiago.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F6249542246E15500394FDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F0AACF3226511120026B364 /* LocationRow */ = {
+			isa = PBXGroup;
+			children = (
+				5F0AACF42265112D0026B364 /* LocationRow.swift */,
+			);
+			path = LocationRow;
+			sourceTree = "<group>";
+		};
 		5F6249482246E15500394FDE = {
 			isa = PBXGroup;
 			children = (
@@ -293,6 +303,7 @@
 		5FA4FCBD225A19B300025ECD /* CustomRows */ = {
 			isa = PBXGroup;
 			children = (
+				5F0AACF3226511120026B364 /* LocationRow */,
 				5FA4FCBE225A19C700025ECD /* ImageRow */,
 			);
 			path = CustomRows;
@@ -490,6 +501,7 @@
 				5F6249942246FF8D00394FDE /* UserGroups.swift in Sources */,
 				5FA4FC8E224FFA6D00025ECD /* GroupPostsViewController.swift in Sources */,
 				5FA4FC7A224FDD8A00025ECD /* GroupDetailNoteRouteCoordinator.swift in Sources */,
+				5F0AACF52265112D0026B364 /* LocationRow.swift in Sources */,
 				5F6249552246E15500394FDE /* AppDelegate.swift in Sources */,
 				5FA4FCC4225BD9ED00025ECD /* UIImage+Resize.swift in Sources */,
 				5FA4FCB62259FF6500025ECD /* RegisterViewModel.swift in Sources */,
