@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainRouteCoordinator: GroupsListViewModelRoutingDelegate, AddGroupViewModelRoutingDelegate , GroupDetailRouteCoordinatorDelegate , LoginRouteCoordinatorDelegate
+class MainRouteCoordinator: GroupsListViewModelRoutingDelegate, AddGroupViewModelRoutingDelegate , LoginRouteCoordinatorDelegate
 {
     
     var rootViewController: UIViewController
@@ -72,14 +72,8 @@ class MainRouteCoordinator: GroupsListViewModelRoutingDelegate, AddGroupViewMode
     
     func showGroupDedtail(_ viewModel: GroupListViewModel, routeId : Int) {
         let groupDetailRouteCoordinator = GroupDetailRouteCoordinator(groupoId: routeId, groupsStorage: groupsStorage)
-        groupDetailRouteCoordinator.delegate = self
         navigationController.pushViewController(groupDetailRouteCoordinator.rootViewController, animated: true)
         self.groupDetailRouteCoordinator = groupDetailRouteCoordinator
-    }
-    
-    func groupDetailRouteCoordinatorDelegateFinish(_ groupDetailRouteCoordinator: GroupDetailRouteCoordinator) {
-        rootViewController.dismiss(animated: true, completion: nil)
-        self.groupDetailRouteCoordinator = nil
     }
     
     func loginRouteCoordinatorDelegateFinish(_ loginRouteCoordinator: LoginRouteCoordinator) {

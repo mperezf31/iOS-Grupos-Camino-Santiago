@@ -10,9 +10,7 @@ import UIKit
 
 class GroupDetailRouteCoordinator
 {
-    
-    weak var delegate: GroupDetailRouteCoordinatorDelegate?
-    
+        
     var rootViewController: UIViewController
     {
         get
@@ -52,14 +50,5 @@ class GroupDetailRouteCoordinator
         self.navigationController.setViewControllers(tabBarList, animated: true)
     }
     
-    func closeDetailConttroller() {
-        self.delegate?.groupDetailRouteCoordinatorDelegateFinish(self)
-    }
-}
-
-
-protocol GroupDetailRouteCoordinatorDelegate : class
-{
-    func groupDetailRouteCoordinatorDelegateFinish(_ groupDetailRouteCoordinator: GroupDetailRouteCoordinator)
 }
 

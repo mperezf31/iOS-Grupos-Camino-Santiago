@@ -42,6 +42,7 @@ class GroupDetailViewController: UIViewController , GroupDetailViewModelDelegate
     func groupDetailRetrieved(_: GroupDetailViewModel, group: GroupViewModel) {
         self.groupPhoto.image = group.photo
         self.groupTitle.text = group.title
+        self.tabBarController?.title = group.title
         self.departureDate.text = "Salida:  \(group.departureDate)"
         self.arrivalDate.text = "Llegada: \(group.arrivalDate)"
         self.groupDescription.text = group.description
