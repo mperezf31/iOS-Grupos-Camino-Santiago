@@ -25,9 +25,12 @@ class GroupMembersViewModel {
     }
     
     func getGroupMembers() {
+        self.delegate?.showIndicator(self, msg: "Obteniendo miembros...")
+        
         self.groupsStorage.getGroup(groupId: self.groupId){ (response) in
+            self.delegate?.hideIndicator(self)
+            
             switch response {
-                
             case let .success(group):
                 self.parseMemberRetrieved(founder: group.founder!,members: group.members)
             case let .error(error):
@@ -59,9 +62,12 @@ class GroupMembersViewModel {
 
     
     func joinGroup() {
+        self.delegate?.showIndicator(self, msg: "Conectando...")
+
         self.groupsStorage.joinGroup(groupId: self.groupId , join: !self.isMember){ (response) in
+            self.delegate?.hideIndicator(self)
+
             switch response {
-                
             case let .success(group):
                 self.parseMemberRetrieved(founder: group.founder!,members: group.members)
             case let .error(error):
@@ -77,6 +83,10 @@ protocol GroupMembersViewModelViewModelDelegate: class
 {
     
     func groupMembersRetrieved(_: GroupMembersViewModel, members: [User])
+    
+    func showIndicator(_: GroupMembersViewModel, msg: String)
+    
+    func hideIndicator(_: GroupMembersViewModel)
     
     func error(_: GroupMembersViewModel, errorMsg: String)
 }

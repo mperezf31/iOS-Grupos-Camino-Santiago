@@ -155,8 +155,7 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
         refreshControl.endRefreshing()
     }
     
-    func error(_: GroupListViewModel, errorMsg: String) {
-        
+    func error(_: GroupListViewModel, errorMsg: String) {        
         let message = MDCSnackbarMessage()
         message.text = errorMsg
         MDCSnackbarManager.show(message)

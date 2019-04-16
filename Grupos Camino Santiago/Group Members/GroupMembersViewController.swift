@@ -7,16 +7,18 @@
 //
 
 import UIKit
+import MaterialComponents.MaterialSnackbar
+import JGProgressHUD
 
 class GroupMembersViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, GroupMembersViewModelViewModelDelegate {
    
     private let MEMBER_CELL_IDENTIFIER = "GroupMemberUiCellCollectionViewCell"
 
     private let viewModel: GroupMembersViewModel
+    private let hud = JGProgressHUD(style: .dark)
+    
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet weak var joinGroup: UIButton!
-    
     @IBAction func joinGroupClick() {
         self.viewModel.joinGroup()
     }
@@ -69,10 +71,20 @@ class GroupMembersViewController: UIViewController, UICollectionViewDelegate, UI
         self.collectionView.reloadData()
     }
     
-    func error(_: GroupMembersViewModel, errorMsg: String) {
-        print("GroupMembersViewController")
+    func showIndicator(_: GroupMembersViewModel, msg: String) {
+        hud.textLabel.text = msg
+        hud.show(in: self.view)
     }
     
+    func hideIndicator(_: GroupMembersViewModel) {
+        hud.dismiss()
+    }
+    
+    func error(_: GroupMembersViewModel, errorMsg: String) {
+        let message = MDCSnackbarMessage()
+        message.text = errorMsg
+        MDCSnackbarManager.show(message)
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.viewModel.membersViewModels.count
