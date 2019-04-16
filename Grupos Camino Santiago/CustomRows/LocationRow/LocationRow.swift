@@ -66,10 +66,11 @@ public final class LocationRow: OptionsRow<PushSelectorCell<CLLocation>>, Presen
     }
 }
 
-public class MapViewController : UIViewController, TypedRowControllerType, MKMapViewDelegate {
+public class MapViewController : UIViewController, TypedRowControllerType, MKMapViewDelegate{
     
     public var row: RowOf<CLLocation>!
     public var onDismissCallback: ((UIViewController) -> ())?
+    var locationManager : CLLocationManager!
     
     lazy var mapView : MKMapView = { [unowned self] in
         let v = MKMapView(frame: self.view.bounds)
@@ -132,6 +133,9 @@ public class MapViewController : UIViewController, TypedRowControllerType, MKMap
         super.viewDidLoad()
         view.addSubview(mapView)
         
+        locationManager = CLLocationManager()
+        locationManager.requestWhenInUseAuthorization()
+        
         mapView.delegate = self
         mapView.addSubview(pinView)
         mapView.layer.insertSublayer(ellipsisLayer, below: pinView.layer)
@@ -142,10 +146,10 @@ public class MapViewController : UIViewController, TypedRowControllerType, MKMap
         if let value = row.value {
             let region = MKCoordinateRegion(center: value.coordinate, latitudinalMeters: 400, longitudinalMeters: 400)
             mapView.setRegion(region, animated: true)
-        }
-        else{
+        }else{
             mapView.showsUserLocation = true
         }
+        
         updateTitle()
         
     }

@@ -123,7 +123,7 @@ class RegisterViewController: FormViewController, RegisterViewModelDelegate{
         
         let formErrors = form.validate()
         
-        if(formErrors.count == 0){
+        if(formErrors.count == 0 && !hud.isVisible){
             let formValues = form.values()
             let pass = formValues["Password"] as? String
             let confirmPass = formValues["ConfirmPassword"] as? String

@@ -20,7 +20,9 @@ class GroupMembersViewController: UIViewController, UICollectionViewDelegate, UI
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var joinGroup: UIButton!
     @IBAction func joinGroupClick() {
-        self.viewModel.joinGroup()
+        if(!hud.isVisible){
+            self.viewModel.joinGroup()
+        }
     }
     
     init(viewModel: GroupMembersViewModel)

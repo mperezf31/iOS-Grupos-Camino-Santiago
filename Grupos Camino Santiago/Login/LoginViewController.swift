@@ -101,7 +101,7 @@ class LoginViewController: FormViewController , LoginViewModelDelegate{
     
     
     func onClickLogin() {
-        if self.form.validate().count == 0 {
+        if self.form.validate().count == 0 && !hud.isVisible{
             let formValues = form.values()
             self.viewModel?.loginClick(email: formValues["Email"] as! String, password:  formValues["Password"] as! String)
         }

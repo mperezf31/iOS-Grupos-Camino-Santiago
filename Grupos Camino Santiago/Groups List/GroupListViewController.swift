@@ -136,7 +136,9 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            self.viewModel?.deleteGroup(section: indexPath.section, index: indexPath.row)
+            if(!hud.isVisible){
+                self.viewModel?.deleteGroup(section: indexPath.section, index: indexPath.row)
+            }
         }
     }
     

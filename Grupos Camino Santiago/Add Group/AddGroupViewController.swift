@@ -33,7 +33,8 @@ class AddGroupViewController: FormViewController , AddGroupViewModelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Crear grupo"
-        
+        navigationItem.backBarButtonItem = UIBarButtonItem()
+
         addNavigationItems()
         
         tableView.backgroundColor = UIColor(named: "SilverChalice")
@@ -53,6 +54,9 @@ class AddGroupViewController: FormViewController , AddGroupViewModelDelegate {
     
     @objc func addNewGroup()
     {
+        if(hud.isVisible){
+            return
+        }
         
         let formErrors = form.validate()
         
