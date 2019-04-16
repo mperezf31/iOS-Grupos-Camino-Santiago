@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MapKit
 
-class GroupDetailViewController: UIViewController , GroupDetailViewModelDelegate{
+class GroupDetailViewController: UIViewController ,  MKMapViewDelegate, GroupDetailViewModelDelegate{
    
     @IBOutlet weak var groupPhoto: UIImageView!
     @IBOutlet weak var groupTitle: UILabel!
@@ -16,6 +17,7 @@ class GroupDetailViewController: UIViewController , GroupDetailViewModelDelegate
     @IBOutlet weak var arrivalDate: UILabel!
     @IBOutlet weak var groupDescription: UILabel!
     @IBOutlet weak var departurePlace: UILabel!
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var founderPhoto: UIImageView!
     @IBOutlet weak var founderName: UILabel!
     @IBOutlet weak var founderEmail: UILabel!
@@ -35,6 +37,8 @@ class GroupDetailViewController: UIViewController , GroupDetailViewModelDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.mapView.delegate = self
+
         self.viewModel.getGroupDetail()
     }
     
@@ -48,6 +52,11 @@ class GroupDetailViewController: UIViewController , GroupDetailViewModelDelegate
         self.groupDescription.text = group.description
         self.departurePlace.text = group.departurePlace
         
+        let groupPin = group.groupPin
+        self.mapView.addAnnotations([groupPin])
+        let region = MKCoordinateRegion(center: groupPin.coordinate, latitudinalMeters: 100000, longitudinalMeters: 100000)
+        self.mapView.setRegion(region, animated: true)
+        
         self.founderPhoto.image = group.founderPhoto
         self.founderName.text = group.founderName
         self.founderEmail.text = group.founderEmail
@@ -55,6 +64,29 @@ class GroupDetailViewController: UIViewController , GroupDetailViewModelDelegate
     
     func error(_: GroupDetailViewModel, errorMsg: String) {
 
+    }
+    
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?
+    {
+        let identifier = "Group"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        
+        if annotationView == nil{
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        }else{
+            annotationView!.annotation = annotation
+        }
+        
+        annotationView!.canShowCallout = true
+        
+        let annotationPin = annotation as! GroupPin
+        
+        let imageView = UIImageView(image: annotationPin.image )
+        imageView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        annotationView!.leftCalloutAccessoryView = imageView
+        
+        return annotationView!
     }
     
 }

@@ -10,6 +10,8 @@
 		1D2D3C281C8B10620BEFEE0E /* Pods_Grupos_Camino_Santiago.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62DFD874927CF6C5021228A8 /* Pods_Grupos_Camino_Santiago.framework */; };
 		5F0AACF52265112D0026B364 /* LocationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0AACF42265112D0026B364 /* LocationRow.swift */; };
 		5F0AACF7226529A60026B364 /* UIImage+Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0AACF6226529A60026B364 /* UIImage+Base64.swift */; };
+		5F0AACF92265E5B60026B364 /* GroupPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0AACF82265E5B60026B364 /* GroupPin.swift */; };
+		5F0AACFC2265EA890026B364 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FCBF225A19DB00025ECD /* ImagePickerController.swift */; };
 		5F522AAE224A9CB8006D9CDB /* GroupListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F522AAD224A9CB8006D9CDB /* GroupListViewController.swift */; };
 		5F6249552246E15500394FDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249542246E15500394FDE /* AppDelegate.swift */; };
 		5F62495A2246E15500394FDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6249582246E15500394FDE /* Main.storyboard */; };
@@ -51,7 +53,6 @@
 		5FA4FCB9225A007100025ECD /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FCB7225A007100025ECD /* RegisterViewController.swift */; };
 		5FA4FCBA225A007100025ECD /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA4FCB8225A007100025ECD /* RegisterViewController.xib */; };
 		5FA4FCBC225A03CD00025ECD /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FCBB225A03CD00025ECD /* LoginViewModel.swift */; };
-		5FA4FCC1225A19DB00025ECD /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FCBF225A19DB00025ECD /* ImagePickerController.swift */; };
 		5FA4FCC2225A19DB00025ECD /* ImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FCC0225A19DB00025ECD /* ImageRow.swift */; };
 		5FA4FCC4225BD9ED00025ECD /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FCC3225BD9ED00025ECD /* UIImage+Resize.swift */; };
 		5FA4FCC62264792E00025ECD /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FA4FCC52264792E00025ECD /* Colors.xcassets */; };
@@ -64,6 +65,7 @@
 		38173DDCBE534B4AEF3768AE /* Pods-Grupos Camino Santiago.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grupos Camino Santiago.release.xcconfig"; path = "Pods/Target Support Files/Pods-Grupos Camino Santiago/Pods-Grupos Camino Santiago.release.xcconfig"; sourceTree = "<group>"; };
 		5F0AACF42265112D0026B364 /* LocationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRow.swift; sourceTree = "<group>"; };
 		5F0AACF6226529A60026B364 /* UIImage+Base64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Base64.swift"; sourceTree = "<group>"; };
+		5F0AACF82265E5B60026B364 /* GroupPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPin.swift; sourceTree = "<group>"; };
 		5F522AAD224A9CB8006D9CDB /* GroupListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListViewController.swift; sourceTree = "<group>"; };
 		5F6249512246E15500394FDE /* Grupos Camino Santiago.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grupos Camino Santiago.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F6249542246E15500394FDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,8 +109,8 @@
 		5FA4FCB7225A007100025ECD /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		5FA4FCB8225A007100025ECD /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		5FA4FCBB225A03CD00025ECD /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		5FA4FCBF225A19DB00025ECD /* ImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImagePickerController.swift; path = "../../../../../../../Eureka-master/Example/Example/CustomRows/ImageRow/ImagePickerController.swift"; sourceTree = "<group>"; };
-		5FA4FCC0225A19DB00025ECD /* ImageRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageRow.swift; path = "../../../../../../../Eureka-master/Example/Example/CustomRows/ImageRow/ImageRow.swift"; sourceTree = "<group>"; };
+		5FA4FCBF225A19DB00025ECD /* ImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
+		5FA4FCC0225A19DB00025ECD /* ImageRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageRow.swift; path = "Grupos Camino Santiago/CustomRows/ImageRow/ImageRow.swift"; sourceTree = SOURCE_ROOT; };
 		5FA4FCC3225BD9ED00025ECD /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		5FA4FCC52264792E00025ECD /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		5FC1623E22498613003785B0 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				5FA4FC7C224FE44000025ECD /* GroupDetailViewController.swift */,
 				5FA4FC7D224FE44000025ECD /* GroupDetailViewController.xib */,
 				5FA4FC80224FE49500025ECD /* GroupDetailViewModel.swift */,
+				5F0AACF82265E5B60026B364 /* GroupPin.swift */,
 			);
 			path = "Group Detail";
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 				5F6249822246ECBE00394FDE /* GroupListViewModel.swift in Sources */,
 				5F62499A2247984A00394FDE /* MainRouteCoordinator.swift in Sources */,
 				5FA4FC85224FF52300025ECD /* GroupMembersViewController.swift in Sources */,
+				5F0AACFC2265EA890026B364 /* ImagePickerController.swift in Sources */,
 				5F0AACF7226529A60026B364 /* UIImage+Base64.swift in Sources */,
 				5FA4FC992257B46A00025ECD /* NetworkStorage.swift in Sources */,
 				5FA4FC9D225918E800025ECD /* LoginRouteCoordinator.swift in Sources */,
@@ -515,7 +519,7 @@
 				5FA4FC9522501ED000025ECD /* MemberViewModel.swift in Sources */,
 				5FA4FCB9225A007100025ECD /* RegisterViewController.swift in Sources */,
 				5FA4FCC2225A19DB00025ECD /* ImageRow.swift in Sources */,
-				5FA4FCC1225A19DB00025ECD /* ImagePickerController.swift in Sources */,
+				5F0AACF92265E5B60026B364 /* GroupPin.swift in Sources */,
 				5FA4FC8B224FF9BF00025ECD /* GroupPostsViewModel.swift in Sources */,
 				5F6249802246EAF200394FDE /* GroupViewModel.swift in Sources */,
 				5FA4FCAE22594ADD00025ECD /* FormHeader.swift in Sources */,

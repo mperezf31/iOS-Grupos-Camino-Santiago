@@ -88,6 +88,30 @@ class GroupViewModel {
         }
     }
     
+    var groupPin : GroupPin {
+        let groupPin = GroupPin(lat: self.lat, long: self.long)
+        groupPin.title = self.title
+        groupPin.image = self.photo
+        return groupPin
+    }
+    
+    
+    var lat: Double
+    {
+        get
+        {
+            return group.latitude ?? 0
+        }
+    }
+    
+    var long: Double
+    {
+        get
+        {
+            return group.longitude ?? 0
+        }
+    }
+    
     var founderPhoto: UIImage
     {
         get
