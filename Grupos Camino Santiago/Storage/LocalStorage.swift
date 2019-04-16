@@ -13,7 +13,10 @@ class LocalStorage {
     
     private let AUTH_USER = "auth_user"
     
+    //Cache the groups with basic info
     private let listGroupCache = NSCache<NSString, UserGroups>()
+    
+    //Cache the groups detail
     private let groupDetailCache = NSCache<NSNumber, Group>()
     
     init() {
