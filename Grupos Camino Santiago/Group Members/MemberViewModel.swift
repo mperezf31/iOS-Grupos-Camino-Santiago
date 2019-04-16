@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class MemberViewModel {
     
@@ -32,6 +33,18 @@ class MemberViewModel {
         get
         {
             return user.name ?? ""
+        }
+    }
+    
+    var photo: UIImage
+    {
+        get
+        {
+            if let imageBase64 = user.photo{
+                return UIImage(imageString: imageBase64) ?? UIImage(named: "User")!
+            }else{
+                return UIImage(named: "User")!
+            }
         }
     }
     

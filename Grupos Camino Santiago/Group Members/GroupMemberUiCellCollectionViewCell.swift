@@ -32,6 +32,7 @@ class GroupMemberUiCellCollectionViewCell: UICollectionViewCell {
     
     private func updateViews()
     {
+        self.image?.image = viewModel?.photo
         self.name?.text = viewModel?.name
         self.rol?.text = viewModel?.rol
     }
