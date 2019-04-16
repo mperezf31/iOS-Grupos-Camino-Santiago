@@ -99,7 +99,7 @@ class NetworkStorage {
             if let group = response.value {
                 completion(.success(group))
             }else{
-                completion(.error(StorageError(code: .networkError, msgError: "Se ha producido al intentar unirse al grupo")))
+                completion(.error(StorageError(code: .networkError, msgError: "Se ha producido un error al intentar unirse al grupo")))
             }
             
         }
@@ -113,7 +113,7 @@ class NetworkStorage {
             if let group = response.value {
                 completion(.success(group))
             }else{
-                completion(.error(StorageError(code: .networkError, msgError: "Se ha producido al intentar dejar al grupo")))
+                completion(.error(StorageError(code: .networkError, msgError: "Se ha producido un error al intentar dejar al grupo")))
             }
             
         }

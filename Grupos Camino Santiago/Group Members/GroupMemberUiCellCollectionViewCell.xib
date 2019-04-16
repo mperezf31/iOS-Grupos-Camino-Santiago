@@ -13,14 +13,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="gTV-IL-0wX" customClass="GroupMemberUiCellCollectionViewCell" customModule="Grupos_Camino_Santiago" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="132" height="122"/>
+            <rect key="frame" x="0.0" y="0.0" width="132" height="123"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="132" height="122"/>
+                <rect key="frame" x="0.0" y="0.0" width="132" height="123"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAD-Hp-yyf">
-                        <rect key="frame" x="48" y="87" width="36" height="17"/>
+                        <rect key="frame" x="48" y="86" width="36" height="17"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="17" id="UNE-0y-K1S"/>
                         </constraints>
@@ -29,7 +29,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJy-ed-y7Q">
-                        <rect key="frame" x="52.5" y="105" width="27" height="12"/>
+                        <rect key="frame" x="52.5" y="104" width="27" height="12"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="12" id="duM-yN-Uw1"/>
                         </constraints>
@@ -38,10 +38,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="jqT-ri-xTe">
-                        <rect key="frame" x="28.5" y="6" width="75" height="75"/>
+                        <rect key="frame" x="32" y="12" width="68" height="68"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="75" id="AfC-iw-7wx"/>
-                            <constraint firstAttribute="width" constant="75" id="yXF-Dz-CvB"/>
+                            <constraint firstAttribute="height" constant="68" id="AfC-iw-7wx"/>
+                            <constraint firstAttribute="width" constant="68" id="yXF-Dz-CvB"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -56,18 +56,18 @@
                 <constraint firstItem="jAD-Hp-yyf" firstAttribute="top" secondItem="jqT-ri-xTe" secondAttribute="bottom" constant="6" id="SIG-CO-YVO"/>
                 <constraint firstItem="jAD-Hp-yyf" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="aN3-nF-6AO"/>
                 <constraint firstItem="jqT-ri-xTe" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="eGu-Cb-ner"/>
-                <constraint firstItem="jqT-ri-xTe" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="6" id="mP5-5o-UX5"/>
-                <constraint firstAttribute="bottom" secondItem="lJy-ed-y7Q" secondAttribute="bottom" constant="5" id="nLg-D8-2mG"/>
+                <constraint firstItem="jqT-ri-xTe" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="12" id="mP5-5o-UX5"/>
+                <constraint firstAttribute="bottom" secondItem="lJy-ed-y7Q" secondAttribute="bottom" constant="7" id="nLg-D8-2mG"/>
                 <constraint firstItem="lJy-ed-y7Q" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="uXz-si-erg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="276" height="221"/>
+            <size key="customSize" width="276" height="222"/>
             <connections>
                 <outlet property="image" destination="jqT-ri-xTe" id="EJE-rv-X1Z"/>
                 <outlet property="name" destination="jAD-Hp-yyf" id="Gpz-UG-oH6"/>
                 <outlet property="rol" destination="lJy-ed-y7Q" id="kpA-J1-T6Q"/>
             </connections>
-            <point key="canvasLocation" x="243.19999999999999" y="158.32083958020991"/>
+            <point key="canvasLocation" x="243.19999999999999" y="158.77061469265368"/>
         </collectionViewCell>
     </objects>
     <resources>
