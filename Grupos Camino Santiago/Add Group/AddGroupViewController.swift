@@ -75,7 +75,7 @@ class AddGroupViewController: FormViewController , AddGroupViewModelDelegate {
                 let group = Group()
                 group.photo =  photo?.toBase64()
                 group.title = formValues["Title"] as? String
-                group.description = formValues["Description"] as? String
+                group.descriptionGroup = formValues["Description"] as? String
                 group.departurePlace = formValues["DeparturePlace"] as? String
                 group.latitude = (formValues["Place"] as? CLLocation)?.coordinate.latitude
                 group.longitude = (formValues["Place"] as? CLLocation)?.coordinate.longitude

@@ -76,7 +76,7 @@ class GroupViewModel {
     {
         get
         {
-            return group.description ?? ""
+            return group.descriptionGroup ?? ""
         }
     }
     

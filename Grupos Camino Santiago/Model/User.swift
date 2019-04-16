@@ -6,8 +6,9 @@
 //  Copyright © 2019 Miguel Pérez. All rights reserved.
 //
 
+import Foundation
 
-class User : Codable
+class User : NSObject, Codable
 {
     var id: Int?
     var photo: String?
@@ -15,7 +16,7 @@ class User : Codable
     var email: String?
     var password: String?
     
-    init() {
+    override init() {
         
     }
     

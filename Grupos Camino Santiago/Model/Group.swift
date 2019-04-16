@@ -7,13 +7,14 @@
 //
 import UIKit
 
-class Group: Codable
+class Group: NSObject, Codable
 {
     var id: Int?
     var photo: String?
     var whenCreated: Date?
     var title: String?
-    var description: String?
+    
+    var descriptionGroup: String?
     var departurePlace: String?
     var latitude : Double?
     var longitude : Double?
@@ -23,8 +24,13 @@ class Group: Codable
     var members : Array<User> = Array()
     var posts : Array<Post> = Array()
     
-    init() {
+    
+    override init() {
         
+    }
+    
+    private enum CodingKeys : String, CodingKey {
+        case id, photo, whenCreated, title, descriptionGroup = "description", departurePlace, latitude, longitude, departureDate , arrivalDate, founder, members, posts
     }
     
     required init(from decoder: Decoder) throws {
@@ -33,7 +39,7 @@ class Group: Codable
         self.photo = try values.decodeIfPresent(String.self, forKey: .photo)
         self.whenCreated = try values.decode(Date.self, forKey: .whenCreated)
         self.title = try values.decode(String.self, forKey: .title)
-        self.description = try values.decode(String.self, forKey: .description)
+        self.descriptionGroup = try values.decode(String.self, forKey: .descriptionGroup)
         self.departurePlace = try values.decode(String.self, forKey: .departurePlace)
         self.latitude = try values.decodeIfPresent(Double.self, forKey: .latitude)
         self.longitude = try values.decodeIfPresent(Double.self, forKey: .longitude)
@@ -44,6 +50,7 @@ class Group: Codable
         self.members = try (values.decodeIfPresent(Array<User>.self, forKey: .members) ?? Array())
         self.posts = try (values.decodeIfPresent(Array<Post>.self, forKey: .posts) ?? Array())
     }
+
     
 }
 

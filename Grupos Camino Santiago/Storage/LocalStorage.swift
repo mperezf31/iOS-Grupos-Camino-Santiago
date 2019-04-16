@@ -11,14 +11,15 @@ import UIKit
 
 class LocalStorage {
     
-    
     private let AUTH_USER = "auth_user"
-    private var userGroups: UserGroups?
-    private var groupDetail = [Int : Group]()
+    
+    private let listGroupCache = NSCache<NSString, UserGroups>()
+    private let groupDetailCache = NSCache<NSNumber, Group>()
     
     init() {
     }
     
+    //Persistence methods
     func saveAuthUser(authUser: User) {
        
         do {
@@ -29,10 +30,6 @@ class LocalStorage {
             print("Error al guardar el usuario")
         }
       
-    }
-    
-    func closeSession() {
-        UserDefaults.standard.removeObject(forKey: AUTH_USER)
     }
     
     func getAuthUser() ->User? {
@@ -51,15 +48,57 @@ class LocalStorage {
         
     }
     
+    func closeSession() {
+        UserDefaults.standard.removeObject(forKey: AUTH_USER)
+        clearCache()
+    }
+    
+    
+    //Cache methods
+    func addGroupList(groups: UserGroups) {
+        self.listGroupCache.setObject(groups, forKey: "GroupsList")
+    }
+    
+    func getGroupList() ->UserGroups? {
+        return self.listGroupCache.object(forKey: "GroupsList")
+    }
     
     func addGroupDetail(group: Group) {
         if let id = group.id {
-            groupDetail[id] = group
+            self.groupDetailCache.setObject(group, forKey: NSNumber(value: id))
         }
     }
     
     func getGroupDetail(groupId: Int) ->Group? {
-        return groupDetail[groupId]
+        return self.groupDetailCache.object(forKey: NSNumber(value: groupId))
+    }
+    
+    func addNewGroup(groupToAdd : Group) {
+        if let groupsList = getGroupList(){
+            groupsList.groupsCreated.append(groupToAdd)
+            addGroupList(groups: groupsList)
+            addGroupDetail(group: groupToAdd)
+        }
+    }
+    
+    func deleteGroup(goupId: Int){
+        if let groupsList = getGroupList(){
+            for group in groupsList.groupsCreated {
+                if(group.id == goupId){
+                    if let groupToDelete = groupsList.groupsCreated.index(of: group){
+                        groupsList.groupsCreated.remove(at:groupToDelete)
+                    }
+                }
+            }
+            addGroupList(groups: groupsList)
+        }
+       
+    }
+    
+    
+    func clearCache() {
+        self.listGroupCache.removeAllObjects()
+        self.groupDetailCache.removeAllObjects()
     }
     
 }

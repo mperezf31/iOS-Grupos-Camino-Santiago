@@ -50,7 +50,7 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTodoNote))
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Logout"), style: .plain, target: self, action: #selector(logout))
 
-        self.viewModel?.loadGroups()
+        self.viewModel?.loadGroups(enableCache: true)
     }
     
     @objc func addTodoNote()
@@ -71,11 +71,10 @@ class GroupListViewController: UIViewController, UITableViewDelegate, UITableVie
         present(uiAlertController, animated: true, completion: nil)
     }
     
-
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl)
     {
-        self.viewModel?.loadGroups()
+        self.viewModel?.loadGroups(enableCache: false)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

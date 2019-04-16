@@ -12,7 +12,7 @@
 		5F0AACF7226529A60026B364 /* UIImage+Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0AACF6226529A60026B364 /* UIImage+Base64.swift */; };
 		5F0AACF92265E5B60026B364 /* GroupPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0AACF82265E5B60026B364 /* GroupPin.swift */; };
 		5F0AACFC2265EA890026B364 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FCBF225A19DB00025ECD /* ImagePickerController.swift */; };
-		5F0AACFE22665A500026B364 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F0AACFD22665A4F0026B364 /* AppIcon.png */; };
+		5F0AAD00226694F20026B364 /* Icon-1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F0AACFF226694F20026B364 /* Icon-1024.png */; };
 		5F522AAE224A9CB8006D9CDB /* GroupListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F522AAD224A9CB8006D9CDB /* GroupListViewController.swift */; };
 		5F6249552246E15500394FDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6249542246E15500394FDE /* AppDelegate.swift */; };
 		5F62495A2246E15500394FDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6249582246E15500394FDE /* Main.storyboard */; };
@@ -67,7 +67,7 @@
 		5F0AACF42265112D0026B364 /* LocationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRow.swift; sourceTree = "<group>"; };
 		5F0AACF6226529A60026B364 /* UIImage+Base64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Base64.swift"; sourceTree = "<group>"; };
 		5F0AACF82265E5B60026B364 /* GroupPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPin.swift; sourceTree = "<group>"; };
-		5F0AACFD22665A4F0026B364 /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AppIcon.png; path = ../../../../../AppIcon.png; sourceTree = "<group>"; };
+		5F0AACFF226694F20026B364 /* Icon-1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-1024.png"; sourceTree = "<group>"; };
 		5F522AAD224A9CB8006D9CDB /* GroupListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListViewController.swift; sourceTree = "<group>"; };
 		5F6249512246E15500394FDE /* Grupos Camino Santiago.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grupos Camino Santiago.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F6249542246E15500394FDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -181,7 +181,7 @@
 				5FA4FCC52264792E00025ECD /* Colors.xcassets */,
 				5F62495D2246E15600394FDE /* LaunchScreen.storyboard */,
 				5F6249602246E15600394FDE /* Info.plist */,
-				5F0AACFD22665A4F0026B364 /* AppIcon.png */,
+				5F0AACFF226694F20026B364 /* Icon-1024.png */,
 			);
 			path = "Grupos Camino Santiago";
 			sourceTree = "<group>";
@@ -407,13 +407,13 @@
 				5F62499F2247991D00394FDE /* AddGroupViewController.xib in Resources */,
 				5FA4FCA322591B7D00025ECD /* LoginViewController.xib in Resources */,
 				5FA4FC8F224FFA6D00025ECD /* GroupPostsViewController.xib in Resources */,
-				5F0AACFE22665A500026B364 /* AppIcon.png in Resources */,
 				5F62495F2246E15600394FDE /* LaunchScreen.storyboard in Resources */,
 				5FA4FC9322501E4400025ECD /* GroupMemberUiCellCollectionViewCell.xib in Resources */,
 				5F62495C2246E15600394FDE /* Assets.xcassets in Resources */,
 				5FC1624122498613003785B0 /* GroupTableViewCell.xib in Resources */,
 				5F62495A2246E15500394FDE /* Main.storyboard in Resources */,
 				5FA4FC86224FF52300025ECD /* GroupMembersViewController.xib in Resources */,
+				5F0AAD00226694F20026B364 /* Icon-1024.png in Resources */,
 				5FA4FCB022594AF200025ECD /* FormHeader.xib in Resources */,
 				5FA4FC7F224FE44000025ECD /* GroupDetailViewController.xib in Resources */,
 				5FA4FCC62264792E00025ECD /* Colors.xcassets in Resources */,

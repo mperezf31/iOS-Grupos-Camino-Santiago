@@ -36,21 +36,30 @@ class GroupsStorage
          return getAuthUser()?.id
     }
     
-    func getGroups() {
+    func getGroups(enableCache: Bool) {
+        if !enableCache {
+            self.localStorage.clearCache()
+        }
         
         if let authUserId = getAuthUserId(){
-            self.networkStorage.getGroups(userId: authUserId) { (response) in
-                
-                switch response {
+            if let groupList = self.localStorage.getGroupList(){
+                self.delegate?.groupsUpdate(self, groups: groupList)
+            }else{
+                self.networkStorage.getGroups(userId: authUserId) { (response) in
                     
-                case let .success(groups):
-                    self.delegate?.groupsUpdate(self, groups: groups)
-                    
-                case let .error(error):
-                    self.delegate?.error(self, error:error)
-                    
+                    switch response {
+                        
+                    case let .success(groups):
+                        self.localStorage.addGroupList(groups: groups)
+                        self.delegate?.groupsUpdate(self, groups: groups)
+                        
+                    case let .error(error):
+                        self.delegate?.error(self, error:error)
+                        
+                    }
                 }
             }
+           
         }else{
             self.delegate?.error(self, error: StorageError(code: .unauthenticatedUser, msgError: "Usuario no autenticado"))
         }
@@ -63,7 +72,11 @@ class GroupsStorage
                 switch response {
                     
                 case .success(_):
-                    self.getGroups()
+                    //Update cache groups
+                    self.localStorage.deleteGroup(goupId: groupId)
+                    if let groupList = self.localStorage.getGroupList(){
+                        self.delegate?.groupsUpdate(self, groups: groupList)
+                    }
                     
                 case let .error(error):
                     self.delegate?.error(self, error:error)
@@ -79,9 +92,12 @@ class GroupsStorage
         if let authUserId = getAuthUserId(){
             self.networkStorage.addGroup(userId: authUserId, groupToAdd: groupToAdd){ (response) in
                 
-                //if success pdate the groups list
-                if case .success( _) = response {
-                    self.getGroups()
+                //Add group to the cache
+                if case let .success(group) = response {
+                    self.localStorage.addNewGroup(groupToAdd: group)
+                    if let groupList = self.localStorage.getGroupList(){
+                        self.delegate?.groupsUpdate(self, groups: groupList)
+                    }
                 }
                 
                 completion(response)
@@ -146,8 +162,7 @@ class GroupsStorage
                     switch response {
                         
                     case let .success(group):
-                        //Update groups
-                        self.getGroups()
+                        self.getGroups(enableCache: false)
                         completion(.success(group))
                         
                     case let .error(error):
@@ -162,8 +177,7 @@ class GroupsStorage
                     switch response {
                         
                     case let .success(group):
-                        //Update groups
-                        self.getGroups()
+                        self.getGroups(enableCache: false)
                         completion(.success(group))
                         
                     case let .error(error):

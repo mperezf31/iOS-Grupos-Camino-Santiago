@@ -6,7 +6,9 @@
 //  Copyright © 2019 Miguel Pérez. All rights reserved.
 //
 
-class Post : Codable
+import Foundation
+
+class Post : NSObject, Codable
 {
     
     var id: Int?

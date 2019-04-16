@@ -26,10 +26,10 @@ class GroupListViewModel: GroupsStorageDelegate {
     }
     
     
-    func loadGroups()
+    func loadGroups(enableCache: Bool)
     {
         self.delegate?.showIndicator(self, msg: "Obteniendo grupos...")
-        self.groupsStorage.getGroups()
+        self.groupsStorage.getGroups(enableCache: enableCache)
     }
     
     func logout() {

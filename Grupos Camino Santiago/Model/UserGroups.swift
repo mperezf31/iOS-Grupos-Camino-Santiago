@@ -6,7 +6,9 @@
 //  Copyright © 2019 Miguel Pérez. All rights reserved.
 //
 
-class UserGroups : Codable
+import Foundation
+
+class UserGroups : NSObject, Codable
 {
     var groupsCreated: Array<Group> = Array()
     var groupsAssociated: Array<Group> = Array()
