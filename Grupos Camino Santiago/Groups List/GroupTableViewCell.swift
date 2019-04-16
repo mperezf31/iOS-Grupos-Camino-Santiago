@@ -38,9 +38,7 @@ class GroupTableViewCell: UITableViewCell {
     {
         self.title?.text = viewModel?.title
         self.groupImage.image = viewModel?.photo
-        self.groupImage.layer.cornerRadius = 30
-        self.groupImage.clipsToBounds = true
-        self.departureDate?.text = "Salida el día \(viewModel!.departureDate)"
+        self.departureDate?.text = "Salida: \(viewModel!.departureDate)"
         
     }
     

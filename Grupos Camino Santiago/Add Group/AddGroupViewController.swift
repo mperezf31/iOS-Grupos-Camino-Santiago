@@ -36,7 +36,7 @@ class AddGroupViewController: FormViewController , AddGroupViewModelDelegate {
         
         addNavigationItems()
         
-        tableView.backgroundColor = UIColor(named: "PickledBluewoodLight")
+        tableView.backgroundColor = UIColor(named: "SilverChalice")
         createForm()
     }
     
@@ -94,7 +94,7 @@ class AddGroupViewController: FormViewController , AddGroupViewModelDelegate {
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         (view as? UITableViewHeaderFooterView)?.textLabel?.textColor = UIColor(named: "White")
         (view as? UITableViewHeaderFooterView)?.textLabel?.textAlignment = .center
-        (view as? UITableViewHeaderFooterView)?.backgroundView?.backgroundColor = UIColor(named: "PickledBluewoodLight")
+        (view as? UITableViewHeaderFooterView)?.backgroundView?.backgroundColor = UIColor(named: "SilverChalice")
         (view as? UITableViewHeaderFooterView)?.contentView.layoutMargins.top = 1
     }
     

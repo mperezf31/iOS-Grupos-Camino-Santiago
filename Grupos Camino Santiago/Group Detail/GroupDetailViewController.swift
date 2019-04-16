@@ -16,7 +16,6 @@ class GroupDetailViewController: UIViewController , GroupDetailViewModelDelegate
     @IBOutlet weak var arrivalDate: UILabel!
     @IBOutlet weak var groupDescription: UILabel!
     @IBOutlet weak var departurePlace: UILabel!
-    
     @IBOutlet weak var founderPhoto: UIImageView!
     @IBOutlet weak var founderName: UILabel!
     @IBOutlet weak var founderEmail: UILabel!
@@ -41,12 +40,14 @@ class GroupDetailViewController: UIViewController , GroupDetailViewModelDelegate
     
     
     func groupDetailRetrieved(_: GroupDetailViewModel, group: GroupViewModel) {
+        self.groupPhoto.image = group.photo
         self.groupTitle.text = group.title
-        self.departureDate.text = "Salida el día \(group.departureDate)"
-        self.arrivalDate.text = "Llegada el día \(group.arrivalDate)"
+        self.departureDate.text = "Salida:  \(group.departureDate)"
+        self.arrivalDate.text = "Llegada: \(group.arrivalDate)"
         self.groupDescription.text = group.description
         self.departurePlace.text = group.departurePlace
         
+        self.founderPhoto.image = group.founderPhoto
         self.founderName.text = group.founderName
         self.founderEmail.text = group.founderEmail
     }

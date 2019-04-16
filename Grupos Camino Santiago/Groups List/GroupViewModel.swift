@@ -17,7 +17,7 @@ class GroupViewModel {
     init(group: Group)
     {
         self.group = group
-        self.formatter.dateFormat = "dd/MM/yyyy"
+        self.formatter.dateFormat = "HH:mm dd/MM/yy"
     }
     
     var id: Int
@@ -85,6 +85,18 @@ class GroupViewModel {
         get
         {
             return group.departurePlace ?? ""
+        }
+    }
+    
+    var founderPhoto: UIImage
+    {
+        get
+        {
+            if let imageBase64 = group.founder?.photo{
+                return UIImage(imageString: imageBase64) ?? UIImage(named: "User")!
+            }else{
+                return UIImage(named: "User")!
+            }
         }
     }
     

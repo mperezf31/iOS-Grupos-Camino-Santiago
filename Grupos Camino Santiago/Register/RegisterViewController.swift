@@ -43,7 +43,7 @@ class RegisterViewController: FormViewController, RegisterViewModelDelegate{
                 section.header =  HeaderFooterView<FormHeader>(.nibFile(name: "FormHeader", bundle: nil))
             }
             
-            <<< ImageRow("photo"){ row in
+            <<< ImageRow("Photo"){ row in
                 row.title = "Avatar"
                 row.cell.backgroundColor = UIColor(named: "Silver")
                 row.cell.tintColor = UIColor(named: "RoyalBlue")
@@ -52,7 +52,7 @@ class RegisterViewController: FormViewController, RegisterViewModelDelegate{
                     cell.accessoryView?.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
                 }
             
-            <<< NameRow("name"){ row in
+            <<< NameRow("Name"){ row in
                 row.title = "Nombre"
                 row.cell.backgroundColor = UIColor(named: "Silver")
                 row.cell.tintColor = UIColor(named: "RoyalBlue")
@@ -64,7 +64,7 @@ class RegisterViewController: FormViewController, RegisterViewModelDelegate{
                     }
             }
             
-            <<< EmailRow("email"){ row in
+            <<< EmailRow("Email"){ row in
                 row.title = "Email"
                 row.placeholder = "ejemplo@icloud.com"
                 row.cell.backgroundColor = UIColor(named: "Silver")
@@ -78,7 +78,7 @@ class RegisterViewController: FormViewController, RegisterViewModelDelegate{
                     }
             }
             
-            <<< PasswordRow("password"){ row in
+            <<< PasswordRow("Password"){ row in
                 row.title = "Contraseña"
                 row.cell.backgroundColor = UIColor(named: "Silver")
                 row.cell.tintColor = UIColor(named: "RoyalBlue")
@@ -91,7 +91,7 @@ class RegisterViewController: FormViewController, RegisterViewModelDelegate{
                     
             }
             
-            <<< PasswordRow("confirmPassword"){ row in
+            <<< PasswordRow("ConfirmPassword"){ row in
                 row.title = "Confirmar contraseña"
                 row.cell.backgroundColor = UIColor(named: "Silver")
                 row.cell.tintColor = UIColor(named: "RoyalBlue")
@@ -125,11 +125,11 @@ class RegisterViewController: FormViewController, RegisterViewModelDelegate{
         
         if(formErrors.count == 0){
             let formValues = form.values()
-            let pass = formValues["password"] as? String
-            let confirmPass = formValues["confirmPassword"] as? String
+            let pass = formValues["Password"] as? String
+            let confirmPass = formValues["ConfirmPassword"] as? String
             
             if(pass == confirmPass){
-                var photo = form.values()["photo"] as? UIImage
+                var photo = form.values()["Photo"] as? UIImage
                 
                 if let image = photo{
                     photo = image.resizeImage(width: 100)
@@ -137,8 +137,8 @@ class RegisterViewController: FormViewController, RegisterViewModelDelegate{
                 
                 let user = User()
                 user.photo =  photo?.toBase64()
-                user.name = formValues["name"] as? String
-                user.email = formValues["email"] as? String
+                user.name = formValues["Name"] as? String
+                user.email = formValues["Email"] as? String
                 user.password = pass
                 viewModel?.registerClick(user: user)
             }else{

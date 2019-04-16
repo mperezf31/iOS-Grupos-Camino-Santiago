@@ -46,7 +46,7 @@ class LoginViewController: FormViewController , LoginViewModelDelegate{
                 section.header =  HeaderFooterView<FormHeader>(.nibFile(name: "FormHeader", bundle: nil))
             }
             
-            <<< EmailRow("email"){ row in
+            <<< EmailRow("Email"){ row in
                 row.title = "Email"
                 row.placeholder = "ejemplo@icloud.com"
                 row.cell.backgroundColor = UIColor(named: "Silver")
@@ -60,7 +60,7 @@ class LoginViewController: FormViewController , LoginViewModelDelegate{
                     }
             }
             
-            <<< PasswordRow("password"){ row in
+            <<< PasswordRow("Password"){ row in
                 row.title = "Contraseña"
                 row.cell.backgroundColor =  UIColor(named: "Silver")
                 row.cell.tintColor = UIColor(named: "RoyalBlue")
@@ -103,7 +103,7 @@ class LoginViewController: FormViewController , LoginViewModelDelegate{
     func onClickLogin() {
         if self.form.validate().count == 0 {
             let formValues = form.values()
-            self.viewModel?.loginClick(email: formValues["email"] as! String, password:  formValues["password"] as! String)
+            self.viewModel?.loginClick(email: formValues["Email"] as! String, password:  formValues["Password"] as! String)
         }
     }
     
