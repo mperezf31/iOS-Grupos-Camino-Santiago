@@ -39,8 +39,8 @@ class GroupDetailRouteCoordinator
         groupMembersViewController.tabBarItem =  UITabBarItem(title: "Miembros", image: UIImage(named: "TabMembers"), tag: 1)
 
         //Group posts
-        let groupPostsViewModel = GroupPostsViewModel(groupId: groupoId, groupsStorage: groupsStorage)
-        let groupPostsViewController = GroupPostsViewController(viewModel: groupPostsViewModel)
+        let groupPostsViewModel = GroupMessagesViewModel(groupId: groupoId, groupsStorage: groupsStorage)
+        let groupPostsViewController = GroupMessagesViewController(viewModel: groupPostsViewModel)
         groupPostsViewController.tabBarItem =  UITabBarItem(title: "Mensajes", image: UIImage(named: "TabPosts"), tag: 1)
         
         

@@ -132,7 +132,7 @@ class GroupsStorage
     }
     
     
-    func getGroupPosts(groupId: Int, completion: @escaping ((Result<[Post]>) -> ())){
+    func getGroupMessages(groupId: Int, completion: @escaping ((Result<[Post]>) -> ())){
         if let group = self.localStorage.getGroupDetail(groupId: groupId){
             completion(.success(group.posts))
         }else{
@@ -162,7 +162,9 @@ class GroupsStorage
                     switch response {
                         
                     case let .success(group):
-                        self.getGroups(enableCache: false)
+                        self.localStorage.clearGroupsListCache()
+                        self.getGroups(enableCache: true)
+                        self.localStorage.updateGroupDetail(group: group)
                         completion(.success(group))
                         
                     case let .error(error):
@@ -177,7 +179,9 @@ class GroupsStorage
                     switch response {
                         
                     case let .success(group):
-                        self.getGroups(enableCache: false)
+                        self.localStorage.clearGroupsListCache()
+                        self.getGroups(enableCache: true)
+                        self.localStorage.updateGroupDetail(group: group)
                         completion(.success(group))
                         
                     case let .error(error):

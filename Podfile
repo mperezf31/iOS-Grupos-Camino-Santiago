@@ -11,5 +11,6 @@ target 'Grupos Camino Santiago' do
   pod 'Eureka'
   pod 'MaterialComponents/Snackbar'
   pod 'JGProgressHUD'
+  pod 'MessengerKit', :git => 'https://github.com/steve228uk/MessengerKit.git'
 
 end

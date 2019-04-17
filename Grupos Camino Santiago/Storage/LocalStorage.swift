@@ -13,7 +13,7 @@ class LocalStorage {
     
     private let AUTH_USER = "auth_user"
     
-    //Cache the groups with basic info
+    //Cache the groups list with basic info
     private let listGroupCache = NSCache<NSString, UserGroups>()
     
     //Cache the groups detail
@@ -76,6 +76,10 @@ class LocalStorage {
         return self.groupDetailCache.object(forKey: NSNumber(value: groupId))
     }
     
+    func updateGroupDetail(group: Group) {
+        addGroupDetail(group: group)
+    }
+    
     func addNewGroup(groupToAdd : Group) {
         if let groupsList = getGroupList(){
             groupsList.groupsCreated.append(groupToAdd)
@@ -102,6 +106,10 @@ class LocalStorage {
     func clearCache() {
         self.listGroupCache.removeAllObjects()
         self.groupDetailCache.removeAllObjects()
+    }
+    
+    func clearGroupsListCache() {
+        self.listGroupCache.removeAllObjects()
     }
     
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Miguel Pérez. All rights reserved.
 //
 
-class GroupPostsViewModel {
+class GroupMessagesViewModel {
     
     weak var delegate: GroupPostsViewModelViewModelDelegate?
     weak var routingDelegate: GroupPostsViewModelViewModelRoutingDelegate?
@@ -20,7 +20,7 @@ class GroupPostsViewModel {
     }
     
     func getGroupPosts() {
-        self.groupsStorage.getGroupPosts(groupId: self.groupId) { (response) in
+        self.groupsStorage.getGroupMessages(groupId: self.groupId) { (response) in
             switch response {
                 
             case let .success(posts):
@@ -36,12 +36,12 @@ class GroupPostsViewModel {
 protocol GroupPostsViewModelViewModelDelegate: class
 {
     
-    func grouPostsRetrieved(_: GroupPostsViewModel, posts: [Post])
+    func grouPostsRetrieved(_: GroupMessagesViewModel, posts: [Post])
     
-    func error(_: GroupPostsViewModel, errorMsg: String)
+    func error(_: GroupMessagesViewModel, errorMsg: String)
 }
 
 protocol GroupPostsViewModelViewModelRoutingDelegate: class
 {
-    func finishGroupDetail(_ viewModel: GroupPostsViewModel)
+    func finishGroupDetail(_ viewModel: GroupMessagesViewModel)
 }

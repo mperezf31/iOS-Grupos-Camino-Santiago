@@ -40,12 +40,23 @@ PODS:
     - MaterialComponents/private/Math
   - MDFInternationalization (2.0.0)
   - MDFTextAccessibility (2.0.0)
+  - MessengerKit (1.0.4)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0.0-beta.3)
   - Eureka
   - JGProgressHUD
   - MaterialComponents/Snackbar
+  - MessengerKit (from `https://github.com/steve228uk/MessengerKit.git`)
+
+EXTERNAL SOURCES:
+  MessengerKit:
+    :git: https://github.com/steve228uk/MessengerKit.git
+
+CHECKOUT OPTIONS:
+  MessengerKit:
+    :commit: 3c6fda020cba538aeeca90bf12a4816147011655
+    :git: https://github.com/steve228uk/MessengerKit.git
 
 SPEC CHECKSUMS:
   Alamofire: 50d6fa7e8cbe7f84559e86ab641ffd029db655f8
@@ -54,7 +65,8 @@ SPEC CHECKSUMS:
   MaterialComponents: b5069f73fccb7c71e1be8b54fd791cc99320f467
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
   MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
+  MessengerKit: 39abeb652e7837b2ced80c4813b20368a994571d
 
-PODFILE CHECKSUM: 09de5666e9ed29fb63359294d1c6ab5817980e15
+PODFILE CHECKSUM: 4d31a1b58ff5a4c1ec65c227a6635d51b50990fe
 
 COCOAPODS: 1.4.0

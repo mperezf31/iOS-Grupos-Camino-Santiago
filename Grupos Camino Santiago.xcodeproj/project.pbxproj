@@ -37,9 +37,9 @@
 		5FA4FC85224FF52300025ECD /* GroupMembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC83224FF52300025ECD /* GroupMembersViewController.swift */; };
 		5FA4FC86224FF52300025ECD /* GroupMembersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA4FC84224FF52300025ECD /* GroupMembersViewController.xib */; };
 		5FA4FC88224FF55300025ECD /* GroupMembersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC87224FF55300025ECD /* GroupMembersViewModel.swift */; };
-		5FA4FC8B224FF9BF00025ECD /* GroupPostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC8A224FF9BF00025ECD /* GroupPostsViewModel.swift */; };
-		5FA4FC8E224FFA6D00025ECD /* GroupPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC8C224FFA6D00025ECD /* GroupPostsViewController.swift */; };
-		5FA4FC8F224FFA6D00025ECD /* GroupPostsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA4FC8D224FFA6D00025ECD /* GroupPostsViewController.xib */; };
+		5FA4FC8B224FF9BF00025ECD /* GroupMessagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC8A224FF9BF00025ECD /* GroupMessagesViewModel.swift */; };
+		5FA4FC8E224FFA6D00025ECD /* GroupMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC8C224FFA6D00025ECD /* GroupMessagesViewController.swift */; };
+		5FA4FC8F224FFA6D00025ECD /* GroupMessagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA4FC8D224FFA6D00025ECD /* GroupMessagesViewController.xib */; };
 		5FA4FC9222501E4400025ECD /* GroupMemberUiCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC9022501E4400025ECD /* GroupMemberUiCellCollectionViewCell.swift */; };
 		5FA4FC9322501E4400025ECD /* GroupMemberUiCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA4FC9122501E4400025ECD /* GroupMemberUiCellCollectionViewCell.xib */; };
 		5FA4FC9522501ED000025ECD /* MemberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC9422501ED000025ECD /* MemberViewModel.swift */; };
@@ -94,9 +94,9 @@
 		5FA4FC83224FF52300025ECD /* GroupMembersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMembersViewController.swift; sourceTree = "<group>"; };
 		5FA4FC84224FF52300025ECD /* GroupMembersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupMembersViewController.xib; sourceTree = "<group>"; };
 		5FA4FC87224FF55300025ECD /* GroupMembersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMembersViewModel.swift; sourceTree = "<group>"; };
-		5FA4FC8A224FF9BF00025ECD /* GroupPostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPostsViewModel.swift; sourceTree = "<group>"; };
-		5FA4FC8C224FFA6D00025ECD /* GroupPostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPostsViewController.swift; sourceTree = "<group>"; };
-		5FA4FC8D224FFA6D00025ECD /* GroupPostsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupPostsViewController.xib; sourceTree = "<group>"; };
+		5FA4FC8A224FF9BF00025ECD /* GroupMessagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMessagesViewModel.swift; sourceTree = "<group>"; };
+		5FA4FC8C224FFA6D00025ECD /* GroupMessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMessagesViewController.swift; sourceTree = "<group>"; };
+		5FA4FC8D224FFA6D00025ECD /* GroupMessagesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupMessagesViewController.xib; sourceTree = "<group>"; };
 		5FA4FC9022501E4400025ECD /* GroupMemberUiCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMemberUiCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		5FA4FC9122501E4400025ECD /* GroupMemberUiCellCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupMemberUiCellCollectionViewCell.xib; sourceTree = "<group>"; };
 		5FA4FC9422501ED000025ECD /* MemberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberViewModel.swift; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 				5FA4FC9A2259185100025ECD /* Login */,
 				5FA4FC9B2259186900025ECD /* Register */,
 				5F62497A2246E51300394FDE /* Groups List */,
-				5FA4FC89224FF93D00025ECD /* Group Posts */,
+				5FA4FC89224FF93D00025ECD /* Group Messages */,
 				5FA4FC82224FF4D700025ECD /* Group Members */,
 				5FA4FC7B224FE41500025ECD /* Group Detail */,
 				5F6249A62247F51C00394FDE /* Extensions */,
@@ -274,14 +274,14 @@
 			path = "Group Members";
 			sourceTree = "<group>";
 		};
-		5FA4FC89224FF93D00025ECD /* Group Posts */ = {
+		5FA4FC89224FF93D00025ECD /* Group Messages */ = {
 			isa = PBXGroup;
 			children = (
-				5FA4FC8C224FFA6D00025ECD /* GroupPostsViewController.swift */,
-				5FA4FC8D224FFA6D00025ECD /* GroupPostsViewController.xib */,
-				5FA4FC8A224FF9BF00025ECD /* GroupPostsViewModel.swift */,
+				5FA4FC8C224FFA6D00025ECD /* GroupMessagesViewController.swift */,
+				5FA4FC8D224FFA6D00025ECD /* GroupMessagesViewController.xib */,
+				5FA4FC8A224FF9BF00025ECD /* GroupMessagesViewModel.swift */,
 			);
-			path = "Group Posts";
+			path = "Group Messages";
 			sourceTree = "<group>";
 		};
 		5FA4FC9A2259185100025ECD /* Login */ = {
@@ -406,7 +406,7 @@
 				5FA4FCBA225A007100025ECD /* RegisterViewController.xib in Resources */,
 				5F62499F2247991D00394FDE /* AddGroupViewController.xib in Resources */,
 				5FA4FCA322591B7D00025ECD /* LoginViewController.xib in Resources */,
-				5FA4FC8F224FFA6D00025ECD /* GroupPostsViewController.xib in Resources */,
+				5FA4FC8F224FFA6D00025ECD /* GroupMessagesViewController.xib in Resources */,
 				5F62495F2246E15600394FDE /* LaunchScreen.storyboard in Resources */,
 				5FA4FC9322501E4400025ECD /* GroupMemberUiCellCollectionViewCell.xib in Resources */,
 				5F62495C2246E15600394FDE /* Assets.xcassets in Resources */,
@@ -469,6 +469,7 @@
 				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
 				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
+				"${BUILT_PRODUCTS_DIR}/MessengerKit/MessengerKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -478,6 +479,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessengerKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -507,7 +509,7 @@
 				5F6249A52247F44C00394FDE /* Codable+Dictionary.swift in Sources */,
 				5F62499E2247991D00394FDE /* AddGroupViewController.swift in Sources */,
 				5F6249942246FF8D00394FDE /* UserGroups.swift in Sources */,
-				5FA4FC8E224FFA6D00025ECD /* GroupPostsViewController.swift in Sources */,
+				5FA4FC8E224FFA6D00025ECD /* GroupMessagesViewController.swift in Sources */,
 				5FA4FC7A224FDD8A00025ECD /* GroupDetailNoteRouteCoordinator.swift in Sources */,
 				5F0AACF52265112D0026B364 /* LocationRow.swift in Sources */,
 				5F6249552246E15500394FDE /* AppDelegate.swift in Sources */,
@@ -524,7 +526,7 @@
 				5FA4FCB9225A007100025ECD /* RegisterViewController.swift in Sources */,
 				5FA4FCC2225A19DB00025ECD /* ImageRow.swift in Sources */,
 				5F0AACF92265E5B60026B364 /* GroupPin.swift in Sources */,
-				5FA4FC8B224FF9BF00025ECD /* GroupPostsViewModel.swift in Sources */,
+				5FA4FC8B224FF9BF00025ECD /* GroupMessagesViewModel.swift in Sources */,
 				5F6249802246EAF200394FDE /* GroupViewModel.swift in Sources */,
 				5FA4FCAE22594ADD00025ECD /* FormHeader.swift in Sources */,
 				5FA4FC81224FE49500025ECD /* GroupDetailViewModel.swift in Sources */,
