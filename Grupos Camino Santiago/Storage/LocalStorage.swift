@@ -80,6 +80,10 @@ class LocalStorage {
         addGroupDetail(group: group)
     }
     
+    func clearGroupCache(groupId : Int) {
+         return self.groupDetailCache.removeObject(forKey: NSNumber(value: groupId))
+    }
+    
     func addNewGroup(groupToAdd : Group) {
         if let groupsList = getGroupList(){
             groupsList.groupsCreated.append(groupToAdd)

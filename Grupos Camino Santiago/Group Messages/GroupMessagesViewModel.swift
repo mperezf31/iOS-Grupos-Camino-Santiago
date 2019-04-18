@@ -21,9 +21,13 @@ class GroupMessagesViewModel {
         self.groupsStorage = groupsStorage
     }
     
-    func getGroupMessages() {
-        self.delegate?.showIndicator(self, msg: "Obteniendo mensajes...")
-        self.groupsStorage.getGroupPosts(groupId: self.groupId) { (response) in
+    func getGroupMessages( enableCache : Bool) {
+        if enableCache{
+            self.delegate?.showIndicator(self, msg: "Obteniendo mensajes...")
+        }else{
+            self.delegate?.showIndicator(self, msg: "Actualizando...")
+        }
+        self.groupsStorage.getGroupPosts(enableCache : enableCache, groupId: self.groupId) { (response) in
             self.delegate?.hideIndicator(self)
             
             switch response {

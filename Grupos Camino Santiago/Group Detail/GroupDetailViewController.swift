@@ -38,6 +38,7 @@ class GroupDetailViewController: UIViewController ,  MKMapViewDelegate, GroupDet
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapView.delegate = self
+        self.tabBarController?.title = "Detalle"
 
         self.viewModel.getGroupDetail()
     }

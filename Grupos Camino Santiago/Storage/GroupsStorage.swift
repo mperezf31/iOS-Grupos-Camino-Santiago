@@ -132,7 +132,10 @@ class GroupsStorage
     }
     
     
-    func getGroupPosts(groupId: Int, completion: @escaping ((Result<[Post]>) -> ())){
+    func getGroupPosts(enableCache : Bool, groupId: Int, completion: @escaping ((Result<[Post]>) -> ())){
+        if !enableCache {
+            self.localStorage.clearGroupCache(groupId:groupId)
+        }
         if let group = self.localStorage.getGroupDetail(groupId: groupId){
             completion(.success(group.posts))
         }else{

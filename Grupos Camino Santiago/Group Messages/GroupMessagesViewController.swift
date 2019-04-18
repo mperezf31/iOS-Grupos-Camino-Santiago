@@ -12,7 +12,7 @@ import MaterialComponents.MaterialSnackbar
 import JGProgressHUD
 
 class GroupMessagesViewController: MSGMessengerViewController, MSGDataSource, GroupPostsViewModelViewModelDelegate {
-
+    
     let formatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
@@ -20,7 +20,7 @@ class GroupMessagesViewController: MSGMessengerViewController, MSGDataSource, Gr
     }()
     
     private lazy var messages: [[MSGMessage]] = []
-
+    
     private let viewModel: GroupMessagesViewModel
     private let hud = JGProgressHUD(style: .dark)
     
@@ -38,13 +38,28 @@ class GroupMessagesViewController: MSGMessengerViewController, MSGDataSource, Gr
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataSource = self        
-        self.viewModel.getGroupMessages()
+        dataSource = self
+        
+        self.viewModel.getGroupMessages(enableCache : true)
     }
+    
+    
+    @objc func updateMessages(){
+        if !hud.isVisible{
+            self.viewModel.getGroupMessages(enableCache : false)
+        }
+    }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(updateMessages))
         collectionView.scrollToBottom(animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+         self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem()
     }
     
     func groupMessagesUpdate(_: GroupMessagesViewModel, messages: [MSGMessage]) {
