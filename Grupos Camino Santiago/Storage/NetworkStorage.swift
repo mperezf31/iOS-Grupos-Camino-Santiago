@@ -22,26 +22,26 @@ class NetworkStorage {
         
         AF.request(baseUrl + "groups", method: .get,headers: self.getHeaders(userId: userId))
             .responseDecodable{ (response: DataResponse<UserGroups>) in
-    
-            switch response.response?.statusCode {
-            case 200:
-                if let userGroups = response.value {
-                    completion(.success(userGroups))
-                }else{
-                    completion(.error(StorageError(code: .networkError, msgError: "Se ha producido un error al intentar obtener los grupos")))
+                
+                switch response.response?.statusCode {
+                case 200:
+                    if let userGroups = response.value {
+                        completion(.success(userGroups))
+                    }else{
+                        completion(.error(StorageError(code: .networkError, msgError: "Se ha producido un error al intentar obtener los grupos")))
+                    }
+                    
+                default:
+                    completion(.error(StorageError(code: .networkError, msgError: "Error de conexión internet")))
+                    
                 }
-                
-            default:
-                completion(.error(StorageError(code: .networkError, msgError: "Error de conexión internet")))
-                
-            }
         }
         
     }
     
     
     func deleteGroup(userId: Int, goupId: Int, completion: @escaping ((Result<Bool>) -> ())) {
-
+        
         AF.request(baseUrl + "group/\(goupId)", method: .delete,headers: self.getHeaders(userId: userId)).responseDecodable{ (response: DataResponse<String>) in
             
             switch response.response?.statusCode {
@@ -85,12 +85,25 @@ class NetworkStorage {
             if let group = response.value {
                 completion(.success(group))
             }else{
-               completion(.error(StorageError(code: .networkError, msgError: "Se ha producido un error al intentar obtener la información del grupo")))
+                completion(.error(StorageError(code: .networkError, msgError: "Se ha producido un error al intentar obtener la información del grupo")))
             }
             
         }
     }
     
+    
+    func addGroupPost(userId: Int, groupId: Int, message: String, completion: @escaping ((Result<Group>) -> ())){
+        
+        AF.request(baseUrl + "group/\(groupId)/post", method: .post, parameters : ["content": message, "whenSent": Int64((Date().timeIntervalSince1970).rounded())], encoding: JSONEncoding.default, headers: self.getHeaders(userId: userId)).responseDecodable{ (response: DataResponse<Group>) in
+            
+            if let group = response.value {
+                completion(.success(group))
+            }else{
+                completion(.error(StorageError(code: .networkError, msgError: "Error de conexión internet")))
+            }
+        }
+        
+    }
     
     func joinGroup(userId: Int, groupId: Int , completion: @escaping ((Result<Group>) -> ())) {
         
@@ -122,7 +135,7 @@ class NetworkStorage {
     func login(email: String, password: String, completion: @escaping ((Result<User>) -> ())){
         
         let user  = User(email: email, password: password)
-
+        
         do{
             let parameters = try user.toDictionary()
             
@@ -136,13 +149,13 @@ class NetworkStorage {
                     }else{
                         completion(.error(StorageError(code: .networkError, msgError: "Se ha producido un error al intentar iniciar sesión")))
                     }
-
+                    
                 case 404:
                     completion(.error(StorageError(code: .networkError, msgError: "Usuario o contraseña incorrectos")))
-
+                    
                 default:
                     completion(.error(StorageError(code: .networkError, msgError: "Error de conexión internet")))
-
+                    
                 }
             }
         }
@@ -150,7 +163,7 @@ class NetworkStorage {
         {
             completion(.error(StorageError(code: .invalidData, msgError: "Los datos introducidos no son correctos")))
         }
-       
+        
     }
     
     

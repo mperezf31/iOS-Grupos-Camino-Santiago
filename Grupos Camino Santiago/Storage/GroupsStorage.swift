@@ -132,7 +132,7 @@ class GroupsStorage
     }
     
     
-    func getGroupMessages(groupId: Int, completion: @escaping ((Result<[Post]>) -> ())){
+    func getGroupPosts(groupId: Int, completion: @escaping ((Result<[Post]>) -> ())){
         if let group = self.localStorage.getGroupDetail(groupId: groupId){
             completion(.success(group.posts))
         }else{
@@ -148,6 +148,25 @@ class GroupsStorage
                     
                 }
             }
+        }
+    }
+    
+    func addGroupPost(groupId: Int, message: String, completion: @escaping ((Result<[Post]>) -> ())){
+        
+        if let authUserId = getAuthUserId(){
+            self.networkStorage.addGroupPost(userId : authUserId ,groupId: groupId, message: message) { (response) in
+                
+                switch response {
+                case let .success(group):
+                    self.localStorage.updateGroupDetail(group: group)
+                    completion(.success(group.posts))
+                    
+                case let .error(error):
+                    completion(.error(error))
+                }
+            }
+        }else{
+            completion(.error(StorageError(code: .unauthenticatedUser, msgError: "Usuario no autenticado")))
         }
     }
     

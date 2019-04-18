@@ -8,18 +8,28 @@
 
 import UIKit
 import MessengerKit
+import MaterialComponents.MaterialSnackbar
+import JGProgressHUD
 
+class GroupMessagesViewController: MSGMessengerViewController, MSGDataSource, GroupPostsViewModelViewModelDelegate {
 
-class GroupMessagesViewController: UIViewController, GroupPostsViewModelViewModelDelegate {
-
+    let formatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return formatter
+    }()
     
+    private lazy var messages: [[MSGMessage]] = []
+
     private let viewModel: GroupMessagesViewModel
+    private let hud = JGProgressHUD(style: .dark)
     
     init(viewModel: GroupMessagesViewModel)
     {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         self.viewModel.delegate = self
+        
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
@@ -28,18 +38,88 @@ class GroupMessagesViewController: UIViewController, GroupPostsViewModelViewMode
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       // self.viewModel.getGroupPosts()
-        
+        dataSource = self        
+        self.viewModel.getGroupMessages()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        collectionView.scrollToBottom(animated: false)
+    }
     
-    func grouPostsRetrieved(_: GroupMessagesViewModel, posts: [Post]) {
-        print("Chats recuperados")
+    func groupMessagesUpdate(_: GroupMessagesViewModel, messages: [MSGMessage]) {
+        self.messages = []
+        insert(messages)
+    }
+    
+    func showIndicator(_: GroupMessagesViewModel, msg: String) {
+        hud.textLabel.text = msg
+        hud.show(in: self.view)
+    }
+    
+    func hideIndicator(_: GroupMessagesViewModel) {
+        hud.dismiss()
     }
     
     func error(_: GroupMessagesViewModel, errorMsg: String) {
-        print("Error al recuperar chats")
+        let message = MDCSnackbarMessage()
+        message.text = errorMsg
+        MDCSnackbarManager.show(message)
+    }
+    
+    override func inputViewPrimaryActionTriggered(inputView: MSGInputView) {
+        self.viewModel.addNewMessage(msg: inputView.message)
+        inputView.resignFirstResponder()
+    }
+    
+    override func insert(_ messages: [MSGMessage], callback: (() -> Void)? = nil) {
+        for message in messages {
+            if let lastSection = self.messages.last, let lastMessage = lastSection.last, lastMessage.user.displayName == message.user.displayName {
+                self.messages[self.messages.count - 1].append(message)
+            } else {
+                self.messages.append([message])
+            }
+        }
+        collectionView.reloadData()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.collectionView.scrollToBottom(animated: false)
+        }
+    }
+    
+    override var style: MSGMessengerStyle {
+        var style = MessengerKit.Styles.travamigos
+        style.inputPlaceholder = "Mensaje..."
+        style.inputView = MSGImessageInputView.self
+        style.outgoingGradient = [UIColor(named: "PickledBluewoodLight")!.cgColor,
+                                  UIColor(named: "PickledBluewoodLight")!.cgColor]
+        style.outgoingTextColor = .white
+        style.incomingTextColor = .black
+        return style
+    }
+    
+    func numberOfSections() -> Int {
+        return messages.count
+    }
+    
+    func numberOfMessages(in section: Int) -> Int {
+        return messages[section].count
+    }
+    
+    func message(for indexPath: IndexPath) -> MSGMessage {
+        return messages[indexPath.section][indexPath.item]
+    }
+    
+    func headerTitle(for section: Int) -> String? {
+        var sendDate = ""
+        if let date = (messages[section].last?.sentAt){
+            sendDate = formatter.string(from: date)
+        }
+        return "\((messages[section].first?.user.displayName)!)  -  \(sendDate)"
+    }
+    
+    func footerTitle(for section: Int) -> String? {
+        return ""
     }
     
 }

@@ -10,8 +10,9 @@ import Foundation
 
 class Post : NSObject, Codable
 {
-    
+
     var id: Int?
+    var whenSent: TimeInterval?
     var content: String?
     var author: User?
 }

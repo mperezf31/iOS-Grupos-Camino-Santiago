@@ -12,8 +12,11 @@ import UIKit
 extension UIImage {
     
     public convenience init?(imageString: String){
-        let data = Data(base64Encoded: imageString, options: Data.Base64DecodingOptions.ignoreUnknownCharacters)!
-        self.init(data: data)!
+        if let data = Data(base64Encoded: imageString, options: Data.Base64DecodingOptions.ignoreUnknownCharacters){
+            self.init(data: data)!
+        }else{
+            self.init(named: "User")
+        }
     }
     
     func toBase64() -> String? {

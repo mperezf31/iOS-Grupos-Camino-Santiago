@@ -73,6 +73,7 @@ class AddGroupViewController: FormViewController , AddGroupViewModelDelegate {
                 }
                                 
                 let group = Group()
+                group.whenCreated = Date()
                 group.photo =  photo?.toBase64()
                 group.title = formValues["Title"] as? String
                 group.descriptionGroup = formValues["Description"] as? String
