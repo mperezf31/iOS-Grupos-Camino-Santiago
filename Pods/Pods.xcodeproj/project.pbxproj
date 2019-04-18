@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -486,7 +486,7 @@
 		0D5CD5EBB2C3E43C2D201D2AB311CC29 /* MSGTravIncomingCollectionViewSectionFooter.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = MSGTravIncomingCollectionViewSectionFooter.xib; path = "MessengerKit/Collection View/Header Footers/Travamigos/MSGTravIncomingCollectionViewSectionFooter.xib"; sourceTree = "<group>"; };
 		0DE7ADAB0809F2CA92E708581806D72B /* MSGIncomingTravCollectionViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = MSGIncomingTravCollectionViewCell.xib; path = "MessengerKit/Collection View/Cells/Text/Travamigos/MSGIncomingTravCollectionViewCell.xib"; sourceTree = "<group>"; };
 		0DF47869BFFCE0A90B858AB88CA3A9A1 /* MSGDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MSGDelegate.swift; path = "MessengerKit/Collection View/MSGDelegate.swift"; sourceTree = "<group>"; };
-		0F0FE5787AF0AFDCEE42B5A962F2F6D0 /* JGProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JGProgressHUD.framework; path = JGProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F0FE5787AF0AFDCEE42B5A962F2F6D0 /* JGProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JGProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F5EBDD949B1EC15357A83FB3F5173D0 /* UIFont+MaterialTypographyPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIFont+MaterialTypographyPrivate.h"; path = "components/Typography/src/private/UIFont+MaterialTypographyPrivate.h"; sourceTree = "<group>"; };
 		0F662B5F3A49E3EE554E99A22D2E206F /* UIApplication+AppExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIApplication+AppExtensions.h"; path = "components/private/Application/src/UIApplication+AppExtensions.h"; sourceTree = "<group>"; };
 		1015BAB983D5CCF2AA9A05592C36B883 /* RetryPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RetryPolicy.swift; path = Source/RetryPolicy.swift; sourceTree = "<group>"; };
@@ -507,7 +507,7 @@
 		197DD9FDB2E85D5509C7D716B28F9463 /* PickerInputRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PickerInputRow.swift; path = Source/Rows/PickerInputRow.swift; sourceTree = "<group>"; };
 		199C14AD2A719C38A44BB569BE0A5975 /* SelectorRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectorRow.swift; path = Source/Rows/Common/SelectorRow.swift; sourceTree = "<group>"; };
 		19AA945C9CFF0DF6F71A80F6DDE213F9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1A581BB4DB3B3F9E6F328BBBC38738C8 /* MessengerKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = MessengerKit.bundle; path = "MessengerKit-MessengerKit.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A581BB4DB3B3F9E6F328BBBC38738C8 /* MessengerKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MessengerKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AF09FE3980F1EC8B8916B639F61607C /* HeaderFooterView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeaderFooterView.swift; path = Source/Core/HeaderFooterView.swift; sourceTree = "<group>"; };
 		1B0D3FDE85D6AAE724F591C6E419BA69 /* ListCheckRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ListCheckRow.swift; path = Source/Rows/SelectableRows/ListCheckRow.swift; sourceTree = "<group>"; };
 		1B8477A5169C4EACB8B04728D7F5E47F /* MSGCollectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MSGCollectionView.swift; path = "MessengerKit/Collection View/MSGCollectionView.swift"; sourceTree = "<group>"; };
@@ -563,7 +563,7 @@
 		3E5B370DADB15E4553D388E6D79BD023 /* RuleEqualsToRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleEqualsToRow.swift; path = Source/Validations/RuleEqualsToRow.swift; sourceTree = "<group>"; };
 		3FE47B1A46AED9EEC51B263323ED2C8E /* MDCInkLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCInkLayer.h; path = components/Ink/src/private/MDCInkLayer.h; sourceTree = "<group>"; };
 		4064EA3CB83578100E4746D1E7D570E6 /* JGProgressHUDAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDAnimation.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDAnimation.m; sourceTree = "<group>"; };
-		40AF53AC36D66B1CE2E262D2F86B67C7 /* MessengerKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MessengerKit.framework; path = MessengerKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		40AF53AC36D66B1CE2E262D2F86B67C7 /* MessengerKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MessengerKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4269186C22A1BB1F3DEFCCD36BCD45DE /* Eureka-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Eureka-umbrella.h"; sourceTree = "<group>"; };
 		42854F5C4694F52D6A63363206707DB4 /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
 		428A7CCC2B3ECEA619E42D874BAD1D58 /* MDCSnackbarAlignment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCSnackbarAlignment.h; path = components/Snackbar/src/MDCSnackbarAlignment.h; sourceTree = "<group>"; };
@@ -588,7 +588,7 @@
 		4C9B33100E59F94B5107FBDE59BD9A51 /* NSString+MaterialBidi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+MaterialBidi.h"; path = "Sources/NSString+MaterialBidi.h"; sourceTree = "<group>"; };
 		4D4293297ABC269EA683CD9DEC551E56 /* MSGTravCollectionViewSectionFooter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MSGTravCollectionViewSectionFooter.swift; path = "MessengerKit/Collection View/Header Footers/Travamigos/MSGTravCollectionViewSectionFooter.swift"; sourceTree = "<group>"; };
 		4DF6C76A84A8AB65F6896D40F72A663B /* Core.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Core.swift; path = Source/Core/Core.swift; sourceTree = "<group>"; };
-		4F795BF0A400F3C2EDB7031C8278E7D7 /* MaterialComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MaterialComponents.framework; path = MaterialComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F795BF0A400F3C2EDB7031C8278E7D7 /* MaterialComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MaterialComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A87542E3048E47788A66CDCE42B431 /* MDCButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCButton.h; path = components/Buttons/src/MDCButton.h; sourceTree = "<group>"; };
 		50AE4858BDE88F202A27E0A8C389CDDF /* MSGImessageIncomingFooterView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = MSGImessageIncomingFooterView.xib; path = "MessengerKit/Collection View/Header Footers/iMessage/MSGImessageIncomingFooterView.xib"; sourceTree = "<group>"; };
 		5147C26AF6D89088B338ED7BA06F27E4 /* Form.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Form.swift; path = Source/Core/Form.swift; sourceTree = "<group>"; };
@@ -607,7 +607,7 @@
 		56628789639D97F4E3005DA0BE78516B /* CAMediaTimingFunction+MDCAnimationTiming.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CAMediaTimingFunction+MDCAnimationTiming.h"; path = "components/AnimationTiming/src/CAMediaTimingFunction+MDCAnimationTiming.h"; sourceTree = "<group>"; };
 		5667323A01CFF132491D83DE6B2AEB57 /* MDCFlatButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCFlatButton.h; path = components/Buttons/src/MDCFlatButton.h; sourceTree = "<group>"; };
 		57B0F7F44C5B8142AE9208891337CE1D /* MSGTravInputView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MSGTravInputView.swift; path = MessengerKit/Input/Styles/Travamigos/MSGTravInputView.swift; sourceTree = "<group>"; };
-		58F1234352FC99CB35A0C1D3ADB7EA47 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		58F1234352FC99CB35A0C1D3ADB7EA47 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58F7526ABE78AA5F01E206FC47BAD556 /* MDCTypography.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCTypography.m; path = components/Typography/src/MDCTypography.m; sourceTree = "<group>"; };
 		5988AFB5F2EEC68D5DC9A1D2AA30845C /* PopoverSelectorRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PopoverSelectorRow.swift; path = Source/Rows/PopoverSelectorRow.swift; sourceTree = "<group>"; };
 		5A465AC68FC7C55C4225337C6CE8E870 /* HTTPHeaders.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HTTPHeaders.swift; path = Source/HTTPHeaders.swift; sourceTree = "<group>"; };
@@ -623,7 +623,7 @@
 		5F6958441C51AC2C6342BA45E6474E4D /* MDFColorCalculations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDFColorCalculations.m; path = src/private/MDFColorCalculations.m; sourceTree = "<group>"; };
 		60042189888589C909534EB12E4C4360 /* MDCButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCButton.m; path = components/Buttons/src/MDCButton.m; sourceTree = "<group>"; };
 		6069181B482BF4FE6620C8ACACA7D1CF /* MSGTravCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MSGTravCollectionViewFlowLayout.swift; path = "MessengerKit/Collection View/Styles/Travamigos/MSGTravCollectionViewFlowLayout.swift"; sourceTree = "<group>"; };
-		60756D3BFA8B0842BEDB0D253C9283CC /* MDFInternationalization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MDFInternationalization.framework; path = MDFInternationalization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		60756D3BFA8B0842BEDB0D253C9283CC /* MDFInternationalization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MDFInternationalization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		60A5BF149066B7A57C2CF85B77615FD4 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
 		60D9D4B8B38A6950A6C803A59ED4E887 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
 		610F6F917565F55037FF9BB6BBDC3F2F /* MSGUser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MSGUser.swift; path = MessengerKit/Models/MSGUser.swift; sourceTree = "<group>"; };
@@ -664,7 +664,7 @@
 		78B8B819685719073506D73807BD7674 /* MaterialShapes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MaterialShapes.h; path = components/Shapes/src/MaterialShapes.h; sourceTree = "<group>"; };
 		78C9062441AE6EE69ECCD09CD075265F /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Core/Validation.swift; sourceTree = "<group>"; };
 		796F0A3677D960DA1A3BCB784BE012DC /* Protector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Protector.swift; path = Source/Protector.swift; sourceTree = "<group>"; };
-		7A872BDA097730FB4E4BA9E249D20084 /* JGProgressHUD.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = JGProgressHUD.bundle; path = "JGProgressHUD-JGProgressHUD.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A872BDA097730FB4E4BA9E249D20084 /* JGProgressHUD.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JGProgressHUD.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B3AE0B3C9CE949E01B6B583FD3B7163 /* jg_hud_success.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = jg_hud_success.png; path = JGProgressHUD/Resources/jg_hud_success.png; sourceTree = "<group>"; };
 		7BAE897B66E6D4A4C7C0BB34B751D343 /* UIFont+MaterialSimpleEquality.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIFont+MaterialSimpleEquality.h"; path = "components/Typography/src/UIFont+MaterialSimpleEquality.h"; sourceTree = "<group>"; };
 		7C0D8D0EC1DABED0A258459B94B028E5 /* MDFTextAccessibility-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MDFTextAccessibility-dummy.m"; sourceTree = "<group>"; };
@@ -691,13 +691,13 @@
 		88C8499022AC020104777D117D5E7697 /* jg_hud_success@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "jg_hud_success@3x.png"; path = "JGProgressHUD/Resources/jg_hud_success@3x.png"; sourceTree = "<group>"; };
 		89137F2C5D48559C89C6E2FBD5FD94DE /* SessionStateProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionStateProvider.swift; path = Source/SessionStateProvider.swift; sourceTree = "<group>"; };
 		8969390E788564012D9B9A9FD301198E /* RuleLength.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleLength.swift; path = Source/Validations/RuleLength.swift; sourceTree = "<group>"; };
-		8A6B55DDBE1A3EE84E6942451AB8C863 /* Pods_Grupos_Camino_Santiago.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Grupos_Camino_Santiago.framework; path = "Pods-Grupos Camino Santiago.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A6B55DDBE1A3EE84E6942451AB8C863 /* Pods_Grupos_Camino_Santiago.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Grupos_Camino_Santiago.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ACC49C402EC10497AA283A48CFB1BBD /* JGProgressHUDErrorIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDErrorIndicatorView.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDErrorIndicatorView.h; sourceTree = "<group>"; };
 		8B8DAE809042172720346468D07A7505 /* Row.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Row.swift; path = Source/Core/Row.swift; sourceTree = "<group>"; };
 		8BACF66B23E0F6A66732141272591F68 /* MDCOverlayObserverOverlay.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCOverlayObserverOverlay.m; path = components/private/Overlay/src/private/MDCOverlayObserverOverlay.m; sourceTree = "<group>"; };
 		8BB372C0AF7B0ECDE13D965C579EFED2 /* MDCOverlayAnimationObserver.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCOverlayAnimationObserver.m; path = components/private/Overlay/src/private/MDCOverlayAnimationObserver.m; sourceTree = "<group>"; };
 		8BBAB66D3F6C8936C0675395BECDDC1D /* MDCOverlayObserverTransition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MDCOverlayObserverTransition.m; path = components/private/Overlay/src/private/MDCOverlayObserverTransition.m; sourceTree = "<group>"; };
-		8CC9ED1951D6A1C2284507BE4C78C5B6 /* MDFTextAccessibility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MDFTextAccessibility.framework; path = MDFTextAccessibility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CC9ED1951D6A1C2284507BE4C78C5B6 /* MDFTextAccessibility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MDFTextAccessibility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CCC5217C8E4BCB624FB64C90151F408 /* MSGTravCollectionViewSectionHeader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MSGTravCollectionViewSectionHeader.swift; path = "MessengerKit/Collection View/Header Footers/Travamigos/MSGTravCollectionViewSectionHeader.swift"; sourceTree = "<group>"; };
 		8D3A2B3DF0A9A466E2811AC901F9779E /* MDFTextAccessibility.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MDFTextAccessibility.modulemap; sourceTree = "<group>"; };
 		8DAA6CB0CF639E2CF9635381206BCE50 /* MSGTailIncomingBubble.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MSGTailIncomingBubble.swift; path = MessengerKit/Bubbles/iMessage/MSGTailIncomingBubble.swift; sourceTree = "<group>"; };
@@ -708,7 +708,7 @@
 		9084D9C1844E0F226C7F241669978E26 /* MDCOverlayObserverOverlay.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCOverlayObserverOverlay.h; path = components/private/Overlay/src/private/MDCOverlayObserverOverlay.h; sourceTree = "<group>"; };
 		91939500675B185E0824541A4456E5A7 /* MSGIncomingTailCollectionViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = MSGIncomingTailCollectionViewCell.xib; path = "MessengerKit/Collection View/Cells/Text/iMessage/MSGIncomingTailCollectionViewCell.xib"; sourceTree = "<group>"; };
 		91C58B582FFA60B0A99B7FE8EFA95303 /* Section.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Section.swift; path = Source/Core/Section.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		940C8CC1B411B09F0ACDF12DD1694258 /* MSGImessageHeaderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MSGImessageHeaderView.swift; path = "MessengerKit/Collection View/Header Footers/iMessage/MSGImessageHeaderView.swift"; sourceTree = "<group>"; };
 		9573CD0BB2F9F39800681FD9F4CCDA1D /* MDCLegacyInkLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MDCLegacyInkLayer.h; path = components/Ink/src/private/MDCLegacyInkLayer.h; sourceTree = "<group>"; };
 		95F5C187A963111DF410016CCBB16FFB /* MDFInternationalization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MDFInternationalization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -819,7 +819,7 @@
 		EABB03671F25D3C4EE32BB83F14F0EEC /* JGProgressHUDImageIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JGProgressHUDImageIndicatorView.m; path = JGProgressHUD/JGProgressHUD/JGProgressHUDImageIndicatorView.m; sourceTree = "<group>"; };
 		EB603AC80FFABB8597390EEB8B409930 /* MSGInputView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MSGInputView.swift; path = MessengerKit/Input/MSGInputView.swift; sourceTree = "<group>"; };
 		EC92BCA208454308AAF2B11B4DCD9DB9 /* Eureka.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = Eureka.bundle; path = Source/Resources/Eureka.bundle; sourceTree = "<group>"; };
-		ED6083F6DC534EDECC666B5D89004D2C /* Eureka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Eureka.framework; path = Eureka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED6083F6DC534EDECC666B5D89004D2C /* Eureka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Eureka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE940D362620D38863B6E2CFCD185BC8 /* MaterialMathDummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MaterialMathDummy.m; path = components/private/Math/src/MaterialMathDummy.m; sourceTree = "<group>"; };
 		EED72A37009CFE500A2E15636707BE4C /* MDFInternationalization.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MDFInternationalization.xcconfig; sourceTree = "<group>"; };
 		EF673B5A42C1F4FD851F0CA523888D94 /* JGProgressHUDAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JGProgressHUDAnimation.h; path = JGProgressHUD/JGProgressHUD/JGProgressHUDAnimation.h; sourceTree = "<group>"; };
@@ -1143,7 +1143,6 @@
 				CE51616350618BE7528ACFE6AB7EEBC2 /* Resources */,
 				CB4D84F68017C3361AB480F9104C0F56 /* Support Files */,
 			);
-			name = MessengerKit;
 			path = MessengerKit;
 			sourceTree = "<group>";
 		};
@@ -1186,7 +1185,6 @@
 				CBC16B369117D963C9A1E3167C503A5E /* NSArray+MDFUtils.m */,
 				2285E70A7ED6B9728586CB60859E6A3D /* Support Files */,
 			);
-			name = MDFTextAccessibility;
 			path = MDFTextAccessibility;
 			sourceTree = "<group>";
 		};
@@ -1353,7 +1351,6 @@
 				9553AD19BE236CDFD7D795867C2D1ACC /* Resources */,
 				33A8803E2B60CF18C1D850F5920FD7F2 /* Support Files */,
 			);
-			name = Eureka;
 			path = Eureka;
 			sourceTree = "<group>";
 		};
@@ -1431,7 +1428,6 @@
 				1DDB871E40365E1B8267352801F1E7EB /* Resources */,
 				881F8A47F33292E1F3C064C8E81B5060 /* Support Files */,
 			);
-			name = JGProgressHUD;
 			path = JGProgressHUD;
 			sourceTree = "<group>";
 		};
@@ -1514,7 +1510,6 @@
 				F3531B971B4D413578CA6C3D352CF293 /* UIView+MaterialRTL.m */,
 				BF68D4648321E9D5E5C78B26967DA304 /* Support Files */,
 			);
-			name = MDFInternationalization;
 			path = MDFInternationalization;
 			sourceTree = "<group>";
 		};
@@ -1553,7 +1548,6 @@
 				998F9822744E8D0A1EF15F29575F0432 /* Validation.swift */,
 				26DE5F5C9A542A0DFCA287DA3DF4EF88 /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -1645,7 +1639,6 @@
 				5A28890047304A5254E25AE37EED7B50 /* Support Files */,
 				35837B9E81D74CF1EEBE15FA6D88CF30 /* Typography */,
 			);
-			name = MaterialComponents;
 			path = MaterialComponents;
 			sourceTree = "<group>";
 		};
@@ -2000,7 +1993,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1010;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -2648,6 +2641,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
