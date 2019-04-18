@@ -8,6 +8,8 @@
 
 import UIKit
 import MapKit
+import MaterialComponents.MaterialSnackbar
+import JGProgressHUD
 
 class GroupDetailViewController: UIViewController ,  MKMapViewDelegate, GroupDetailViewModelDelegate{
    
@@ -23,7 +25,8 @@ class GroupDetailViewController: UIViewController ,  MKMapViewDelegate, GroupDet
     @IBOutlet weak var founderEmail: UILabel!
     
     private let viewModel: GroupDetailViewModel
-
+    private let hud = JGProgressHUD(style: .dark)
+    
     init(viewModel: GroupDetailViewModel)
     {
         self.viewModel = viewModel
@@ -63,8 +66,19 @@ class GroupDetailViewController: UIViewController ,  MKMapViewDelegate, GroupDet
         self.founderEmail.text = group.founderEmail
     }
     
+    func showIndicator(_: GroupDetailViewModel, msg: String) {
+        hud.textLabel.text = msg
+        hud.show(in: self.view)
+    }
+    
+    func hideIndicator(_: GroupDetailViewModel) {
+        hud.dismiss()
+    }
+    
     func error(_: GroupDetailViewModel, errorMsg: String) {
-
+        let message = MDCSnackbarMessage()
+        message.text = errorMsg
+        MDCSnackbarManager.show(message)
     }
     
     

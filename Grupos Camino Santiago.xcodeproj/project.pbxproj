@@ -40,7 +40,6 @@
 		5FA4FC88224FF55300025ECD /* GroupMembersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC87224FF55300025ECD /* GroupMembersViewModel.swift */; };
 		5FA4FC8B224FF9BF00025ECD /* GroupMessagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC8A224FF9BF00025ECD /* GroupMessagesViewModel.swift */; };
 		5FA4FC8E224FFA6D00025ECD /* GroupMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC8C224FFA6D00025ECD /* GroupMessagesViewController.swift */; };
-		5FA4FC8F224FFA6D00025ECD /* GroupMessagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA4FC8D224FFA6D00025ECD /* GroupMessagesViewController.xib */; };
 		5FA4FC9222501E4400025ECD /* GroupMemberUiCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC9022501E4400025ECD /* GroupMemberUiCellCollectionViewCell.swift */; };
 		5FA4FC9322501E4400025ECD /* GroupMemberUiCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA4FC9122501E4400025ECD /* GroupMemberUiCellCollectionViewCell.xib */; };
 		5FA4FC9522501ED000025ECD /* MemberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC9422501ED000025ECD /* MemberViewModel.swift */; };
@@ -48,12 +47,10 @@
 		5FA4FC992257B46A00025ECD /* NetworkStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC982257B46A00025ECD /* NetworkStorage.swift */; };
 		5FA4FC9D225918E800025ECD /* LoginRouteCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FC9C225918E800025ECD /* LoginRouteCoordinator.swift */; };
 		5FA4FCA222591B7D00025ECD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FCA022591B7D00025ECD /* LoginViewController.swift */; };
-		5FA4FCA322591B7D00025ECD /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA4FCA122591B7D00025ECD /* LoginViewController.xib */; };
 		5FA4FCAE22594ADD00025ECD /* FormHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FCAD22594ADD00025ECD /* FormHeader.swift */; };
 		5FA4FCB022594AF200025ECD /* FormHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA4FCAF22594AF200025ECD /* FormHeader.xib */; };
 		5FA4FCB62259FF6500025ECD /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FCB52259FF6500025ECD /* RegisterViewModel.swift */; };
 		5FA4FCB9225A007100025ECD /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FCB7225A007100025ECD /* RegisterViewController.swift */; };
-		5FA4FCBA225A007100025ECD /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA4FCB8225A007100025ECD /* RegisterViewController.xib */; };
 		5FA4FCBC225A03CD00025ECD /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FCBB225A03CD00025ECD /* LoginViewModel.swift */; };
 		5FA4FCC2225A19DB00025ECD /* ImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FCC0225A19DB00025ECD /* ImageRow.swift */; };
 		5FA4FCC4225BD9ED00025ECD /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4FCC3225BD9ED00025ECD /* UIImage+Resize.swift */; };
@@ -98,7 +95,6 @@
 		5FA4FC87224FF55300025ECD /* GroupMembersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMembersViewModel.swift; sourceTree = "<group>"; };
 		5FA4FC8A224FF9BF00025ECD /* GroupMessagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMessagesViewModel.swift; sourceTree = "<group>"; };
 		5FA4FC8C224FFA6D00025ECD /* GroupMessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMessagesViewController.swift; sourceTree = "<group>"; };
-		5FA4FC8D224FFA6D00025ECD /* GroupMessagesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupMessagesViewController.xib; sourceTree = "<group>"; };
 		5FA4FC9022501E4400025ECD /* GroupMemberUiCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMemberUiCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		5FA4FC9122501E4400025ECD /* GroupMemberUiCellCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupMemberUiCellCollectionViewCell.xib; sourceTree = "<group>"; };
 		5FA4FC9422501ED000025ECD /* MemberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberViewModel.swift; sourceTree = "<group>"; };
@@ -106,12 +102,10 @@
 		5FA4FC982257B46A00025ECD /* NetworkStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStorage.swift; sourceTree = "<group>"; };
 		5FA4FC9C225918E800025ECD /* LoginRouteCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouteCoordinator.swift; sourceTree = "<group>"; };
 		5FA4FCA022591B7D00025ECD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		5FA4FCA122591B7D00025ECD /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		5FA4FCAD22594ADD00025ECD /* FormHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormHeader.swift; sourceTree = "<group>"; };
 		5FA4FCAF22594AF200025ECD /* FormHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FormHeader.xib; sourceTree = "<group>"; };
 		5FA4FCB52259FF6500025ECD /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		5FA4FCB7225A007100025ECD /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		5FA4FCB8225A007100025ECD /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		5FA4FCBB225A03CD00025ECD /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		5FA4FCBF225A19DB00025ECD /* ImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
 		5FA4FCC0225A19DB00025ECD /* ImageRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageRow.swift; path = "Grupos Camino Santiago/CustomRows/ImageRow/ImageRow.swift"; sourceTree = SOURCE_ROOT; };
@@ -280,7 +274,6 @@
 			isa = PBXGroup;
 			children = (
 				5FA4FC8C224FFA6D00025ECD /* GroupMessagesViewController.swift */,
-				5FA4FC8D224FFA6D00025ECD /* GroupMessagesViewController.xib */,
 				5FA4FC8A224FF9BF00025ECD /* GroupMessagesViewModel.swift */,
 				5F0AAD072267A6DB0026B364 /* Sender.swift */,
 			);
@@ -292,7 +285,6 @@
 			children = (
 				5FA4FCBB225A03CD00025ECD /* LoginViewModel.swift */,
 				5FA4FCA022591B7D00025ECD /* LoginViewController.swift */,
-				5FA4FCA122591B7D00025ECD /* LoginViewController.xib */,
 				5FA4FCAD22594ADD00025ECD /* FormHeader.swift */,
 				5FA4FCAF22594AF200025ECD /* FormHeader.xib */,
 			);
@@ -304,7 +296,6 @@
 			children = (
 				5FA4FCB52259FF6500025ECD /* RegisterViewModel.swift */,
 				5FA4FCB7225A007100025ECD /* RegisterViewController.swift */,
-				5FA4FCB8225A007100025ECD /* RegisterViewController.xib */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -406,10 +397,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FC162472249911A003785B0 /* GroupListViewController.xib in Resources */,
-				5FA4FCBA225A007100025ECD /* RegisterViewController.xib in Resources */,
 				5F62499F2247991D00394FDE /* AddGroupViewController.xib in Resources */,
-				5FA4FCA322591B7D00025ECD /* LoginViewController.xib in Resources */,
-				5FA4FC8F224FFA6D00025ECD /* GroupMessagesViewController.xib in Resources */,
 				5F62495F2246E15600394FDE /* LaunchScreen.storyboard in Resources */,
 				5FA4FC9322501E4400025ECD /* GroupMemberUiCellCollectionViewCell.xib in Resources */,
 				5F62495C2246E15600394FDE /* Assets.xcassets in Resources */,

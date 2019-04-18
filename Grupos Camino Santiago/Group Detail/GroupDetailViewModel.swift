@@ -20,7 +20,11 @@ class GroupDetailViewModel {
     }
     
     func getGroupDetail() {
+        self.delegate?.showIndicator(self, msg: "Cargando grupo...")
+
         self.groupsStorage.getGroup(groupId: self.groupId){ (response) in
+            self.delegate?.hideIndicator(self)
+            
             switch response {
                 
             case let .success(group):
@@ -39,6 +43,10 @@ protocol GroupDetailViewModelDelegate: class
     
     func groupDetailRetrieved(_: GroupDetailViewModel, group: GroupViewModel)
 
+    func showIndicator(_: GroupDetailViewModel, msg: String)
+    
+    func hideIndicator(_: GroupDetailViewModel)
+    
     func error(_: GroupDetailViewModel, errorMsg: String)
 }
 
