@@ -39,6 +39,7 @@ class GroupMessagesViewController: MSGMessengerViewController, MSGDataSource, Gr
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = self
+        self.view.bounds = UIScreen.main.bounds
         
         self.viewModel.getGroupMessages(enableCache : true)
     }
