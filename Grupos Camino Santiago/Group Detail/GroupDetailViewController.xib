@@ -145,7 +145,7 @@
                                         <constraint firstAttribute="height" constant="168" id="jmn-oo-qnj"/>
                                     </constraints>
                                 </mapView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FUNDADOR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2P-C3-PLd">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ORGANIZADOR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2P-C3-PLd">
                                     <rect key="frame" x="0.0" y="411" width="375" height="33"/>
                                     <color key="backgroundColor" name="SilverChalice"/>
                                     <constraints>

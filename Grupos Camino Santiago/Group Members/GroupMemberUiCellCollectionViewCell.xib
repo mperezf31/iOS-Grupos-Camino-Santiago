@@ -13,61 +13,71 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="gTV-IL-0wX" customClass="GroupMemberUiCellCollectionViewCell" customModule="Grupos_Camino_Santiago" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="132" height="123"/>
+            <rect key="frame" x="0.0" y="0.0" width="144" height="133"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="132" height="123"/>
+                <rect key="frame" x="0.0" y="0.0" width="144" height="133"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAD-Hp-yyf">
-                        <rect key="frame" x="48" y="86" width="36" height="17"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="17" id="UNE-0y-K1S"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJy-ed-y7Q">
-                        <rect key="frame" x="52.5" y="104" width="27" height="12"/>
+                        <rect key="frame" x="56.5" y="111" width="31" height="12"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="12" id="duM-yN-Uw1"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="jqT-ri-xTe">
-                        <rect key="frame" x="30.5" y="12" width="71" height="68"/>
+                        <rect key="frame" x="39.5" y="3" width="65" height="65"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="68" id="AfC-iw-7wx"/>
-                            <constraint firstAttribute="width" constant="71" id="yXF-Dz-CvB"/>
+                            <constraint firstAttribute="height" constant="65" id="AfC-iw-7wx"/>
+                            <constraint firstAttribute="width" constant="65" id="yXF-Dz-CvB"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="15"/>
+                                <integer key="value" value="32"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hRh-yo-Aen">
+                        <rect key="frame" x="10" y="105" width="124" height="1"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="6Y7-80-670"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAD-Hp-yyf">
+                        <rect key="frame" x="52.5" y="83" width="39.5" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="UNE-0y-K1S"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="lJy-ed-y7Q" firstAttribute="top" secondItem="jAD-Hp-yyf" secondAttribute="bottom" constant="1" id="2ny-6p-SqW"/>
-                <constraint firstItem="jAD-Hp-yyf" firstAttribute="top" secondItem="jqT-ri-xTe" secondAttribute="bottom" constant="6" id="SIG-CO-YVO"/>
+                <constraint firstItem="hRh-yo-Aen" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="AF8-7Z-dJE"/>
+                <constraint firstItem="hRh-yo-Aen" firstAttribute="top" secondItem="jAD-Hp-yyf" secondAttribute="bottom" constant="5" id="EoK-pa-mnF"/>
+                <constraint firstItem="jAD-Hp-yyf" firstAttribute="top" secondItem="jqT-ri-xTe" secondAttribute="bottom" constant="15" id="SIG-CO-YVO"/>
                 <constraint firstItem="jAD-Hp-yyf" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="aN3-nF-6AO"/>
+                <constraint firstAttribute="trailing" secondItem="hRh-yo-Aen" secondAttribute="trailing" constant="10" id="b8G-xm-5TY"/>
                 <constraint firstItem="jqT-ri-xTe" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="eGu-Cb-ner"/>
-                <constraint firstItem="jqT-ri-xTe" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="12" id="mP5-5o-UX5"/>
-                <constraint firstAttribute="bottom" secondItem="lJy-ed-y7Q" secondAttribute="bottom" constant="7" id="nLg-D8-2mG"/>
+                <constraint firstItem="hRh-yo-Aen" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="mcL-Xn-chw"/>
+                <constraint firstAttribute="bottom" secondItem="lJy-ed-y7Q" secondAttribute="bottom" constant="10" id="nLg-D8-2mG"/>
+                <constraint firstItem="lJy-ed-y7Q" firstAttribute="top" secondItem="hRh-yo-Aen" secondAttribute="bottom" constant="5" id="qSG-qO-XoE"/>
                 <constraint firstItem="lJy-ed-y7Q" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="uXz-si-erg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="276" height="222"/>
+            <size key="customSize" width="288" height="232"/>
             <connections>
                 <outlet property="image" destination="jqT-ri-xTe" id="EJE-rv-X1Z"/>
                 <outlet property="name" destination="jAD-Hp-yyf" id="Gpz-UG-oH6"/>
                 <outlet property="rol" destination="lJy-ed-y7Q" id="kpA-J1-T6Q"/>
             </connections>
-            <point key="canvasLocation" x="243.19999999999999" y="158.77061469265368"/>
+            <point key="canvasLocation" x="252.80000000000001" y="163.26836581709148"/>
         </collectionViewCell>
     </objects>
     <resources>

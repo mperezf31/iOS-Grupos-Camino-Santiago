@@ -44,8 +44,8 @@ class GroupMembersViewController: UIViewController, UICollectionViewDelegate, UI
         let myLayout = UICollectionViewFlowLayout()
         myLayout.scrollDirection = .vertical
         
-        let size = (collectionView.frame.size.width - CGFloat(90)) / CGFloat(3)
-        myLayout.itemSize = CGSize(width: size, height: 125)
+        let size = (UIScreen.main.bounds.width - 30) / CGFloat(3)
+        myLayout.itemSize = CGSize(width: size, height: 150)
         
         myLayout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         myLayout.minimumInteritemSpacing = 10
@@ -97,7 +97,7 @@ class GroupMembersViewController: UIViewController, UICollectionViewDelegate, UI
         
         cell.viewModel = viewModel.membersViewModels[indexPath.row]
         cell.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        cell.layer.cornerRadius = 7
+        cell.layer.cornerRadius = 10
         return cell
         
     }
