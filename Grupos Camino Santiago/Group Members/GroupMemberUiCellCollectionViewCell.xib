@@ -29,10 +29,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="jqT-ri-xTe">
-                        <rect key="frame" x="39.5" y="3" width="65" height="65"/>
+                        <rect key="frame" x="38.5" y="2" width="67" height="67"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="65" id="AfC-iw-7wx"/>
-                            <constraint firstAttribute="width" constant="65" id="yXF-Dz-CvB"/>
+                            <constraint firstAttribute="height" constant="67" id="AfC-iw-7wx"/>
+                            <constraint firstAttribute="width" constant="67" id="yXF-Dz-CvB"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -61,7 +61,7 @@
             <constraints>
                 <constraint firstItem="hRh-yo-Aen" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="AF8-7Z-dJE"/>
                 <constraint firstItem="hRh-yo-Aen" firstAttribute="top" secondItem="jAD-Hp-yyf" secondAttribute="bottom" constant="5" id="EoK-pa-mnF"/>
-                <constraint firstItem="jAD-Hp-yyf" firstAttribute="top" secondItem="jqT-ri-xTe" secondAttribute="bottom" constant="15" id="SIG-CO-YVO"/>
+                <constraint firstItem="jAD-Hp-yyf" firstAttribute="top" secondItem="jqT-ri-xTe" secondAttribute="bottom" constant="14" id="SIG-CO-YVO"/>
                 <constraint firstItem="jAD-Hp-yyf" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="aN3-nF-6AO"/>
                 <constraint firstAttribute="trailing" secondItem="hRh-yo-Aen" secondAttribute="trailing" constant="10" id="b8G-xm-5TY"/>
                 <constraint firstItem="jqT-ri-xTe" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="eGu-Cb-ner"/>

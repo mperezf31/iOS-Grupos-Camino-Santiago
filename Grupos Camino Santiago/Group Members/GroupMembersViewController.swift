@@ -40,20 +40,22 @@ class GroupMembersViewController: UIViewController, UICollectionViewDelegate, UI
         super.viewDidLoad()
         
         joinGroup.isHidden = true
-        
-        let myLayout = UICollectionViewFlowLayout()
-        myLayout.scrollDirection = .vertical
-        
-        let size = (UIScreen.main.bounds.width - 30) / CGFloat(3)
-        myLayout.itemSize = CGSize(width: size, height: 150)
-        
-        myLayout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        myLayout.minimumInteritemSpacing = 10
-
-        self.collectionView.setCollectionViewLayout(myLayout, animated: false)
+        self.collectionView.setCollectionViewLayout(self.getCollectionViewLayout(), animated: false)
 
         self.collectionView.register(UINib(nibName: MEMBER_CELL_IDENTIFIER, bundle: nil), forCellWithReuseIdentifier: MEMBER_CELL_IDENTIFIER)
         self.viewModel.getGroupMembers()
+    }
+    
+    private func getCollectionViewLayout() -> UICollectionViewFlowLayout{
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        
+        let size = (UIScreen.main.bounds.width - 30) / CGFloat(3)
+        layout.itemSize = CGSize(width: size, height: 150)
+        
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        layout.minimumInteritemSpacing = 10
+        return layout
     }
     
     
